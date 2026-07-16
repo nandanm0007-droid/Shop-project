@@ -1,238 +1,567 @@
 <!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Shalimar Atelier — Luxury men's grooming studio. Precision cuts, hot towel shaves, and signature treatments. Book your session today."/>
+  <title>SHALIMAR | Luxury Men's Grooming Atelier</title>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SHALIMAR | Home</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-surface-variant": "#d0c5af",
-              "outline-variant": "#4d4635",
-              "surface-bright": "#393939",
-              "on-primary": "#3c2f00",
-              "secondary-fixed-dim": "#c8c6c5",
-              "surface": "#131313",
-              "primary-fixed-dim": "#e9c349",
-              "on-tertiary-fixed": "#1a1c1c",
-              "on-secondary": "#303030",
-              "tertiary-fixed-dim": "#c6c6c6",
-              "on-primary-fixed-variant": "#574500",
-              "primary-fixed": "#ffe088",
-              "error": "#ffb4ab",
-              "secondary": "#c8c6c5",
-              "primary-container": "#d4af37",
-              "on-primary-fixed": "#241a00",
-              "tertiary-container": "#b2b3b3",
-              "on-primary-container": "#554300",
-              "outline": "#99907c",
-              "primary": "#f2ca50",
-              "surface-container-highest": "#353534",
-              "on-secondary-fixed-variant": "#474747",
-              "inverse-surface": "#e5e2e1",
-              "on-secondary-container": "#b6b5b4",
-              "secondary-container": "#474747",
-              "surface-tint": "#e9c349",
-              "on-tertiary": "#2f3131",
-              "surface-container-low": "#1c1b1b",
-              "on-error": "#690005",
-              "secondary-fixed": "#e4e2e1",
-              "tertiary-fixed": "#e2e2e2",
-              "on-surface": "#e5e2e1",
-              "surface-container-high": "#2a2a2a",
-              "surface-dim": "#131313",
-              "surface-container-lowest": "#0e0e0e",
-              "on-background": "#e5e2e1",
-              "inverse-on-surface": "#313030",
-              "surface-container": "#201f1f",
-              "on-tertiary-container": "#444546",
-              "on-tertiary-fixed-variant": "#454747",
-              "on-error-container": "#ffdad6",
-              "tertiary": "#cecece",
-              "error-container": "#93000a",
-              "inverse-primary": "#735c00",
-              "background": "#131313",
-              "on-secondary-fixed": "#1b1c1c",
-              "surface-variant": "#353534"
-            },
-            fontFamily: {
-              "notoSerif": ["Noto Serif"],
-              "manrope": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+          "surface-bright": "#393939", "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+          "outline": "#99907c", "outline-variant": "#4d4635",
         },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-header {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .no-line-rule { border: none !important; }
-        .tonal-shift { transition: background-color 0.3s ease; }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
+      }},
     }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+    /* Prevent flash of unstyled content for theme */
+    html { visibility: visible; }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Grain overlay */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    /* Keyframes */
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(2rem)} to{opacity:1;transform:translateY(0)} }
+    @keyframes shimmer { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+    @keyframes spin { to{transform:rotate(360deg)} }
+    @keyframes countUp { from{opacity:0;transform:translateY(1rem)} to{opacity:1;transform:translateY(0)} }
+    @keyframes gradientShift {
+      0%,100%{background-position:0% 50%} 50%{background-position:100% 50%}
+    }
+
+    /* Animated hero gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #f2ca50, #ffe088, #d4af37, #f2ca50);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s ease infinite;
+    }
+
+    /* Scroll-reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(2rem);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    [data-reveal="left"]   { transform: translateX(-2rem); }
+    [data-reveal="left"].revealed  { transform: translateX(0); }
+    [data-reveal="right"]  { transform: translateX(2rem); }
+    [data-reveal="right"].revealed { transform: translateX(0); }
+    [data-reveal="scale"]  { transform: scale(0.92); }
+    [data-reveal="scale"].revealed { transform: scale(1); }
+
+    /* Card hover lift */
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+    /* Gold glow button */
+    .btn-gold {
+      background: linear-gradient(135deg, #f2ca50, #d4af37);
+      color: #3c2f00;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .btn-gold:hover {
+      box-shadow: 0 0 30px rgba(242,202,80,0.4), 0 0 60px rgba(242,202,80,0.15);
+      transform: translateY(-1px);
+    }
+    .btn-gold:active { transform: scale(0.97); }
+
+    /* Header hide-on-scroll */
+    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), background 0.3s; }
+    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+
+    /* Testimonial scroll */
+    .testimonial-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: scrollTrack 30s linear infinite;
+      width: max-content;
+    }
+    @keyframes scrollTrack {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testimonials-wrapper:hover .testimonial-track { animation-play-state: paused; }
+
+    /* Light mode overrides */
+    html.light {
+      --tw-bg-opacity: 1;
+    }
+    html.light body {
+      background-color: #fafaf8;
+      color: #1a1a1a;
+    }
+
+    /* Bottom nav safe area */
+    .safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0.5rem); }
+
+    body { min-height: 100dvh; }
   </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
-<!-- TopAppBar -->
-<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-6 py-3 no-line-rule tonal-shift">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-[#f2ca50]" data-icon="menu">menu</span>
-<span class="font-notoSerif text-[#f2ca50] font-bold tracking-[0.3em] uppercase text-lg">SHALIMAR</span>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#f2ca50] transition-colors duration-300" href="/">Home</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/services.html">Services</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/gallery.html">Gallery</a>
-<a class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-[10px] tracking-widest uppercase active:scale-95 transition-transform duration-200" href="/book-now.html">Book Now</a>
-</nav>
-<div class="md:hidden">
-<span class="material-symbols-outlined text-[#f2ca50]" data-icon="calendar_today">calendar_today</span>
-</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════ -->
+<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+  <!-- Hamburger + Logo -->
+  <div class="flex items-center gap-3">
+    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+    </button>
+    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+  </div>
+
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary">Home</a>
+    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors duration-300">Services</a>
+    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors duration-300">Gallery</a>
+    <a href="/book-now.html" class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase active:scale-95">Book Now</a>
+  </nav>
+
+  <!-- Theme + Auth -->
+  <div class="flex items-center gap-2">
+    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" aria-label="Toggle theme">
+      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+    </button>
+    <div data-auth-slot class="flex items-center"></div>
+  </div>
 </header>
+
 <main>
-<!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden" data-animate="fade-in-up">
-<div class="absolute inset-0 z-0">
-<img alt="Professional barber at work" class="w-full h-full object-cover grayscale brightness-50" data-alt="Dramatic high-contrast black and white shot of a professional barber meticulously trimming a client's beard in a luxury vintage salon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBndo90dlZ7J5m3VHKJDJMjcWmtmxP71L8TA0ikKyz06Ek0oZBS70aIWkmmlkfUcbWvGY0GJjX5ZGLNZ1WQ9SitPTGlslwff3Iot5OXkqARA8Y7KAADuqxg5dWCoV9I77iPBjWNaWlVXi5v3HeDLGvxaKsj0p-zlpZIRXt-mXJNlipqIPJEvfTnF8N8wgTBrsPFd55NBZzJ-GNVJ0CRRP8_QF4naQtXTYAMkUQYUJpe3c4QEeymOSp2f8uDVTcpfwaOUg3n1FXgzAM"/>
-<div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/40 to-surface"></div>
-</div>
-<div class="relative z-10 text-center px-4 max-w-5xl">
-<h1 class="font-notoSerif text-5xl md:text-8xl font-black text-white leading-tight mb-8 tracking-tighter">
-                    Elevated Grooming for the <br/>
-<span class="text-primary italic">Modern Man</span>
-</h1>
-<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light tracking-wide uppercase">
-                    Where tradition meets contemporary craft. Experience the art of the Atelier.
-                </p>
-<div class="flex flex-col md:flex-row gap-6 justify-center">
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-12 py-5 rounded-md font-bold uppercase tracking-[0.2em] text-sm shadow-xl active:scale-95 transition-all">
-                        Book Your Session
-                    </button>
-<button class="border border-outline-variant/30 text-primary px-12 py-5 rounded-md font-bold uppercase tracking-[0.2em] text-sm backdrop-blur-sm hover:bg-primary/5 transition-all">
-                        View Menu
-                    </button>
-</div>
-</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════ -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden grain">
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBndo90dlZ7J5m3VHKJDJMjcWmtmxP71L8TA0ikKyz06Ek0oZBS70aIWkmmlkfUcbWvGY0GJjX5ZGLNZ1WQ9SitPTGlslwff3Iot5OXkqARA8Y7KAADuqxg5dWCoV9I77iPBjWNaWlVXi5v3HeDLGvxaKsj0p-zlpZIRXt-mXJNlipqIPJEvfTnF8N8wgTBrsPFd55NBZzJ-GNVJ0CRRP8_QF4naQtXTYAMkUQYUJpe3c4QEeymOSp2f8uDVTcpfwaOUg3n1FXgzAM"
+      alt="Professional barber at work in luxury atelier"
+      class="w-full h-full object-cover grayscale brightness-[0.45]"
+    />
+    <!-- Multi-layer gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/30 via-surface/20 to-surface"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-surface/60 via-transparent to-surface/30"></div>
+  </div>
+
+  <!-- Floating gold orb -->
+  <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" style="animation:floatY 8s ease-in-out infinite;"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-5xl" style="animation:fadeInUp 1s ease both;">
+    <p class="font-manrope text-primary/80 tracking-[0.5em] uppercase text-xs mb-8">Shimoga's Premier Grooming Atelier</p>
+    <h1 class="font-notoSerif text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-8 tracking-tighter">
+      Elevated Grooming<br/>
+      for the <span class="gradient-text italic">Modern Man</span>
+    </h1>
+    <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light tracking-wide leading-relaxed">
+      Where centuries-old tradition meets contemporary craft. Experience the art of the Atelier.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/book-now.html" class="btn-gold px-10 py-4 rounded-full font-manrope font-bold uppercase tracking-[0.2em] text-sm shadow-2xl">
+        Book Your Session
+      </a>
+      <a href="/services.html" class="px-10 py-4 rounded-full border border-primary/30 text-primary font-manrope font-bold uppercase tracking-[0.2em] text-sm backdrop-blur-sm hover:bg-primary/8 transition-all">
+        View Services
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60" style="animation:floatY 2.5s ease-in-out infinite;">
+    <span class="font-manrope text-[9px] tracking-[0.3em] uppercase text-on-surface-variant">Scroll</span>
+    <span class="material-symbols-outlined text-primary" style="font-size:1rem;">keyboard_arrow_down</span>
+  </div>
 </section>
-<!-- About Us Section (Minimalist & Asymmetric) -->
-<section class="py-32 px-6 md:px-24 bg-surface grid md:grid-cols-12 gap-16 items-center" data-animate="fade-in-left">
-<div class="md:col-span-5 relative">
-<div class="relative z-10 rounded-lg overflow-hidden aspect-[4/5] shadow-2xl">
-<img alt="Interior of Shalimar" class="w-full h-full object-cover grayscale" data-alt="Monochrome wide shot of a minimalist luxury barber shop interior with leather chairs and marble accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ148xYUbHERfU2zw8-qD56iMC_ZdwAaZ-k8yedzE8TNLbmXVY0LP2p7zA1G2tZODbZHiL5DF-9ZohT879xVrFsJjRokxQoVIiunqIwDlGZPRciHhfirfs6v_9gCAb_GmRlHmLZC85OHOX0akrZLnhnFzbo01wC-Ww-9giWPFE1oqpdTtOxdazmduEdVgoYThD7-aTkhSXlPpfpM5fT6OJvDCAHLGRfQwAhgOO5rso7CJC_3s5Q7cRwv6t1XLy2lFbXkcAFejEB6g"/>
-</div>
-<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container/10 -z-10 rounded-full blur-3xl"></div>
-</div>
-<div class="md:col-span-7 space-y-8">
-<span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">The Philosophy</span>
-<h2 class="font-notoSerif text-4xl md:text-6xl text-white leading-tight">Crafting Identity <br/>Beyond the Mirror</h2>
-<div class="w-20 h-[2px] bg-primary"></div>
-<p class="text-on-surface-variant text-lg leading-relaxed max-w-xl">
-                    Shalimar isn't just a destination for a haircut; it's a sanctuary for the discerning gentleman. We believe grooming is an essential ritual of self-respect. Our master barbers combine centuries-old techniques with a modern aesthetic vision to define your unique character.
-                </p>
-<p class="text-on-surface-variant font-light italic text-base">
-                    "Luxury is found in the details—the curve of the blade, the temperature of the towel, the precision of the line."
-                </p>
-</div>
+
+<!-- ═══════════════════════════════════════════════════
+     STATS STRIP
+═══════════════════════════════════════════════════ -->
+<section class="py-16 px-6 bg-surface-container-low border-y border-outline-variant/15" data-reveal>
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div>
+      <p class="font-notoSerif text-4xl md:text-5xl font-black text-primary mb-2" data-counter="12">12+</p>
+      <p class="font-manrope text-xs tracking-[0.2em] uppercase text-on-surface-variant">Years of Excellence</p>
+    </div>
+    <div>
+      <p class="font-notoSerif text-4xl md:text-5xl font-black text-primary mb-2" data-counter="8500">8,500+</p>
+      <p class="font-manrope text-xs tracking-[0.2em] uppercase text-on-surface-variant">Happy Clients</p>
+    </div>
+    <div>
+      <p class="font-notoSerif text-4xl md:text-5xl font-black text-primary mb-2" data-counter="3">3</p>
+      <p class="font-manrope text-xs tracking-[0.2em] uppercase text-on-surface-variant">Master Stylists</p>
+    </div>
+    <div>
+      <p class="font-notoSerif text-4xl md:text-5xl font-black text-primary mb-2" data-counter="4">4.9★</p>
+      <p class="font-manrope text-xs tracking-[0.2em] uppercase text-on-surface-variant">Average Rating</p>
+    </div>
+  </div>
 </section>
-<!-- Featured Services (Bento Grid) -->
-<section class="py-32 px-6 md:px-24 bg-surface-container-low" data-animate="fade-in-up">
-<div class="text-center mb-20 space-y-4">
-<span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Curated Menu</span>
-<h2 class="font-notoSerif text-4xl md:text-5xl text-white">Signature Services</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Service 1 -->
-<div class="bg-surface-container-high p-10 rounded-xl group hover:bg-surface-bright transition-all duration-500 flex flex-col justify-between min-h-[400px]">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-8" data-icon="content_cut">content_cut</span>
-<h3 class="font-notoSerif text-2xl text-white mb-4">Precision Cut</h3>
-<p class="text-on-surface-variant leading-relaxed">Tailored consultation followed by a technical cut, wash, and signature styling. Finished with a straight-razor neck shave.</p>
-</div>
-<span class="text-primary font-bold mt-8 tracking-widest uppercase text-xs">From $65</span>
-</div>
-<!-- Service 2 (Main Highlight) -->
-<div class="md:col-span-1 bg-primary text-on-primary p-10 rounded-xl flex flex-col justify-between min-h-[400px] shadow-[0_30px_60px_rgba(242,202,80,0.15)]">
-<div>
-<span class="material-symbols-outlined text-on-primary text-4xl mb-8" data-icon="flat_ware" style="font-variation-settings: 'FILL' 1;">face</span>
-<h3 class="font-notoSerif text-2xl font-bold mb-4">The Atelier Experience</h3>
-<p class="on-primary/80 leading-relaxed font-semibold">Our premier package including a haircut, hot towel shave, facial treatment, and premium spirit pairing.</p>
-</div>
-<button class="mt-8 border-2 border-on-primary py-3 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-on-primary hover:text-primary transition-all">
-                        Upgrade Experience
-                    </button>
-</div>
-<!-- Service 3 -->
-<div class="bg-surface-container-high p-10 rounded-xl group hover:bg-surface-bright transition-all duration-500 flex flex-col justify-between min-h-[400px]">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-8" data-icon="water_drop">water_drop</span>
-<h3 class="font-notoSerif text-2xl text-white mb-4">Hot Towel Shave</h3>
-<p class="text-on-surface-variant leading-relaxed">A traditional multi-stage ritual using artisan soaps, steam towels, and a master-honed straight razor for ultimate smoothness.</p>
-</div>
-<span class="text-primary font-bold mt-8 tracking-widest uppercase text-xs">From $45</span>
-</div>
-</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT / PHILOSOPHY
+═══════════════════════════════════════════════════ -->
+<section class="py-32 px-6 md:px-16 bg-surface">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-16 items-center">
+    <!-- Image -->
+    <div class="md:col-span-5 relative" data-reveal="left">
+      <div class="relative z-10 rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ148xYUbHERfU2zw8-qD56iMC_ZdwAaZ-k8yedzE8TNLbmXVY0LP2p7zA1G2tZODbZHiL5DF-9ZohT879xVrFsJjRokxQoVIiunqIwDlGZPRciHhfirfs6v_9gCAb_GmRlHmLZC85OHOX0akrZLnhnFzbo01wC-Ww-9giWPFE1oqpdTtOxdazmduEdVgoYThD7-aTkhSXlPpfpM5fT6OJvDCAHLGRfQwAhgOO5rso7CJC_3s5Q7cRwv6t1XLy2lFbXkcAFejEB6g"
+          alt="Luxury barber shop interior"
+          class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          loading="lazy"
+        />
+      </div>
+      <!-- Decorative -->
+      <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/6 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute -top-4 -left-4 w-20 h-20 border border-primary/20 rounded-full"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="md:col-span-7 space-y-8" data-reveal="right">
+      <span class="font-manrope text-primary font-bold tracking-[0.4em] uppercase text-xs">The Philosophy</span>
+      <h2 class="font-notoSerif text-4xl md:text-5xl text-on-surface leading-tight">
+        Crafting Identity<br/><span class="text-primary italic">Beyond the Mirror</span>
+      </h2>
+      <div class="w-16 h-[1.5px] bg-primary"></div>
+      <p class="text-on-surface-variant text-lg leading-relaxed">
+        Shalimar isn't just a destination for a haircut — it's a sanctuary for the discerning gentleman. We believe grooming is an essential ritual of self-respect.
+      </p>
+      <p class="text-on-surface-variant font-light italic text-base border-l-2 border-primary/50 pl-5">
+        "Luxury is found in the details — the curve of the blade, the temperature of the towel, the precision of the line."
+      </p>
+      <a href="/services.html" class="inline-flex items-center gap-2 text-primary font-manrope font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all duration-300">
+        Explore our services <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
 </section>
-<!-- CTA Section -->
-<section class="py-24 px-6 text-center bg-surface relative overflow-hidden" data-animate="fade-in-right">
-<div class="absolute inset-0 opacity-10 grayscale pointer-events-none">
-<img alt="texture" class="w-full h-full object-cover" data-alt="Close-up texture of vintage leather and metal grooming tools in monochrome" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8kESFVvjjMuaIrkFxFEvg_9u0S-FmenAbbDNL0FGYaKOqxiqifQ8lzEw5y8dnB5AZPvGsEHeyz2AV-McVaeBN__nl-HHCiYknvxkjj861C0saRWgU9S2hO-0KAQQhiq6nJXt9L4JB94NZBz5S9Y9uyd9cwi2bbllUNCE1sHDZBolfe_Y-5cxOwB7yrpvuj9eMhqozDTqW--ncLPVbNxNLVa510lSEC9yi8xFLTZ1Or1RRgCommXQ5xNSTVrJEhA7RlYNtPPqYP0g"/>
-</div>
-<div class="relative z-10 max-w-3xl mx-auto">
-<h2 class="font-notoSerif text-3xl md:text-5xl text-white mb-8">Ready to define your style?</h2>
-<p class="text-on-surface-variant mb-12 text-lg">Appointments are highly recommended. Join the Shalimar inner circle today.</p>
-<button class="bg-primary text-on-primary px-16 py-6 rounded-full font-bold uppercase tracking-[0.3em] text-sm hover:shadow-[0_0_30px_rgba(242,202,80,0.4)] transition-all">
-                    Secure Appointment
-                </button>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full pt-20 pb-10 px-8 bg-[#1c1b1b] flex flex-col items-center justify-center gap-6 text-center tonal-shift from surface to surface-container-low">
-<div class="font-notoSerif text-[#f2ca50] text-3xl font-black tracking-[0.2em] mb-4">SHALIMAR</div>
-<div class="flex gap-8 mb-8">
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors duration-300" href="#">Instagram</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors duration-300" href="#">Privacy</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors duration-300" href="#">Contact</a>
-</div>
-<div class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] opacity-50">
-            © 2024 SHALIMAR ATELIER. ALL RIGHTS RESERVED.
+
+<!-- ═══════════════════════════════════════════════════
+     SIGNATURE SERVICES (Bento Grid)
+═══════════════════════════════════════════════════ -->
+<section class="py-32 px-6 md:px-16 bg-surface-container-low" data-reveal>
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20 space-y-4">
+      <span class="font-manrope text-primary font-bold tracking-[0.4em] uppercase text-xs">Curated Menu</span>
+      <h2 class="font-notoSerif text-4xl md:text-5xl text-on-surface">Signature Services</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Service 1 -->
+      <div class="card-hover bg-surface-container-high p-10 rounded-2xl flex flex-col justify-between min-h-[380px] border border-outline-variant/10 hover:border-primary/20">
+        <div>
+          <span class="material-symbols-outlined text-primary mb-6 block" style="font-size:2.5rem;">content_cut</span>
+          <h3 class="font-notoSerif text-2xl text-on-surface mb-4">Precision Cut</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm">Tailored consultation, technical cut, wash, and signature styling. Finished with a straight-razor neck shave.</p>
         </div>
+        <div class="flex items-center justify-between mt-8">
+          <span class="text-primary font-bold tracking-widest uppercase text-xs">From ₹150</span>
+          <a href="/book-now.html?service=signature-cut" class="text-xs font-manrope font-bold text-on-surface-variant hover:text-primary uppercase tracking-wider transition-colors">
+            Book →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2 — Featured -->
+      <div class="bg-primary p-10 rounded-2xl flex flex-col justify-between min-h-[380px] shadow-[0_30px_80px_rgba(242,202,80,0.2)] relative overflow-hidden card-hover">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-on-primary/5 rounded-full -translate-y-20 translate-x-20"></div>
+        <div class="relative z-10">
+          <span class="material-symbols-outlined text-on-primary mb-6 block" style="font-size:2.5rem;font-variation-settings:'FILL' 1;">star</span>
+          <div class="inline-block bg-on-primary/10 rounded-full px-3 py-1 mb-4">
+            <span class="font-manrope text-on-primary text-[9px] tracking-[0.15em] uppercase font-bold">Premium</span>
+          </div>
+          <h3 class="font-notoSerif text-2xl font-bold text-on-primary mb-4">The Atelier Experience</h3>
+          <p class="text-on-primary/80 leading-relaxed text-sm">Our premier package: haircut, hot towel shave, facial treatment, and a complimentary beverage.</p>
+        </div>
+        <a href="/book-now.html?service=atelier-exp" class="mt-8 relative z-10 border-2 border-on-primary/50 py-3 rounded-full font-manrope font-bold uppercase tracking-widest text-[10px] text-on-primary text-center hover:bg-on-primary hover:text-primary transition-all">
+          Book Experience — ₹450
+        </a>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="card-hover bg-surface-container-high p-10 rounded-2xl flex flex-col justify-between min-h-[380px] border border-outline-variant/10 hover:border-primary/20">
+        <div>
+          <span class="material-symbols-outlined text-primary mb-6 block" style="font-size:2.5rem;">water_drop</span>
+          <h3 class="font-notoSerif text-2xl text-on-surface mb-4">Hot Towel Shave</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm">A traditional multi-stage ritual using artisan soaps, steam towels, and a master-honed straight razor.</p>
+        </div>
+        <div class="flex items-center justify-between mt-8">
+          <span class="text-primary font-bold tracking-widest uppercase text-xs">From ₹100</span>
+          <a href="/book-now.html?service=hot-towel-shave" class="text-xs font-manrope font-bold text-on-surface-variant hover:text-primary uppercase tracking-wider transition-colors">
+            Book →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/services.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-primary/30 text-primary font-manrope font-bold text-sm tracking-widest uppercase hover:bg-primary/8 transition-all">
+        View Full Menu
+        <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     OUR TEAM
+═══════════════════════════════════════════════════ -->
+<section class="py-32 px-6 md:px-16 bg-surface" data-reveal>
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20 space-y-4">
+      <span class="font-manrope text-primary font-bold tracking-[0.4em] uppercase text-xs">The Artisans</span>
+      <h2 class="font-notoSerif text-4xl md:text-5xl text-on-surface">Meet the Masters</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Barber 1 -->
+      <div class="group card-hover text-center" data-reveal>
+        <div class="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgw70NEb21N3yNySG7VjKiecrE5g9V4jfcjvT97tI3HyRhiaKxeCAcVVu-H-hyd4YDchCUUPcKQXUc6s5iDs1bU7irPyibmd8icYdZCSy_ieA1idshDggRqjpQFTNGS0C8DytZRm3I-rdzWXEP5VJ9eDjF7D_n77LKv8QOp0gYld5TodqbIU871tS-5iLpfbQUehAKDJob1FMInlGIFkoqt6Hke0O8hf5fYphLNXIY3k3AiVCebk4edL3t5giRuq_sj8GDT2FPUNE"
+            alt="Julian Vance — Master Stylist"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+            <a href="/book-now.html?barber=julian-vance" class="btn-gold w-full text-center py-2.5 rounded-full font-manrope font-bold text-xs tracking-widest uppercase">
+              Book Julian
+            </a>
+          </div>
+        </div>
+        <h3 class="font-notoSerif text-xl text-on-surface mb-1">Julian Vance</h3>
+        <p class="font-manrope text-xs tracking-widest uppercase text-on-surface-variant mb-3">Master Stylist</p>
+        <div class="flex gap-2 justify-center">
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Beards</span>
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Classic</span>
+        </div>
+      </div>
+
+      <!-- Barber 2 -->
+      <div class="group card-hover text-center" data-reveal style="transition-delay:0.15s">
+        <div class="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSRkj5SVGrc1VyNB3aRtAQoOGa4fMsqsX0ELBZ2b0ZHs7FyQ_R0oEcTlUcanB2kSJ9DqSzEex_4WFTXyeVWL80st84c29Dg6n9WbzQJaH1ieMWkJW-au_D4oIfY1tM6dOJsKFyHk6YkpYqatjmP24kPURJSz067ZzD1PDiiocwAFnQEjAkxiVWoGD0Gc736xol5CQWorfsLepC9milvxxJg8UUfoPdtPVYd_-YQEvVzxNXbzc5hiZaNRggRVUONJoXvwwiNcuGTZw"
+            alt="Elias Thorne — Texture Specialist"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+            <a href="/book-now.html?barber=elias-thorne" class="btn-gold w-full text-center py-2.5 rounded-full font-manrope font-bold text-xs tracking-widest uppercase">
+              Book Elias
+            </a>
+          </div>
+        </div>
+        <h3 class="font-notoSerif text-xl text-on-surface mb-1">Elias Thorne</h3>
+        <p class="font-manrope text-xs tracking-widest uppercase text-on-surface-variant mb-3">Texture Specialist</p>
+        <div class="flex gap-2 justify-center">
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Modern</span>
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Fade</span>
+        </div>
+      </div>
+
+      <!-- Barber 3 -->
+      <div class="group card-hover text-center" data-reveal style="transition-delay:0.3s">
+        <div class="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFy2MLhVvEQEbFnzhSRodh6qd8bUZ_27hKGx8CJ8ig61lPPqjvLlWEiINFReAoDvHKPs8hE4ViITe2qFVPz3CjcxS2PAKtgwfTKtPuuwymzCD9C6K2EUPX63d-s0ecHLfXkAnmGGXkpb47rYjGUIs1HwmYv3gZlfaGVp-U3ARema3TlvYL81jki4rGU0CpXkzS6L8SHKiSr6TOYQo9Np-GRjWYHaFyiZUaYZ1gjvomUwktzARxTuwdht6Xlz5rhapRupQ5M45NAY"
+            alt="Marcus Reed — Creative Director"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+            <a href="/book-now.html?barber=marcus-reed" class="btn-gold w-full text-center py-2.5 rounded-full font-manrope font-bold text-xs tracking-widest uppercase">
+              Book Marcus
+            </a>
+          </div>
+        </div>
+        <h3 class="font-notoSerif text-xl text-on-surface mb-1">Marcus Reed</h3>
+        <p class="font-manrope text-xs tracking-widest uppercase text-on-surface-variant mb-3">Creative Director</p>
+        <div class="flex gap-2 justify-center">
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Executive</span>
+          <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] uppercase tracking-wider text-on-surface-variant">Consult</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TESTIMONIALS (Auto-scrolling)
+═══════════════════════════════════════════════════ -->
+<section class="py-28 bg-surface-container-low overflow-hidden" data-reveal>
+  <div class="text-center mb-16 px-6">
+    <span class="font-manrope text-primary font-bold tracking-[0.4em] uppercase text-xs">What They Say</span>
+    <h2 class="font-notoSerif text-4xl md:text-5xl text-on-surface mt-4">Client Stories</h2>
+  </div>
+
+  <div class="testimonials-wrapper relative">
+    <!-- Fade edges -->
+    <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+
+    <div class="testimonial-track">
+      <!-- 8 testimonials × 2 for infinite loop -->
+      <!-- Template: repeated twice -->
+      <script>
+        const testimonials = [
+          { name: 'Arjun Mehta',   role: 'Business Executive', text: 'The Atelier Experience is worth every rupee. The attention to detail is extraordinary — they noticed my jaw line and shaped my beard to complement it perfectly.', stars: 5 },
+          { name: 'Ravi Kumar',    role: 'Entrepreneur',       text: 'Been coming here for 4 years. Julian knows my hair better than I do. The hot towel shave before a big meeting is my secret weapon.', stars: 5 },
+          { name: 'Suresh Patil',  role: 'Doctor',             text: 'Professional, punctual, and precise. The fade work from Elias is unlike anything I\'ve had anywhere else in Shimoga.', stars: 5 },
+          { name: 'Vikram Shetty', role: 'Architect',          text: 'Marcus gave me a consultation for 15 minutes before even picking up the scissors. That\'s the Shalimar difference.', stars: 5 },
+          { name: 'Deepak Rao',    role: 'Software Engineer',  text: 'Finally a barbershop that treats you like a client, not a number. The ambience, the beverages, the crew — all top-tier.', stars: 5 },
+          { name: 'Kiran Bhat',    role: 'Filmmaker',          text: 'The scalp detox treatment changed my hair game completely. Less flaking, more volume, and my hair feels alive again.', stars: 5 },
+          { name: 'Anand Nair',    role: 'Consultant',         text: 'I drove 80km from Davangere just for a session here. Worth every kilometre. This is luxury grooming at its finest.', stars: 5 },
+          { name: 'Pradeep Kulkarni', role: 'Professor',       text: 'The revitalizing facial left my skin feeling incredible. My wife noticed immediately. Will be back monthly without question.', stars: 5 },
+        ];
+        const doubled = [...testimonials, ...testimonials];
+        document.write(doubled.map(t => `
+          <div style="flex-shrink:0;width:20rem;background:#201f1f;border:1px solid rgba(77,70,53,0.2);border-radius:1rem;padding:1.5rem;">
+            <div style="display:flex;margin-bottom:0.75rem;">
+              ${Array(t.stars).fill('<span class="material-symbols-outlined" style="color:#f2ca50;font-size:0.875rem;font-variation-settings:\'FILL\' 1;">star</span>').join('')}
+            </div>
+            <p style="font-family:Manrope,sans-serif;font-size:0.875rem;color:#d0c5af;line-height:1.7;margin-bottom:1rem;">"${t.text}"</p>
+            <div>
+              <p style="font-family:'Noto Serif',serif;font-size:0.9375rem;color:#e5e2e1;margin:0 0 0.2rem;">${t.name}</p>
+              <p style="font-family:Manrope,sans-serif;font-size:0.6875rem;color:#99907c;text-transform:uppercase;letter-spacing:0.1em;margin:0;">${t.role}</p>
+            </div>
+          </div>
+        `).join(''));
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA
+═══════════════════════════════════════════════════ -->
+<section class="py-32 px-6 text-center bg-surface relative overflow-hidden" data-reveal>
+  <!-- Background texture -->
+  <div class="absolute inset-0 opacity-5 grayscale pointer-events-none">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8kESFVvjjMuaIrkFxFEvg_9u0S-FmenAbbDNL0FGYaKOqxiqifQ8lzEw5y8dnB5AZPvGsEHeyz2AV-McVaeBN__nl-HHCiYknvxkjj861C0saRWgU9S2hO-0KAQQhiq6nJXt9L4JB94NZBz5S9Y9uyd9cwi2bbllUNCE1sHDZBolfe_Y-5cxOwB7yrpvuj9eMhqozDTqW--ncLPVbNxNLVa510lSEC9yi8xFLTZ1Or1RRgCommXQ5xNSTVrJEhA7RlYNtPPqYP0g" alt="" class="w-full h-full object-cover"/>
+  </div>
+  <!-- Gold glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <p class="font-manrope text-primary tracking-[0.4em] uppercase text-xs mb-6">Limited Daily Slots</p>
+    <h2 class="font-notoSerif text-4xl md:text-5xl text-on-surface mb-6 leading-tight">
+      Ready to define<br/><span class="gradient-text italic">your signature?</span>
+    </h2>
+    <p class="text-on-surface-variant mb-12 text-lg max-w-xl mx-auto leading-relaxed">
+      Appointments are highly recommended. Join the Shalimar inner circle and experience grooming redefined.
+    </p>
+    <a href="/book-now.html" class="btn-gold px-16 py-5 rounded-full font-manrope font-bold uppercase tracking-[0.25em] text-sm inline-block shadow-2xl">
+      Secure Your Appointment
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase hover:opacity-80 transition-opacity">SHALIMAR</a>
+  <p class="font-manrope text-on-surface-variant text-sm max-w-xs leading-relaxed">
+    Elevated grooming for the modern man. Where tradition meets contemporary craft.
+  </p>
+  <div class="flex gap-10 flex-wrap justify-center">
+    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book Now</a>
+    <a href="/login.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Login</a>
+  </div>
+  <div class="h-px w-full max-w-sm bg-outline-variant/20"></div>
+  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+    © 2025 Shalimar Atelier. All rights reserved.
+  </p>
 </footer>
-<!-- Bottom Navigation (Mobile Only Filtered) -->
-<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-lg flex justify-around items-center py-4 px-2 z-50">
-<div class="flex flex-col items-center gap-1 text-[#f2ca50]">
-<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">Home</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-[#d0c5af]">
-<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
-<span class="text-[10px] uppercase tracking-tighter">Services</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-[#d0c5af]">
-<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
-<span class="text-[10px] uppercase tracking-tighter">Gallery</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-[#d0c5af]">
-<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
-<span class="text-[10px] uppercase tracking-tighter">Book</span>
-</div>
+
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">home</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Home</span>
+  </a>
+  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
+  </a>
+  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+  </a>
+  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
+  </a>
+  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+  </a>
 </nav>
+
 <script type="module" src="/src/js/mobile-nav.js"></script>
 <script type="module" src="/src/js/scroll-animations.js"></script>
-</body></html>
+<script type="module">
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+  // Header hide on scroll down
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const y = window.scrollY;
+    if (y > 200 && y > lastY) header.classList.add('hidden-up');
+    else header.classList.remove('hidden-up');
+    lastY = y;
+  }, { passive: true });
+</script>
+</body>
+</html>

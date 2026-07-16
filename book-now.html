@@ -1,310 +1,277 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Book Now | SHALIMAR ATELIER</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-surface-variant": "#d0c5af",
-              "outline-variant": "#4d4635",
-              "surface-bright": "#393939",
-              "on-primary": "#3c2f00",
-              "secondary-fixed-dim": "#c8c6c5",
-              "surface": "#131313",
-              "primary-fixed-dim": "#e9c349",
-              "on-tertiary-fixed": "#1a1c1c",
-              "on-secondary": "#303030",
-              "tertiary-fixed-dim": "#c6c6c6",
-              "on-primary-fixed-variant": "#574500",
-              "primary-fixed": "#ffe088",
-              "error": "#ffb4ab",
-              "secondary": "#c8c6c5",
-              "primary-container": "#d4af37",
-              "on-primary-fixed": "#241a00",
-              "tertiary-container": "#b2b3b3",
-              "on-primary-container": "#554300",
-              "outline": "#99907c",
-              "primary": "#f2ca50",
-              "surface-container-highest": "#353534",
-              "on-secondary-fixed-variant": "#474747",
-              "inverse-surface": "#e5e2e1",
-              "on-secondary-container": "#b6b5b4",
-              "secondary-container": "#474747",
-              "surface-tint": "#e9c349",
-              "on-tertiary": "#2f3131",
-              "surface-container-low": "#1c1b1b",
-              "on-error": "#690005",
-              "secondary-fixed": "#e4e2e1",
-              "tertiary-fixed": "#e2e2e2",
-              "on-surface": "#e5e2e1",
-              "surface-container-high": "#2a2a2a",
-              "surface-dim": "#131313",
-              "surface-container-lowest": "#0e0e0e",
-              "on-background": "#e5e2e1",
-              "inverse-on-surface": "#313030",
-              "surface-container": "#201f1f",
-              "on-tertiary-container": "#444546",
-              "on-tertiary-fixed-variant": "#454747",
-              "on-error-container": "#ffdad6",
-              "tertiary": "#cecece",
-              "error-container": "#93000a",
-              "inverse-primary": "#735c00",
-              "background": "#131313",
-              "on-secondary-fixed": "#1b1c1c",
-              "surface-variant": "#353534"
-            },
-            fontFamily: {
-              "notoSerif": ["Noto Serif"],
-              "manrope": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book your appointment at Shalimar Atelier. Choose your service, select your barber, and secure your grooming session online."/>
+  <title>Book Now | SHALIMAR ATELIER</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+          "outline": "#99907c", "outline-variant": "#4d4635",
         },
-      }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
+      }},
     }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
+    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
+    .btn-gold:active { transform:scale(0.97); }
+    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
   </style>
-  </head>
-<body class="bg-surface text-on-surface font-manrope selection:bg-primary selection:text-on-primary">
-<!-- TopAppBar -->
-<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-6 py-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
-<span class="font-notoSerif text-[#f2ca50] font-bold tracking-[0.3em] uppercase text-lg">SHALIMAR</span>
-</div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="font-notoSerif uppercase tracking-[0.2em] text-xs text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/">Home</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-xs text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/services.html">Services</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-xs text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/gallery.html">Gallery</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-xs text-[#f2ca50] font-bold active:scale-95 transition-transform duration-200" href="/book-now.html">Book Now</a>
-</nav>
-<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
-</div>
+</head>
+<body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
+
+<!-- HEADER -->
+<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+  <div class="flex items-center gap-3">
+    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+    </button>
+    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+  </div>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary font-bold">Book Now</a>
+  </nav>
+  <div class="flex items-center gap-2">
+    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+    </button>
+    <div data-auth-slot class="flex items-center"></div>
+  </div>
 </header>
-<main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto min-h-screen">
-<!-- Title Section -->
-<div class="mb-16">
-<h1 class="font-notoSerif text-5xl md:text-7xl font-black text-primary tracking-tighter mb-4">Book Now.</h1>
-<p class="font-manrope text-on-surface-variant tracking-[0.1em] uppercase text-sm">Secure your session in the atelier</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-<!-- Left Column: Booking Flow -->
-<div class="lg:col-span-8 space-y-20">
-<!-- Step 1: Select a Barber -->
-<section>
-<div class="flex items-center gap-4 mb-10">
-<span class="font-notoSerif text-3xl text-outline-variant italic">01</span>
-<h2 class="font-notoSerif text-3xl text-on-surface tracking-wide">Select a Barber</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Barber Card 1 -->
-<div class="group relative bg-surface-container-low rounded-xl overflow-hidden cursor-pointer transition-all duration-500 hover:bg-surface-container-high border border-transparent hover:border-primary/20" data-barber-id="julian-vance" tabindex="0" role="button" aria-label="Select Julian Vance">
-<div class="flex items-center p-6 gap-6">
-<div class="relative w-24 h-24 shrink-0 overflow-hidden rounded-lg">
-<img alt="Portrait of a professional barber with a well-groomed beard in a high-end salon setting with dramatic lighting" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Portrait of a professional barber with a well-groomed beard in a high-end salon setting with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgw70NEb21N3yNySG7VjKiecrE5g9V4jfcjvT97tI3HyRhiaKxeCAcVVu-H-hyd4YDchCUUPcKQXUc6s5iDs1bU7irPyibmd8icYdZCSy_ieA1idshDggRqjpQFTNGS0C8DytZRm3I-rdzWXEP5VJ9eDjF7D_n77LKv8QOp0gYld5TodqbIU871tS-5iLpfbQUehAKDJob1FMInlGIFkoqt6Hke0O8hf5fYphLNXIY3k3AiVCebk4edL3t5giRuq_sj8GDT2FPUNE"/>
-</div>
-<div>
-<h3 class="font-notoSerif text-xl text-primary mb-1">Julian Vance</h3>
-<p class="text-xs font-manrope uppercase tracking-widest text-on-surface-variant mb-3">Master Stylist</p>
-<div class="flex gap-2">
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Beards</span>
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Classic</span>
-</div>
-</div>
-</div>
-<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-</div>
-<!-- Barber Card 2 -->
-<div class="group relative bg-surface-container-high rounded-xl overflow-hidden cursor-pointer border border-primary/40" data-barber-id="elias-thorne" tabindex="0" role="button" aria-label="Select Elias Thorne">
-<div class="flex items-center p-6 gap-6">
-<div class="relative w-24 h-24 shrink-0 overflow-hidden rounded-lg">
-<img alt="Professional barber focused on detailed work with short hair and modern tools in a monochrome studio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Professional barber focused on detailed work with short hair and modern tools in a monochrome studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSRkj5SVGrc1VyNB3aRtAQoOGa4fMsqsX0ELBZ2b0ZHs7FyQ_R0oEcTlUcanB2kSJ9DqSzEex_4WFTXyeVWL80st84c29Dg6n9WbzQJaH1ieMWkJW-au_D4oIfY1tM6dOJsKFyHk6YkpYqatjmP24kPURJSz067ZzD1PDiiocwAFnQEjAkxiVWoGD0Gc736xol5CQWorfsLepC9milvxxJg8UUfoPdtPVYd_-YQEvVzxNXbzc5hiZaNRggRVUONJoXvwwiNcuGTZw"/>
-</div>
-<div>
-<h3 class="font-notoSerif text-xl text-primary mb-1">Elias Thorne</h3>
-<p class="text-xs font-manrope uppercase tracking-widest text-on-surface-variant mb-3">Texture Specialist</p>
-<div class="flex gap-2">
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Modern</span>
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Fade</span>
-</div>
-</div>
-</div>
-<div class="absolute top-4 right-4">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-</div>
-<!-- Barber Card 3 -->
-<div class="group relative bg-surface-container-low rounded-xl overflow-hidden cursor-pointer transition-all duration-500 hover:bg-surface-container-high border border-transparent hover:border-primary/20" data-barber-id="marcus-reed" tabindex="0" role="button" aria-label="Select Marcus Reed">
-<div class="flex items-center p-6 gap-6">
-<div class="relative w-24 h-24 shrink-0 overflow-hidden rounded-lg">
-<img alt="Senior stylist with artistic flair in a luxury men's atelier with dark moody atmosphere" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Senior stylist with artistic flair in a luxury men's atelier with dark moody atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFy2MLhVvEQEbFnzhSRodh6qd8bUZ_27hKGx8CJ8ig61lPPqjvLlWEiINFReAoDvHKPs8hE4ViITe2qFVPz3CjcxS2PAKtgwfTKtPuuwymzCD9C6K2EUPX63d-s0ecHLfXkAnmGGXkpb47rYjGUIs1HwmYv3gZlfaGVp-U3ARema3TlvYL81jki4rGU0CpXkzS6L8SHKiSr6TOYQo9Np-GRjWYHaFyiZUaYZ1gjvomUwktzARxTuwdht6Xlz5rhapRupQ5M45NAY"/>
-</div>
-<div>
-<h3 class="font-notoSerif text-xl text-primary mb-1">Marcus Reed</h3>
-<p class="text-xs font-manrope uppercase tracking-widest text-on-surface-variant mb-3">Creative Director</p>
-<div class="flex gap-2">
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Executive</span>
-<span class="px-2 py-1 text-[10px] bg-surface-container-highest text-on-surface-variant rounded uppercase">Consult</span>
-</div>
-</div>
-</div>
-<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Step 2: Select Date & Time -->
-<section>
-<div class="flex items-center gap-4 mb-10">
-<span class="font-notoSerif text-3xl text-outline-variant italic">02</span>
-<h2 class="font-notoSerif text-3xl text-on-surface tracking-wide">Select Date &amp; Time</h2>
-</div>
-<div class="bg-surface-container-low rounded-2xl p-8 flex flex-col md:flex-row gap-12">
-<!-- Custom Calendar -->
-<div class="flex-1">
-<div class="flex justify-between items-center mb-6">
-<h4 class="font-notoSerif text-lg text-on-surface calendar-month-year">November 2024</h4>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-action="prev-month" tabindex="0" role="button" aria-label="Previous month">chevron_left</span>
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-action="next-month" tabindex="0" role="button" aria-label="Next month">chevron_right</span>
-</div>
-</div>
-<div class="grid grid-cols-7 gap-2 text-center text-[10px] uppercase tracking-widest text-on-surface-variant mb-4">
-<div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
-</div>
-<div class="grid grid-cols-7 gap-2 text-center calendar-days-grid">
-<!-- Calendar filler/dates -->
-<div class="h-10 flex items-center justify-center text-outline-variant opacity-20">27</div>
-<div class="h-10 flex items-center justify-center text-outline-variant opacity-20">28</div>
-<div class="h-10 flex items-center justify-center text-outline-variant opacity-20">29</div>
-<div class="h-10 flex items-center justify-center text-outline-variant opacity-20">30</div>
-<div class="h-10 flex items-center justify-center text-outline-variant opacity-20">31</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">1</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">2</div>
-<!-- Week 2 -->
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">3</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">4</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">5</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">6</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">7</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">8</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">9</div>
-<!-- Selected Date -->
-<div class="h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary text-sm font-bold shadow-lg shadow-primary/20">10</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">11</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">12</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">13</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">14</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">15</div>
-<div class="h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-highest cursor-pointer text-sm">16</div>
-</div>
-</div>
-<!-- Time Slots -->
-<div class="md:w-64">
-<h4 class="font-notoSerif text-lg text-on-surface mb-6">Available Times</h4>
-<div class="grid grid-cols-2 gap-3">
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:text-primary hover:border-primary border border-transparent transition-all" data-time-slot="09:00 AM" tabindex="0" role="button">09:00 AM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:text-primary hover:border-primary border border-transparent transition-all" data-time-slot="10:30 AM" tabindex="0" role="button">10:30 AM</button>
-<button class="py-3 px-4 rounded bg-primary text-on-primary text-xs font-bold tracking-widest uppercase border border-primary shadow-lg shadow-primary/10" data-time-slot="11:45 AM" tabindex="0" role="button" aria-pressed="true">11:45 AM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:text-primary hover:border-primary border border-transparent transition-all" data-time-slot="01:15 PM" tabindex="0" role="button">01:15 PM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:text-primary hover:border-primary border border-transparent transition-all" data-time-slot="02:30 PM" tabindex="0" role="button">02:30 PM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:text-primary hover:border-primary border border-transparent transition-all" data-time-slot="04:00 PM" tabindex="0" role="button">04:00 PM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase opacity-40 cursor-not-allowed" data-time-slot="05:30 PM" tabindex="-1" aria-disabled="true">05:30 PM</button>
-<button class="py-3 px-4 rounded bg-surface-container-highest text-on-surface-variant text-xs font-bold tracking-widest uppercase opacity-40 cursor-not-allowed" data-time-slot="06:45 PM" tabindex="-1" aria-disabled="true">06:45 PM</button>
-</div>
-</div>
-</div>
-</section>
-</div>
-<!-- Right Column: Summary Sticky -->
-<div class="lg:col-span-4">
-<div class="sticky top-32 bg-surface-container-high rounded-2xl p-8 border-l-2 border-primary">
-<h3 class="font-notoSerif text-2xl text-on-surface mb-8">Appointment Summary</h3>
-<div class="space-y-6 mb-10">
-<div class="flex justify-between items-start">
-<div>
-<p class="text-[10px] uppercase tracking-[0.2em] text-outline-variant mb-1">Service</p>
-<p class="font-manrope text-sm text-on-surface font-semibold">The Signature Cut &amp; Style</p>
-</div>
-<span class="text-primary font-bold" data-summary-price>$75</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-lowest border border-outline-variant/30">
-<img alt="Small thumbnail of the selected professional barber" class="w-full h-full object-cover" data-summary-barber-thumbnail src="https://lh3.googleusercontent.com/aida-public/AB6AXuARZiEG5Hsjks3crtgZ0P-dRsVLC2uiQh2mR3jmiRhKw0FdHX2MDi5nRAesFdnyhMN_QuO76FyVGYjjmxI-tIzFjjSVDSXPwJ_2PJa3Od5gv2JP_1TJKBog3ZGiBOv4Y7gAZir15KJaVkRS4kdtIwHyIzLa4HOmSFLCJoeB-WlSqOks_ReSVDxnGRsKOvBavB11L_nHBJ1uhoufBlQnvK1T5drnGAqWat_HS9zU-GcNpeQ20078HHaoIOvccrcqm60pSCSgHLQl5yw"/>
-</div>
-<div>
-<p class="text-[10px] uppercase tracking-[0.2em] text-outline-variant mb-1">Barber</p>
-<p class="font-manrope text-sm text-on-surface" data-summary-barber-name>Elias Thorne</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-lowest border border-outline-variant/30">
-<span class="material-symbols-outlined text-primary text-xl">event_available</span>
-</div>
-<div>
-<p class="text-[10px] uppercase tracking-[0.2em] text-outline-variant mb-1">Date &amp; Time</p>
-<p class="font-manrope text-sm text-on-surface" data-summary-datetime>Sunday, Nov 10 • 11:45 AM</p>
-</div>
-</div>
-</div>
-<div class="pt-8 border-t border-outline-variant/20 mb-8">
-<div class="flex justify-between items-center text-lg font-bold">
-<span class="font-notoSerif text-on-surface uppercase tracking-widest">Total</span>
-<span class="text-primary" data-summary-total>$75.00</span>
-</div>
-</div>
-<button class="w-full py-5 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-manrope font-extrabold uppercase tracking-[0.2em] text-xs hover:shadow-[0_10px_30px_rgba(242,202,80,0.3)] active:scale-95 transition-all duration-300" data-action="confirm-booking">
-                        Confirm Appointment
-                    </button>
-<p class="text-[10px] text-center text-on-surface-variant mt-6 uppercase tracking-wider opacity-60">
-                        Cancel up to 24 hours in advance without fee
-                    </p>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="w-full pt-20 pb-10 px-8 bg-[#1c1b1b] flex flex-col items-center justify-center gap-6 text-center">
-<div class="font-notoSerif text-[#f2ca50] text-xl tracking-[0.3em] uppercase">SHALIMAR ATELIER</div>
-<div class="flex gap-8">
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Instagram</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Privacy</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Contact</a>
-</div>
-<div class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] opacity-50 mt-4">
-            © 2024 SHALIMAR ATELIER. ALL RIGHTS RESERVED.
+
+<main class="pt-32 pb-28 px-4 md:px-8 max-w-7xl mx-auto">
+  <!-- Title -->
+  <div class="mb-12">
+    <h1 class="font-notoSerif text-5xl md:text-7xl font-black text-primary tracking-tighter mb-3">Book Now.</h1>
+    <p class="font-manrope text-on-surface-variant tracking-[0.1em] uppercase text-sm">Secure your session at the Atelier</p>
+  </div>
+
+  <!-- Step Progress -->
+  <div class="flex items-center gap-3 mb-16 overflow-x-auto pb-2">
+    <div class="flex items-center gap-2">
+      <div data-step-indicator="1" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(242,202,80,0.5);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#f2ca50;background:rgba(242,202,80,0.08);transition:all 0.3s;">1</div>
+      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Service</span>
+    </div>
+    <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
+    <div class="flex items-center gap-2">
+      <div data-step-indicator="2" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">2</div>
+      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Barber</span>
+    </div>
+    <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
+    <div class="flex items-center gap-2">
+      <div data-step-indicator="3" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">3</div>
+      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Date & Time</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <!-- LEFT: Booking Flow -->
+    <div class="lg:col-span-8 space-y-16">
+
+      <!-- STEP 1: SERVICE -->
+      <section id="step-barber" style="scroll-margin-top:8rem;">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">01</span>
+          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Service</h2>
         </div>
+        <div id="service-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Populated by booking.js -->
+          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+        </div>
+      </section>
+
+      <!-- STEP 2: BARBER -->
+      <section id="step-datetime" style="scroll-margin-top:8rem;">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">02</span>
+          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Barber</h2>
+        </div>
+        <div id="barber-cards" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+        </div>
+      </section>
+
+      <!-- STEP 3: DATE & TIME -->
+      <section style="scroll-margin-top:8rem;">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">03</span>
+          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select Date & Time</h2>
+        </div>
+
+        <div class="bg-surface-container-low rounded-2xl p-6 md:p-8">
+          <div class="flex flex-col md:flex-row gap-10">
+            <!-- Calendar -->
+            <div class="flex-1">
+              <div class="flex justify-between items-center mb-6">
+                <h4 id="calendar-month-label" class="font-notoSerif text-lg text-on-surface">Loading...</h4>
+                <div class="flex gap-3">
+                  <button id="cal-prev" class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all" aria-label="Previous month">
+                    <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_left</span>
+                  </button>
+                  <button id="cal-next" class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all" aria-label="Next month">
+                    <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_right</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Day headers -->
+              <div class="grid grid-cols-7 gap-1 text-center mb-3">
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Su</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Mo</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Tu</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">We</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Th</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Fr</div>
+                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Sa</div>
+              </div>
+              <div id="calendar-grid" class="grid grid-cols-7 gap-1"></div>
+            </div>
+
+            <!-- Time Slots -->
+            <div class="md:w-56">
+              <h4 class="font-notoSerif text-lg text-on-surface mb-5">Available Times</h4>
+              <div id="time-slots" class="grid grid-cols-2 gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT: Summary -->
+    <div class="lg:col-span-4">
+      <div class="sticky top-28 bg-surface-container-high rounded-2xl p-7 border-l-2 border-primary/50">
+        <h3 class="font-notoSerif text-xl text-on-surface mb-7">Appointment Summary</h3>
+
+        <div class="space-y-5 mb-8">
+          <!-- Service row -->
+          <div class="flex justify-between items-start gap-3">
+            <div>
+              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Service</p>
+              <p class="font-manrope text-sm text-on-surface font-semibold" data-summary-service>—</p>
+              <p class="font-manrope text-xs text-on-surface-variant" data-summary-duration></p>
+            </div>
+            <span class="text-primary font-bold font-notoSerif" data-summary-price>—</span>
+          </div>
+
+          <!-- Barber row -->
+          <div class="flex items-center gap-3">
+            <img data-summary-barber-img src="" alt="" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30 hidden"/>
+            <div>
+              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Barber</p>
+              <p class="font-manrope text-sm text-on-surface" data-summary-barber>—</p>
+            </div>
+          </div>
+
+          <!-- Date row -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low border border-outline-variant/30 flex-shrink-0">
+              <span class="material-symbols-outlined text-primary" style="font-size:1.1rem;">event</span>
+            </div>
+            <div>
+              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Date & Time</p>
+              <p class="font-manrope text-sm text-on-surface" data-summary-datetime>—</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div class="border-t border-outline-variant/20 pt-6 mb-6">
+          <div class="flex justify-between items-center">
+            <span class="font-notoSerif text-on-surface uppercase tracking-wider">Total</span>
+            <span class="text-primary font-bold font-notoSerif text-xl" data-summary-total>₹0</span>
+          </div>
+        </div>
+
+        <!-- Confirm button -->
+        <button
+          id="confirm-btn"
+          disabled
+          style="width:100%;padding:1.1rem;border-radius:9999px;background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;font-family:Manrope,sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:not-allowed;opacity:0.5;transition:all 0.3s;"
+        >
+          Confirm Appointment
+        </button>
+        <p class="font-manrope text-[9px] text-center text-on-surface-variant mt-4 uppercase tracking-wider opacity-60">
+          Cancel up to 24 hours in advance without fee
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+  <div class="flex gap-10 flex-wrap justify-center">
+    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+  </div>
+  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+    © 2025 Shalimar Atelier. All rights reserved.
+  </p>
 </footer>
-<!-- Mobile Nav Anchor -->
-<div class="md:hidden fixed bottom-8 right-8 z-50">
-<button class="w-14 h-14 rounded-full bg-primary text-on-primary shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
-<span class="material-symbols-outlined">calendar_today</span>
-</button>
-</div>
+
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+  </a>
+  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
+  </a>
+  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+  </a>
+  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">calendar_today</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Book</span>
+  </a>
+  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+  </a>
+</nav>
+
 <script type="module" src="/src/js/mobile-nav.js"></script>
 <script type="module" src="/src/js/booking.js"></script>
-<script type="module" src="/src/js/scroll-animations.js"></script>
-</body></html>
+<script type="module">
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const y = window.scrollY;
+    if (y > 200 && y > lastY) header.classList.add('hidden-up');
+    else header.classList.remove('hidden-up');
+    lastY = y;
+  }, { passive: true });
+</script>
+</body>
+</html>

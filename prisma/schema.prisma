@@ -1,0 +1,148 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum ServiceCategory {
+  HAIRCUTS
+  BEARD_AND_SHAVE
+  SPA_AND_FACIALS
+  PREMIUM
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  passwordHash  String
+  role          UserRole  @default(USER)
+  avatar        String?
+  phone         String?
+  emailVerified Boolean   @default(false)
+  emailVerifyToken String?
+  emailVerifyExpires DateTime?
+  resetToken    String?
+  resetExpires  DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastLoginAt   DateTime?
+
+  bookings      Booking[]
+  refreshTokens RefreshToken[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  revokedAt DateTime?
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Service {
+  id          String          @id @default(cuid())
+  name        String
+  slug        String          @unique
+  description String
+  price       Int             // in smallest currency unit (paise for INR)
+  duration    Int             // in minutes
+  category    ServiceCategory
+  icon        String?
+  image       String?
+  featured    Boolean         @default(false)
+  active      Boolean         @default(true)
+  sortOrder   Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  bookings    Booking[]
+
+  @@index([category])
+  @@index([active])
+}
+
+model Barber {
+  id          String   @id @default(cuid())
+  name        String
+  title       String
+  specialties String[] // JSON array of specialties
+  bio         String?
+  image       String?
+  active      Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings    Booking[]
+  availability Availability[]
+
+  @@index([active])
+}
+
+model Availability {
+  id        String   @id @default(cuid())
+  barberId  String
+  barber    Barber   @relation(fields: [barberId], references: [id], onDelete: Cascade)
+  dayOfWeek Int      // 0 = Sunday, 6 = Saturday
+  startTime String   // "09:00"
+  endTime   String   // "18:00"
+  active    Boolean  @default(true)
+
+  @@unique([barberId, dayOfWeek])
+  @@index([barberId])
+}
+
+model Booking {
+  id          String        @id @default(cuid())
+  bookingId   String        @unique @default(cuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  serviceId   String
+  service     Service       @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  barberId    String
+  barber      Barber        @relation(fields: [barberId], references: [id], onDelete: Restrict)
+  date        DateTime      // Date only (time stored separately)
+  time        String        // "10:30 AM"
+  status      BookingStatus @default(PENDING)
+  total       Int           // in smallest currency unit
+  notes       String?
+  cancelledAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([barberId, date])
+  @@index([date])
+  @@index([status])
+  @@index([bookingId])
+}
+
+model Setting {
+  key   String @id
+  value String
+}

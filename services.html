@@ -1,275 +1,336 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Services | SHALIMAR ATELIER</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-surface-variant": "#d0c5af",
-              "outline-variant": "#4d4635",
-              "surface-bright": "#393939",
-              "on-primary": "#3c2f00",
-              "secondary-fixed-dim": "#c8c6c5",
-              "surface": "#131313",
-              "primary-fixed-dim": "#e9c349",
-              "on-tertiary-fixed": "#1a1c1c",
-              "on-secondary": "#303030",
-              "tertiary-fixed-dim": "#c6c6c6",
-              "on-primary-fixed-variant": "#574500",
-              "primary-fixed": "#ffe088",
-              "error": "#ffb4ab",
-              "secondary": "#c8c6c5",
-              "primary-container": "#d4af37",
-              "on-primary-fixed": "#241a00",
-              "tertiary-container": "#b2b3b3",
-              "on-primary-container": "#554300",
-              "outline": "#99907c",
-              "primary": "#f2ca50",
-              "surface-container-highest": "#353534",
-              "on-secondary-fixed-variant": "#474747",
-              "inverse-surface": "#e5e2e1",
-              "on-secondary-container": "#b6b5b4",
-              "secondary-container": "#474747",
-              "surface-tint": "#e9c349",
-              "on-tertiary": "#2f3131",
-              "surface-container-low": "#1c1b1b",
-              "on-error": "#690005",
-              "secondary-fixed": "#e4e2e1",
-              "tertiary-fixed": "#e2e2e2",
-              "on-surface": "#e5e2e1",
-              "surface-container-high": "#2a2a2a",
-              "surface-dim": "#131313",
-              "surface-container-lowest": "#0e0e0e",
-              "on-background": "#e5e2e1",
-              "inverse-on-surface": "#313030",
-              "surface-container": "#201f1f",
-              "on-tertiary-container": "#444546",
-              "on-tertiary-fixed-variant": "#454747",
-              "on-error-container": "#ffdad6",
-              "tertiary": "#cecece",
-              "error-container": "#93000a",
-              "inverse-primary": "#735c00",
-              "background": "#131313",
-              "on-secondary-fixed": "#1b1c1c",
-              "surface-variant": "#353534"
-            },
-            fontFamily: {
-              "notoSerif": ["Noto Serif", "serif"],
-              "manrope": ["Manrope", "sans-serif"],
-              "headline": ["Noto Serif"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Our curated grooming menu — precision cuts, beard sculpting, hot towel shaves, and spa treatments at Shalimar Atelier, Shimoga."/>
+  <title>Services | SHALIMAR ATELIER</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+          "outline": "#99907c", "outline-variant": "#4d4635",
         },
-      }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .luxury-underline {
-        position: relative;
-      }
-      .luxury-underline::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background-color: #f2ca50;
-        transition: width 0.3s ease;
-      }
-      .group:hover .luxury-underline::after {
-        width: 100%;
-      }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
+      }},
     }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; }
+    [data-reveal] { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
+    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
+    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+    /* Filter tab active */
+    .filter-tab { transition: all 0.25s ease; }
+    .filter-tab.active { background: #f2ca50; color: #3c2f00; border-color: #f2ca50; }
+    /* Service item hover */
+    .service-item { transition: all 0.3s ease; }
+    .service-item:hover { background: rgba(242,202,80,0.04); }
+    .service-item:hover .service-name { transform: translateX(6px); }
+    .service-name { transition: transform 0.3s ease; }
   </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.sticky{position:sticky}.left-1\/2{left:50%}.top-32{top:8rem}.top-4{top:1rem}.z-50{z-index:50}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-24{margin-bottom:6rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[3\/4\]{aspect-ratio:3/4}.h-10{height:2.5rem}.h-\[1px\]{height:1px}.h-full{height:100%}.w-10{width:2.5rem}.w-\[92\%\]{width:92%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-default{cursor:default}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-16{gap:4rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-24 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(6rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(6rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:0.75rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-outline-variant\/10{border-color:rgb(77 70 53 / 0.1)}.border-outline-variant\/20{border-color:rgb(77 70 53 / 0.2)}.border-primary{--tw-border-opacity:1;border-color:rgb(242 202 80 / var(--tw-border-opacity, 1))}.bg-\[\#1c1b1b\]{--tw-bg-opacity:1;background-color:rgb(28 27 27 / var(--tw-bg-opacity, 1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(19 19 19 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(42 42 42 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(28 27 27 / var(--tw-bg-opacity, 1))}.bg-surface\/80{background-color:rgb(19 19 19 / 0.8)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-outline-variant\/50{--tw-gradient-from:rgb(77 70 53 / 0.5) var(--tw-gradient-from-position);--tw-gradient-to:rgb(77 70 53 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-primary{--tw-gradient-from:#f2ca50 var(--tw-gradient-from-position);--tw-gradient-to:rgb(242 202 80 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-primary-container{--tw-gradient-to:#d4af37 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-12{padding:3rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-10{padding-bottom:2.5rem}.pb-20{padding-bottom:5rem}.pb-4{padding-bottom:1rem}.pt-20{padding-top:5rem}.pt-32{padding-top:8rem}.text-center{text-align:center}.text-right{text-align:right}.font-manrope{font-family:Manrope, sans-serif}.font-notoSerif{font-family:Noto Serif, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-loose{line-height:2}.leading-relaxed{line-height:1.625}.tracking-\[0\.15em\]{letter-spacing:0.15em}.tracking-\[0\.1em\]{letter-spacing:0.1em}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-\[\#d0c5af\]{--tw-text-opacity:1;color:rgb(208 197 175 / var(--tw-text-opacity, 1))}.text-\[\#f2ca50\]{--tw-text-opacity:1;color:rgb(242 202 80 / var(--tw-text-opacity, 1))}.text-on-primary{--tw-text-opacity:1;color:rgb(60 47 0 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(229 226 225 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(208 197 175 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(242 202 80 / var(--tw-text-opacity, 1))}.opacity-50{opacity:0.5}.shadow-\[0_20px_40px_rgba\(0\2c 0\2c 0\2c 0\.4\)\]{--tw-shadow:0 20px 40px rgba(0,0,0,0.4);--tw-shadow-colored:0 20px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-primary\/20{--tw-shadow-color:rgb(242 202 80 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.contrast-125{--tw-contrast:contrast(1.25);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-primary *::selection{--tw-bg-opacity:1;background-color:rgb(242 202 80 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary *::selection{--tw-text-opacity:1;color:rgb(60 47 0 / var(--tw-text-opacity, 1))}.selection\:bg-primary::selection{--tw-bg-opacity:1;background-color:rgb(242 202 80 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary::selection{--tw-text-opacity:1;color:rgb(60 47 0 / var(--tw-text-opacity, 1))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:text-\[\#f2ca50\]:hover{--tw-text-opacity:1;color:rgb(242 202 80 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:translate-x-2{--tw-translate-x:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.dark\:bg-\[\#131313\]\/80:is(.dark *){background-color:rgb(19 19 19 / 0.8)}.dark\:bg-\[\#1c1b1b\]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(28 27 27 / var(--tw-bg-opacity, 1))}@media (min-width: 768px){.md\:flex{display:flex}.md\:flex-row{flex-direction:row}.md\:px-20{padding-left:5rem;padding-right:5rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:col-span-8{grid-column:span 8 / span 8}.lg\:block{display:block}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:text-8xl{font-size:6rem;line-height:1}}</style></head>
-<body class="bg-surface text-on-surface font-manrope selection:bg-primary selection:text-on-primary" data-mode="connect">
-<!-- TopAppBar -->
-<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-6 py-3">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-[#f2ca50] cursor-pointer" data-icon="menu">menu</span>
-<span class="font-notoSerif text-[#f2ca50] font-bold tracking-[0.3em] uppercase">SHALIMAR</span>
-</div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/">Home</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#f2ca50] transition-colors duration-300" href="/services.html">Services</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/gallery.html">Gallery</a>
-<a class="font-notoSerif uppercase tracking-[0.2em] text-sm text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/book-now.html">Book Now</a>
-</nav>
-<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/20">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="person">person</span>
-</div>
+</head>
+<body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
+
+<!-- HEADER -->
+<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+  <div class="flex items-center gap-3">
+    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+    </button>
+    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+  </div>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary">Services</a>
+    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase">Book Now</a>
+  </nav>
+  <div class="flex items-center gap-2">
+    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+    </button>
+    <div data-auth-slot class="flex items-center"></div>
+  </div>
 </header>
-<main class="pt-32 pb-20">
-<!-- Hero Section -->
-<section class="px-6 md:px-20 mb-24 flex flex-col items-center text-center" data-animate="fade-in-up">
-<h1 class="font-notoSerif text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-6 text-primary">
-                Services
-            </h1>
-<p class="max-w-2xl text-on-surface-variant text-lg tracking-wide leading-relaxed font-light">
-                Tailored grooming experiences for the modern gentleman. Each session is a dialogue between tradition and contemporary style, curated within our private atelier.
-            </p>
-</section>
-<!-- Services Content -->
-<div class="px-6 md:px-20 grid grid-cols-1 lg:grid-cols-12 gap-16" data-animate="fade-in-left">
-<!-- Sidebar/Image Column -->
-<aside class="lg:col-span-4 hidden lg:block">
-<div class="sticky top-32 space-y-8">
-<div class="aspect-[3/4] rounded-xl overflow-hidden grayscale contrast-125 border border-outline-variant/10">
-<img class="w-full h-full object-cover" data-alt="Close-up of a vintage barber chair in a moody, high-contrast black and white salon setting with gold lighting accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXwlW84wBVsimLBrYLP8VK-giCUYV6dEDlAwhOXVvukyWWDlSvjyJGFkKEXR2Cq93aEF0h0L_OR-0_ez62fHLTli2o2fVO4H72ac02n6uuI8oQzeMUnhCz6cjhDWdnE3s6mAWCe2ccFu8FjWHf5k_hQj7_DNVWSuSJFBF8otHJMOF-bYhhTK2nWBT3YoO-19xhYPdW2Be_Fv9CQ2c8_Awn_CYAXpKbUkWCdep-I4kFBjkUf5z7DXuWgkI2CYTkI5gVNRT6ZT7dfQg"/>
-</div>
-<div class="p-8 bg-surface-container-low rounded-xl border-l-2 border-primary">
-<h3 class="font-notoSerif text-xl text-primary mb-4 italic">The Atelier Promise</h3>
-<p class="text-on-surface-variant text-sm leading-loose">
-                            Every service includes a complimentary beverage from our private reserve and a personalized consultation to define your signature aesthetic.
-                        </p>
-</div>
-</div>
-</aside>
-<!-- Menu Column -->
-<div class="lg:col-span-8 space-y-24">
-<!-- Category: Haircuts -->
-<section class="" data-animate="fade-in-up" data-stagger>
-<div class="flex items-center gap-6 mb-12">
-<h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.1em] text-on-surface">Haircuts</h2>
-<div class="h-[1px] flex-grow bg-gradient-to-r from-outline-variant/50 to-transparent"></div>
-</div>
-<div class="space-y-10">
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">The Signature Cut</h4>
-<p class="text-on-surface-variant text-sm mt-1">Precision shear work and styling, finished with a straight razor neck shave.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">₹150</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-</div>
-</div>
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">The Executive Fade</h4>
-<p class="text-on-surface-variant text-sm mt-1">Ultra-short gradients tailored to your scalp anatomy and head shape.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">₹200</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-</div>
-</div>
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">Long Form Grooming</h4>
-<p class="text-on-surface-variant text-sm mt-1">Specialized texture work for shoulder-length and artistic hair styles.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">₹150</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">60 Mins</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Category: Beard & Shave -->
-<section class="">
-<div class="flex items-center gap-6 mb-12">
-<h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.1em] text-on-surface">Beard &amp; Shave</h2>
-<div class="h-[1px] flex-grow bg-gradient-to-r from-outline-variant/50 to-transparent"></div>
-</div>
-<div class="space-y-10">
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">Hot Towel Shave</h4>
-<p class="text-on-surface-variant text-sm mt-1">Triple hot towel service with essential oils and traditional straight razor.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">₹100</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">40 Mins</span>
-</div>
-</div>
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">Atelier Beard Sculpt</h4>
-<p class="text-on-surface-variant text-sm mt-1">Comprehensive shaping, length reduction, and line definition.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">₹100</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">30 Mins</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Category: Spa & Facials -->
-<section>
-<div class="flex items-center gap-6 mb-12">
-<h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.1em] text-on-surface">Spa &amp; Facials</h2>
-<div class="h-[1px] flex-grow bg-gradient-to-r from-outline-variant/50 to-transparent"></div>
-</div>
-<div class="space-y-10">
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">Revitalizing Facial</h4>
-<p class="text-on-surface-variant text-sm mt-1">Deep cleansing charcoal mask with steam treatment and hydration.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">$75</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-</div>
-</div>
-<div class="group flex justify-between items-end gap-4 pb-4 border-b border-outline-variant/10">
-<div class="flex-grow">
-<h4 class="font-notoSerif text-xl text-primary group-hover:translate-x-2 transition-transform duration-300 cursor-default">Scalp Detox Treatment</h4>
-<p class="text-on-surface-variant text-sm mt-1">Exfoliating scalp massage to stimulate growth and remove impurities.</p>
-</div>
-<div class="text-right shrink-0">
-<span class="block text-xl font-medium text-on-surface tracking-tight">$45</span>
-<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">25 Mins</span>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<div class="bg-surface-container-high p-12 rounded-xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/20">
-<div>
-<h3 class="font-notoSerif text-2xl text-on-surface mb-2">Ready for your transformation?</h3>
-<p class="text-on-surface-variant text-sm">Members receive priority booking and exclusive atelier events.</p>
-</div>
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-4 font-manrope font-bold uppercase tracking-widest text-sm rounded-md shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
-                        Secure Appointment
-                    </button>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="w-full pt-20 pb-10 px-8 bg-[#1c1b1b] dark:bg-[#1c1b1b] flex flex-col items-center justify-center gap-6 text-center">
-<div class="font-notoSerif text-[#f2ca50] text-lg font-medium uppercase tracking-[0.4em]">SHALIMAR</div>
-<div class="flex gap-8">
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Instagram</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Privacy</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors" href="#">Contact</a>
-</div>
-<div class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] opacity-50">
-            © 2024 SHALIMAR ATELIER. ALL RIGHTS RESERVED.
+
+<main class="pt-32 pb-28">
+
+  <!-- Hero -->
+  <section class="px-6 md:px-16 mb-20 text-center max-w-3xl mx-auto" data-reveal>
+    <span class="font-manrope text-primary tracking-[0.4em] uppercase text-xs block mb-4">Curated Menu</span>
+    <h1 class="font-notoSerif text-5xl md:text-7xl font-black tracking-tighter mb-6 text-primary">Services</h1>
+    <p class="text-on-surface-variant text-lg leading-relaxed">
+      Tailored grooming experiences for the modern gentleman. Each session is a dialogue between tradition and contemporary style, curated within our private atelier.
+    </p>
+  </section>
+
+  <!-- Filter Tabs -->
+  <div class="px-6 md:px-16 mb-16 max-w-6xl mx-auto" data-reveal data-filter-bar>
+    <div class="flex gap-3 flex-wrap">
+      <button class="filter-tab active font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-primary" data-filter="all">All</button>
+      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="haircuts">Haircuts</button>
+      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="beard">Beard & Shave</button>
+      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="spa">Spa & Facials</button>
+      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="premium">Premium</button>
+    </div>
+  </div>
+
+  <!-- Services Content -->
+  <div class="px-6 md:px-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-4 hidden lg:block" data-reveal="left">
+      <div class="sticky top-28 space-y-6">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden grayscale border border-outline-variant/10">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXwlW84wBVsimLBrYLP8VK-giCUYV6dEDlAwhOXVvukyWWDlSvjyJGFkKEXR2Cq93aEF0h0L_OR-0_ez62fHLTli2o2fVO4H72ac02n6uuI8oQzeMUnhCz6cjhDWdnE3s6mAWCe2ccFu8FjWHf5k_hQj7_DNVWSuSJFBF8otHJMOF-bYhhTK2nWBT3YoO-19xhYPdW2Be_Fv9CQ2c8_Awn_CYAXpKbUkWCdep-I4kFBjkUf5z7DXuWgkI2CYTkI5gVNRT6ZT7dfQg"
+            alt="Luxury barber chair"
+            class="w-full h-full object-cover hover:grayscale-0 transition-all duration-700"
+            loading="lazy"
+          />
         </div>
+        <div class="p-7 bg-surface-container-low rounded-2xl border-l-2 border-primary/50">
+          <h3 class="font-notoSerif text-lg text-primary mb-3 italic">The Atelier Promise</h3>
+          <p class="text-on-surface-variant text-sm leading-loose">
+            Every service includes a complimentary beverage from our private reserve and a personalized consultation to define your signature aesthetic.
+          </p>
+        </div>
+        <a href="/book-now.html" class="btn-gold w-full text-center py-4 rounded-full font-manrope font-bold text-xs tracking-widest uppercase block">
+          Book an Appointment
+        </a>
+      </div>
+    </aside>
+
+    <!-- Service List -->
+    <div class="lg:col-span-8 space-y-20">
+
+      <!-- Haircuts -->
+      <section data-reveal data-gallery-item data-category="all,haircuts">
+        <div class="flex items-center gap-6 mb-10">
+          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Haircuts</h2>
+          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+        </div>
+        <div class="space-y-0">
+          <!-- Signature Cut -->
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Signature Cut</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Precision shear work and styling, finished with a straight razor neck shave.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
+              <a href="/book-now.html?service=signature-cut" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+          <!-- Executive Fade -->
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Executive Fade</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Ultra-short gradients tailored to your scalp anatomy and head shape.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹200</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
+              <a href="/book-now.html?service=executive-fade" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+          <!-- Long Form -->
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Long Form Grooming</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Specialized texture work for shoulder-length and artistic hair styles.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">60 Mins</span>
+              <a href="/book-now.html?service=long-form" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beard & Shave -->
+      <section data-reveal data-gallery-item data-category="all,beard">
+        <div class="flex items-center gap-6 mb-10">
+          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Beard & Shave</h2>
+          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+        </div>
+        <div class="space-y-0">
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Hot Towel Shave</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Triple hot towel service with essential oils and traditional straight razor.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">40 Mins</span>
+              <a href="/book-now.html?service=hot-towel-shave" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Atelier Beard Sculpt</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Comprehensive shaping, length reduction, and precise line definition.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">30 Mins</span>
+              <a href="/book-now.html?service=beard-sculpt" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spa & Facials -->
+      <section data-reveal data-gallery-item data-category="all,spa">
+        <div class="flex items-center gap-6 mb-10">
+          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Spa & Facials</h2>
+          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+        </div>
+        <div class="space-y-0">
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Revitalizing Facial</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Deep cleansing charcoal mask with steam treatment and intense hydration.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹350</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
+              <a href="/book-now.html?service=revitalizing" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+            <div class="flex-1 min-w-0">
+              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Scalp Detox Treatment</h4>
+              <p class="text-on-surface-variant text-sm mt-1">Exfoliating scalp massage to stimulate growth and remove impurities.</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹200</span>
+              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">25 Mins</span>
+              <a href="/book-now.html?service=scalp-detox" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Premium -->
+      <section data-reveal data-gallery-item data-category="all,premium">
+        <div class="flex items-center gap-6 mb-10">
+          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Premium</h2>
+          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+        </div>
+        <div class="bg-primary rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-56 h-56 bg-on-primary/5 rounded-full -translate-y-28 translate-x-28"></div>
+          <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="material-symbols-outlined text-on-primary" style="font-size:1.5rem;font-variation-settings:'FILL' 1;">star</span>
+                <span class="font-manrope text-on-primary/70 text-[9px] uppercase tracking-[0.15em] font-bold">Signature Package</span>
+              </div>
+              <h3 class="font-notoSerif text-2xl font-bold text-on-primary mb-3">The Atelier Experience</h3>
+              <p class="text-on-primary/80 text-sm leading-relaxed max-w-lg">
+                Our all-inclusive premier package: precision haircut, triple hot towel straight razor shave, revitalizing facial treatment, scalp massage, and a complimentary beverage from our private reserve.
+              </p>
+              <div class="flex gap-4 mt-4">
+                <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">90 Minutes</span>
+                <span class="font-manrope text-on-primary/70 text-xs">·</span>
+                <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">For the discerning gentleman</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end gap-4 shrink-0">
+              <span class="font-notoSerif text-3xl font-black text-on-primary">₹450</span>
+              <a href="/book-now.html?service=atelier-exp" class="border-2 border-on-primary/60 py-3 px-8 rounded-full font-manrope font-bold uppercase tracking-widest text-[10px] text-on-primary hover:bg-on-primary hover:text-primary transition-all">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bg-surface-container-high p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/20" data-reveal>
+        <div>
+          <h3 class="font-notoSerif text-2xl text-on-surface mb-2">Ready for your transformation?</h3>
+          <p class="text-on-surface-variant text-sm">Members receive priority booking and exclusive atelier events.</p>
+        </div>
+        <a href="/book-now.html" class="btn-gold px-10 py-4 rounded-full font-manrope font-bold uppercase tracking-widest text-xs shrink-0">
+          Secure Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+  <div class="flex gap-10 flex-wrap justify-center">
+    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book Now</a>
+  </div>
+  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+    © 2025 Shalimar Atelier. All rights reserved.
+  </p>
 </footer>
-<!-- FAB (Suppressed based on context of sub-page details, but keeping logic for shell reference if needed) -->
-<!-- Navigation Drawer placeholder logic if implemented -->
+
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+  </a>
+  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">content_cut</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Services</span>
+  </a>
+  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+  </a>
+  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
+  </a>
+  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+  </a>
+</nav>
+
 <script type="module" src="/src/js/mobile-nav.js"></script>
-<script type="module" src="/src/js/scroll-animations.js"></script>
-</body></html>
+<script type="module">
+  import { initGalleryFilter } from '/src/js/gallery-filter.js';
+  initGalleryFilter();
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);} }), {threshold:0.1,rootMargin:'0 0 -60px 0'});
+  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+  // Header hide
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('site-header'); if(!h) return;
+    const y = window.scrollY;
+    if(y > 200 && y > lastY) h.classList.add('hidden-up'); else h.classList.remove('hidden-up');
+    lastY = y;
+  }, { passive: true });
+</script>
+</body>
+</html>

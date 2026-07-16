@@ -1,223 +1,294 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gallery | SHALIMAR</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-surface-variant": "#d0c5af",
-              "outline-variant": "#4d4635",
-              "surface-bright": "#393939",
-              "on-primary": "#3c2f00",
-              "secondary-fixed-dim": "#c8c6c5",
-              "surface": "#131313",
-              "primary-fixed-dim": "#e9c349",
-              "on-tertiary-fixed": "#1a1c1c",
-              "on-secondary": "#303030",
-              "tertiary-fixed-dim": "#c6c6c6",
-              "on-primary-fixed-variant": "#574500",
-              "primary-fixed": "#ffe088",
-              "error": "#ffb4ab",
-              "secondary": "#c8c6c5",
-              "primary-container": "#d4af37",
-              "on-primary-fixed": "#241a00",
-              "tertiary-container": "#b2b3b3",
-              "on-primary-container": "#554300",
-              "outline": "#99907c",
-              "primary": "#f2ca50",
-              "surface-container-highest": "#353534",
-              "on-secondary-fixed-variant": "#474747",
-              "inverse-surface": "#e5e2e1",
-              "on-secondary-container": "#b6b5b4",
-              "secondary-container": "#474747",
-              "surface-tint": "#e9c349",
-              "on-tertiary": "#2f3131",
-              "surface-container-low": "#1c1b1b",
-              "on-error": "#690005",
-              "secondary-fixed": "#e4e2e1",
-              "tertiary-fixed": "#e2e2e2",
-              "on-surface": "#e5e2e1",
-              "surface-container-high": "#2a2a2a",
-              "surface-dim": "#131313",
-              "surface-container-lowest": "#0e0e0e",
-              "on-background": "#e5e2e1",
-              "inverse-on-surface": "#313030",
-              "surface-container": "#201f1f",
-              "on-tertiary-container": "#444546",
-              "on-tertiary-fixed-variant": "#454747",
-              "on-error-container": "#ffdad6",
-              "tertiary": "#cecece",
-              "error-container": "#93000a",
-              "inverse-primary": "#735c00",
-              "background": "#131313",
-              "on-secondary-fixed": "#1b1c1c",
-              "surface-variant": "#353534"
-            },
-            fontFamily: {
-              "notoSerif": ["Noto Serif"],
-              "manrope": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Visual portfolio of our grooming work — precision cuts, beard sculpts, and the Shalimar Atelier interior. Browse our gallery."/>
+  <title>Gallery | SHALIMAR ATELIER</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+          "surface-container-high": "#2a2a2a",
+          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+          "outline": "#99907c", "outline-variant": "#4d4635",
         },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            font-family: 'Manrope', sans-serif;
-            background-color: #131313;
-            color: #e5e2e1;
-        }
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
-        }
-        .glass-header {
-            background: rgba(19, 19, 19, 0.8);
-            backdrop-filter: blur(20px);
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
+      }},
     }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; }
+    [data-reveal] { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
+    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
+    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+    .gallery-img { transition: transform 0.6s ease, filter 0.5s ease; filter: grayscale(100%); cursor: zoom-in; }
+    .gallery-item:hover .gallery-img { transform: scale(1.05); filter: grayscale(30%); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .filter-tab { transition: all 0.25s ease; cursor: pointer; }
+    .filter-tab.active { background: #f2ca50; color: #3c2f00; border-color: #f2ca50; }
   </style>
-  </head>
-<body class="bg-surface selection:bg-primary selection:text-on-primary">
-<!-- TopAppBar -->
-<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-6 py-3 transition-all">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-[#f2ca50] cursor-pointer">menu</span>
-<span class="font-notoSerif text-[#f2ca50] font-bold tracking-[0.3em] uppercase text-lg">SHALIMAR</span>
-</div>
-<nav class="hidden md:flex gap-8 items-center font-notoSerif uppercase tracking-[0.2em] text-sm">
-<a class="text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/">Home</a>
-<a class="text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/services.html">Services</a>
-<a class="text-[#f2ca50]" href="/gallery.html">Gallery</a>
-<a class="text-[#d0c5af] hover:text-[#f2ca50] transition-colors duration-300" href="/book-now.html">Book Now</a>
-</nav>
-<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
-<span class="material-symbols-outlined text-[#f2ca50]">search</span>
-</div>
+</head>
+<body class="bg-surface text-on-surface font-manrope">
+
+<!-- HEADER -->
+<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+  <div class="flex items-center gap-3">
+    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+    </button>
+    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+  </div>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary">Gallery</a>
+    <a href="/book-now.html" class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase">Book Now</a>
+  </nav>
+  <div class="flex items-center gap-2">
+    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+    </button>
+    <div data-auth-slot class="flex items-center"></div>
+  </div>
 </header>
-<main class="pt-32 pb-20 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
-<!-- Hero Title Section -->
-<section class="mb-20">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
-<div class="max-w-2xl">
-<span class="font-manrope text-primary tracking-[0.3em] uppercase text-xs mb-4 block">Our Visual Identity</span>
-<h1 class="font-notoSerif text-6xl md:text-8xl lg:text-9xl font-black text-on-surface leading-tight tracking-tighter">
-                        Gallery<span class="text-primary">.</span>
-</h1>
-</div>
-<div class="md:w-1/3">
-<p class="text-on-surface-variant font-manrope text-lg leading-relaxed border-l border-outline-variant pl-6">
-                        A curation of precision, character, and the pursuit of grooming excellence. Every frame captures the Shalimar standard.
-                    </p>
-</div>
-</div>
-</section>
-<!-- Bento Inspired Editorial Grid -->
-<section class="editorial-grid">
-<!-- Large Focus Image -->
-<div class="col-span-12 md:col-span-8 group relative overflow-hidden rounded-xl aspect-[16/9]">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="high contrast black and white photo of a professional barber meticulously trimming a beard with a straight razor in a luxury salon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgsgrsea3s59iP2h_UPzdIRThns2V9eDtBupSQb0ajnrHt-aMgKxuG3fO-IJOyPUgSR486ATew_kIkyC_p6yOjlNwsSQaCOde69lRhPdGn-tVCvWsiWBod-IpJoTxWTlZPpgBVf1s56Xneskz9f-Deu3szbw7UBFAAJP_19qwAfZK4U-Q073zaFOmNk5zdYcWYyEtdboc8r3_8ucm3oYrhhWEnCeQTJI73Xs-YER9qkOybuvByfhbU9z2qT1U3iAJ-Sbbm0hHQjSM"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<h3 class="font-notoSerif text-2xl text-primary uppercase tracking-widest">The Ritual</h3>
-<p class="text-on-surface-variant text-sm mt-2">Signature straight razor service</p>
-</div>
-</div>
-<!-- Vertical Inset -->
-<div class="col-span-12 md:col-span-4 group relative overflow-hidden rounded-xl aspect-[3/4]">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="dramatic black and white portrait of a man with a sharp pompadour fade haircut, soft studio lighting, deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGY3al1THGcKaPPFtxqRu2vvjqY4LwHoqJrOm5pdQLhH0WHltQvCgZ_wM64MkjpwdF7aFz4cbv2Gp9j5jndmlJYoB-RjbA1Wo9779pMe-3Q9lzmQ6W876kkVYE5qi4BC1_foE7Lt8pJ_MKCWXjquuWazmAjCVKZ6NG1WAfsmyyw0ze7GZqrp550kv31mRuLDifaRMTpGjN_1QLMF5wlh3d7uEHZIinaL6UcUQhFEmpgcTT6wRUpOu9CaXvlBDHuwKmGrRYhpfIOM"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<h3 class="font-notoSerif text-2xl text-primary uppercase tracking-widest">Precision Fade</h3>
-<p class="text-on-surface-variant text-sm mt-2">Modern craftsmanship</p>
-</div>
-</div>
-<!-- Interior Detail (Surface Container Shift) -->
-<div class="col-span-12 md:col-span-5 bg-surface-container-low p-12 rounded-xl flex flex-col justify-center items-start">
-<span class="text-primary font-manrope tracking-[0.4em] uppercase text-[10px] mb-6">Environment</span>
-<h2 class="font-notoSerif text-4xl mb-6 leading-tight">THE ATELIER EXPERIENCE</h2>
-<p class="text-on-surface-variant leading-relaxed mb-8">Designed as a sanctuary for the modern gentleman, our space combines industrial heritage with contemporary luxury.</p>
-<div class="w-full aspect-video rounded-lg overflow-hidden grayscale">
-<img class="w-full h-full object-cover" data-alt="wide shot of a high-end barbershop interior with vintage leather chairs, dark wood panelling, and soft warm spotlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATpDnWLmxs90K1miTo0_GCAduiBUtK39dKPIVJUAMgbja2-sqNves9Bv_zzr_ORTJKhwcSHno8AkTHOgq2o_pqI18eLRIFxqEpBtUu3CxaURK4P-3VbFvpPcYbXO-Lr4sDqCYwpbfGPE15Rg2UxXbb1ELCHtjKOYr2CHZmiTPGK2eKnVfCa4F0B0Yg4p3E3A4bd-CRPedQ6YhsV86QTM1o7uZzpcUJS_nefaOhC_v_5K4hbKXXqNPuSnXQ5WO80fVCQcYep5T55s4"/>
-</div>
-</div>
-<!-- Square Grid Items -->
-<div class="col-span-12 md:col-span-7 grid grid-cols-2 gap-8">
-<div class="group relative overflow-hidden rounded-xl aspect-square">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="close-up of sharp haircut texture, black and white detail of hair and styling product application" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdsI9UGiS5oEPUMmrFO5SLVMGl51d8jS42NInapOHHLxSKA3VXXn-ixj-NhcrqslPU-UaRPJ9Dl8u2c2aW-KzYb4wkLVL9IYXL2AgpKcog2xja8t5xexR-bPT5Ez28cxhpOjlZ6B_MGuqKtSMTvqYQaq3XYxyp3M7Hu5JxwHl6JuJUQ-mg2EbUj0F512_AgNVaobeE62qMy_Hj4atPL1yRsTvaU3V8lnwhdXvcJNIsXkvS1YgW2eAu5FHsrqutnxDMV24-Ak-Q3Eo"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-<span class="font-notoSerif text-primary uppercase tracking-widest text-lg">Texture</span>
-</div>
-</div>
-<div class="group relative overflow-hidden rounded-xl aspect-square">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="artisan barber tools including silver scissors and a comb lying on a dark textured towel, professional grooming equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRyuKX3E51xihsEAikM2i15ShT2IznSduCM7fLXOPgZwpc4Igk1S3cVLKQ70MINLFjG9REDPNV4P1DRQzhSICFbzGrY7qYYNmSMH_T36AK_mvObjqVjw_5ZeSL8uxc07LqTloVFTngC0rEZhL35U4deCgCJHUWYGDdju2YS6FbN_S1O3SXL7ZXSqt94uAimDnsX8jU6-R2u7ReICcBnXbRfv47RtfVOFP8ZIQXDcz61HhknDpJLlZ9_1XX9UP8HskOiCCXHTVr0c"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-<span class="font-notoSerif text-primary uppercase tracking-widest text-lg">Instruments</span>
-</div>
-</div>
-<div class="col-span-2 group relative overflow-hidden rounded-xl aspect-[21/9]">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="panoramic black and white shot of a barber shop waiting area with luxury magazines and dark leather sofa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv_vjZMRSC0opX91cNl6qBdLSbYyCh5Y1KLRulq0NPY1AdMVetWNLF6QQwkVDt3ZcyMu8khMNZcqoh0_2EYHX3KnejludOwlTnQsQTOaxKaJ683DAv5Y-n8uLpXLvYPv1NsbGW9HANFPkDItuNX3f-BtxINotwkf-wpzw3_NjG6xowNyzMEN6u1RllhX76d8M_s-edRI6-Ke4_7zd2YN7TJEefpz_9uzjxlJ1WXjf84tGhkQBiw4e6YpR1rT_lli1RZEmwXScfRA0"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-<span class="font-notoSerif text-primary uppercase tracking-widest text-lg">The Lounge</span>
-</div>
-</div>
-</div>
-<!-- Aesthetic Break Section -->
-<div class="col-span-12 py-24 border-y border-outline-variant/20 flex flex-col items-center text-center">
-<span class="font-notoSerif text-6xl md:text-8xl italic text-outline-variant/30 select-none">Excellence is in the detail.</span>
-</div>
-<!-- Masonry-style bottom section -->
-<div class="col-span-12 md:col-span-4 group relative overflow-hidden rounded-xl aspect-[4/5]">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="close up of a modern classic haircut side view, perfectly blended fade and clean hairline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-AUKhL6TpsUNRUOsMZF3EyYUbqwmtDC5qsseLVVJI3fv3DqNHbM3vRQSr4Lg2BUS86R9PEufxlJ4Do8b233iCnB98KKM3EXxQrOjDB8hVxRMdvafRZleiU1cpzt1LZRls64ZHp_LqVsJO4m6zwJnVQdfCmtPyV-GRp2dXDO2IuIgIo__Nb3DBSIjhHWIO3L4YM4d2JzUU4RHl1Q8o37la2PS6ZYaYCuFlskHjRu7uEN3IZD_8F_t8zS9ObOp3anohTTrSXkbciIw"/>
-</div>
-<div class="col-span-12 md:col-span-8 group relative overflow-hidden rounded-xl aspect-[16/9]">
-<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="man receiving a relaxing hot towel treatment in a vintage barber chair, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEIQLKZY9nlq2EIQizVjFDYxiRYND5o8HpDnLHmpSC2vydd4BZVNPNOK-ScSdjDFVyLLSsk65Ethxx53UC9ruKudEJOsozF8UPJgr73XQy528wkjUplnoli-h1xqhJigGzPnfXg8pO1HIeg9jE0qcpAz4b3lwLu1rNCarlN9dg-RhyLHEFh-sKAhRNH5_BaB44t6iyIApPqR2hz8DLUkuEzlYWmxVFkBrtU77Zat_Byn3bc_fjp6dQArBUemNjytx00tkXSkh5d18"/>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="mt-40 mb-20 bg-surface-container-high rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
-<div class="md:w-1/2 p-12 lg:p-20">
-<h2 class="font-notoSerif text-5xl mb-8 uppercase tracking-tight">Redefine your <span class="text-primary italic">Signature</span>.</h2>
-<p class="text-on-surface-variant font-manrope text-lg mb-12">Experience the fusion of traditional techniques and contemporary aesthetics at Shalimar Atelier.</p>
-<button class="px-12 py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-manrope font-bold uppercase tracking-widest text-sm rounded-md hover:shadow-[0_0_20px_rgba(242,202,80,0.3)] transition-all">
-                    Secure an Appointment
-                </button>
-</div>
-<div class="md:w-1/2 h-full min-h-[400px]">
-<img class="w-full h-full object-cover grayscale brightness-75" data-alt="minimalist aesthetic photo of a classic razor and grooming products on a dark shelf with elegant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADTbLI1UxiVGIipmx_-XP0e8trEIXj3xS9COVHBCIEQd277kXWjIVw8ZyKURAff-LMM7Mrmub-nkfToodVywftTw3VQgB4ssXC9iHOMw7aQgJbhr01XLsqCqCMKt0pzHU3gxDjFfIM4DHfG7Jdk_sGHmxQDETBXegHAStxUxLYB_vpXpQ-4c7dUnfdtOhsz1QnmxIdGequIZMlVU42msEKOJ7hBDTwsSVDqRrr51uKbwZVGdhTFTQs51pPe2rCf2fYi7BT2Ck1r9Y"/>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-[#1c1b1b] dark:bg-[#1c1b1b] w-full pt-20 pb-10 px-8 flex flex-col items-center justify-center gap-6 text-center">
-<div class="font-notoSerif text-[#f2ca50] text-3xl font-black tracking-[0.4em] uppercase mb-4">SHALIMAR</div>
-<div class="flex gap-12 mb-8">
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary hover:after:w-full after:transition-all" href="#">Instagram</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary hover:after:w-full after:transition-all" href="#">Privacy</a>
-<a class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary hover:after:w-full after:transition-all" href="#">Contact</a>
-</div>
-<div class="font-manrope text-[10px] tracking-[0.15em] uppercase text-[#d0c5af] opacity-50">
-            © 2024 SHALIMAR ATELIER. ALL RIGHTS RESERVED.
+
+<main class="pt-32 pb-28 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+
+  <!-- Title -->
+  <section class="mb-16" data-reveal>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div>
+        <span class="font-manrope text-primary tracking-[0.3em] uppercase text-xs mb-4 block">Our Visual Identity</span>
+        <h1 class="font-notoSerif text-6xl md:text-8xl lg:text-9xl font-black text-on-surface leading-tight tracking-tighter">
+          Gallery<span class="text-primary">.</span>
+        </h1>
+      </div>
+      <div class="md:w-1/3">
+        <p class="text-on-surface-variant font-manrope text-lg leading-relaxed border-l border-outline-variant pl-6">
+          A curation of precision, character, and the pursuit of grooming excellence. Every frame captures the Shalimar standard.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <div class="mb-12 flex gap-3 flex-wrap" data-filter-bar>
+    <button class="filter-tab active font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-primary" data-filter="all">All</button>
+    <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="haircuts">Haircuts</button>
+    <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="beard">Beard</button>
+    <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="interior">Interior</button>
+    <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="team">Team</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <section class="grid grid-cols-12 gap-4 md:gap-6" data-reveal>
+
+    <!-- Large landscape — Ritual -->
+    <div class="gallery-item col-span-12 md:col-span-8 group relative overflow-hidden rounded-2xl aspect-[16/9]" data-gallery-item data-category="all,beard"
+      data-lightbox data-lightbox-group="gallery"
+      data-lightbox-caption="The Ritual — Signature straight razor service">
+      <img class="gallery-img w-full h-full object-cover" loading="eager"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgsgrsea3s59iP2h_UPzdIRThns2V9eDtBupSQb0ajnrHt-aMgKxuG3fO-IJOyPUgSR486ATew_kIkyC_p6yOjlNwsSQaCOde69lRhPdGn-tVCvWsiWBod-IpJoTxWTlZPpgBVf1s56Xneskz9f-Deu3szbw7UBFAAJP_19qwAfZK4U-Q073zaFOmNk5zdYcWYyEtdboc8r3_8ucm3oYrhhWEnCeQTJI73Xs-YER9qkOybuvByfhbU9z2qT1U3iAJ-Sbbm0hHQjSM"
+        alt="The Ritual — Professional barber with straight razor"/>
+      <div class="gallery-overlay">
+        <h3 class="font-notoSerif text-xl text-primary uppercase tracking-widest mb-1">The Ritual</h3>
+        <p class="font-manrope text-on-surface-variant text-sm">Signature straight razor service</p>
+      </div>
+    </div>
+
+    <!-- Portrait — Precision Fade -->
+    <div class="gallery-item col-span-12 md:col-span-4 group relative overflow-hidden rounded-2xl aspect-[3/4]" data-gallery-item data-category="all,haircuts"
+      data-lightbox data-lightbox-group="gallery"
+      data-lightbox-caption="Precision Fade — Modern craftsmanship">
+      <img class="gallery-img w-full h-full object-cover" loading="lazy"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGY3al1THGcKaPPFtxqRu2vvjqY4LwHoqJrOm5pdQLhH0WHltQvCgZ_wM64MkjpwdF7aFz4cbv2Gp9j5jndmlJYoB-RjbA1Wo9779pMe-3Q9lzmQ6W876kkVYE5qi4BC1_foE7Lt8pJ_MKCWXjquuWazmAjCVKZ6NG1WAfsmyyw0ze7GZqrp550kv31mRuLDifaRMTpGjN_1QLMF5wlh3d7uEHZIinaL6UcUQhFEmpgcTT6wRUpOu9CaXvlBDHuwKmGrRYhpfIOM"
+        alt="Precision Fade — Sharp pompadour fade"/>
+      <div class="gallery-overlay">
+        <h3 class="font-notoSerif text-xl text-primary uppercase tracking-widest mb-1">Precision Fade</h3>
+        <p class="font-manrope text-on-surface-variant text-sm">Modern craftsmanship</p>
+      </div>
+    </div>
+
+    <!-- Interior text block -->
+    <div class="col-span-12 md:col-span-5 bg-surface-container-low p-10 rounded-2xl flex flex-col justify-center items-start" data-gallery-item data-category="all,interior">
+      <span class="text-primary font-manrope tracking-[0.4em] uppercase text-[10px] mb-5">Environment</span>
+      <h2 class="font-notoSerif text-3xl md:text-4xl mb-5 leading-tight">THE ATELIER EXPERIENCE</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8 text-sm">Designed as a sanctuary for the modern gentleman, our space combines industrial heritage with contemporary luxury.</p>
+      <div class="w-full aspect-video rounded-xl overflow-hidden relative group">
+        <img class="gallery-img w-full h-full object-cover" loading="lazy"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuATpDnWLmxs90K1miTo0_GCAduiBUtK39dKPIVJUAMgbja2-sqNves9Bv_zzr_ORTJKhwcSHno8AkTHOgq2o_pqI18eLRIFxqEpBtUu3CxaURK4P-3VbFvpPcYbXO-Lr4sDqCYwpbfGPE15Rg2UxXbb1ELCHtjKOYr2CHZmiTPGK2eKnVfCa4F0B0Yg4p3E3A4bd-CRPedQ6YhsV86QTM1o7uZzpcUJS_nefaOhC_v_5K4hbKXXqNPuSnXQ5WO80fVCQcYep5T55s4"
+          alt="Atelier interior — luxury barbershop"
+          data-lightbox data-lightbox-group="gallery"
+          data-lightbox-caption="The Atelier — Luxury interior"/>
+      </div>
+    </div>
+
+    <!-- Square grid -->
+    <div class="col-span-12 md:col-span-7 grid grid-cols-2 gap-4">
+      <!-- Texture -->
+      <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-square" data-gallery-item data-category="all,haircuts"
+        data-lightbox data-lightbox-group="gallery"
+        data-lightbox-caption="Texture — Precision hair detail">
+        <img class="gallery-img w-full h-full object-cover" loading="lazy"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdsI9UGiS5oEPUMmrFO5SLVMGl51d8jS42NInapOHHLxSKA3VXXn-ixj-NhcrqslPU-UaRPJ9Dl8u2c2aW-KzYb4wkLVL9IYXL2AgpKcog2xja8t5xexR-bPT5Ez28cxhpOjlZ6B_MGuqKtSMTvqYQaq3XYxyp3M7Hu5JxwHl6JuJUQ-mg2EbUj0F512_AgNVaobeE62qMy_Hj4atPL1yRsTvaU3V8lnwhdXvcJNIsXkvS1YgW2eAu5FHsrqutnxDMV24-Ak-Q3Eo"
+          alt="Texture — Hair precision detail"/>
+        <div class="gallery-overlay">
+          <span class="font-notoSerif text-primary uppercase tracking-widest text-lg">Texture</span>
         </div>
+      </div>
+      <!-- Instruments -->
+      <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-square" data-gallery-item data-category="all,interior"
+        data-lightbox data-lightbox-group="gallery"
+        data-lightbox-caption="Instruments — Artisan grooming tools">
+        <img class="gallery-img w-full h-full object-cover" loading="lazy"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRyuKX3E51xihsEAikM2i15ShT2IznSduCM7fLXOPgZwpc4Igk1S3cVLKQ70MINLFjG9REDPNV4P1DRQzhSICFbzGrY7qYYNmSMH_T36AK_mvObjqVjw_5ZeSL8uxc07LqTloVFTngC0rEZhL35U4deCgCJHUWYGDdju2YS6FbN_S1O3SXL7ZXSqt94uAimDnsX8jU6-R2u7ReICcBnXbRfv47RtfVOFP8ZIQXDcz61HhknDpJLlZ9_1XX9UP8HskOiCCXHTVr0c"
+          alt="Instruments — Silver scissors and grooming tools"/>
+        <div class="gallery-overlay">
+          <span class="font-notoSerif text-primary uppercase tracking-widest text-lg">Instruments</span>
+        </div>
+      </div>
+      <!-- Panoramic Lounge -->
+      <div class="gallery-item col-span-2 group relative overflow-hidden rounded-2xl aspect-[21/9]" data-gallery-item data-category="all,interior"
+        data-lightbox data-lightbox-group="gallery"
+        data-lightbox-caption="The Lounge — Luxury waiting area">
+        <img class="gallery-img w-full h-full object-cover" loading="lazy"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv_vjZMRSC0opX91cNl6qBdLSbYyCh5Y1KLRulq0NPY1AdMVetWNLF6QQwkVDt3ZcyMu8khMNZcqoh0_2EYHX3KnejludOwlTnQsQTOaxKaJ683DAv5Y-n8uLpXLvYPv1NsbGW9HANFPkDItuNX3f-BtxINotwkf-wpzw3_NjG6xowNyzMEN6u1RllhX76d8M_s-edRI6-Ke4_7zd2YN7TJEefpz_9uzjxlJ1WXjf84tGhkQBiw4e6YpR1rT_lli1RZEmwXScfRA0"
+          alt="The Lounge — Panoramic lounge area"/>
+        <div class="gallery-overlay">
+          <span class="font-notoSerif text-primary uppercase tracking-widest text-lg">The Lounge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote break -->
+    <div class="col-span-12 py-20 border-y border-outline-variant/15 flex flex-col items-center text-center">
+      <span class="font-notoSerif text-4xl md:text-7xl italic text-outline-variant/25 select-none leading-relaxed">
+        Excellence is in the detail.
+      </span>
+    </div>
+
+    <!-- Classic cut portrait -->
+    <div class="gallery-item col-span-12 md:col-span-4 group relative overflow-hidden rounded-2xl aspect-[4/5]" data-gallery-item data-category="all,haircuts"
+      data-lightbox data-lightbox-group="gallery"
+      data-lightbox-caption="Classic Cut — Perfectly blended hairline">
+      <img class="gallery-img w-full h-full object-cover" loading="lazy"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-AUKhL6TpsUNRUOsMZF3EyYUbqwmtDC5qsseLVVJI3fv3DqNHbM3vRQSr4Lg2BUS86R9PEufxlJ4Do8b233iCnB98KKM3EXxQrOjDB8hVxRMdvafRZleiU1cpzt1LZRls64ZHp_LqVsJO4m6zwJnVQdfCmtPyV-GRp2dXDO2IuIgIo__Nb3DBSIjhHWIO3L4YM4d2JzUU4RHl1Q8o37la2PS6ZYaYCuFlskHjRu7uEN3IZD_8F_t8zS9ObOp3anohTTrSXkbciIw"
+        alt="Classic cut with blended fade"/>
+      <div class="gallery-overlay">
+        <h3 class="font-notoSerif text-xl text-primary uppercase tracking-widest mb-1">Classic Cut</h3>
+        <p class="font-manrope text-on-surface-variant text-sm">Perfectly blended hairline</p>
+      </div>
+    </div>
+
+    <!-- Landscape hot towel treatment -->
+    <div class="gallery-item col-span-12 md:col-span-8 group relative overflow-hidden rounded-2xl aspect-[16/9]" data-gallery-item data-category="all,beard"
+      data-lightbox data-lightbox-group="gallery"
+      data-lightbox-caption="Hot Towel Treatment — The ultimate relaxation">
+      <img class="gallery-img w-full h-full object-cover" loading="lazy"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEIQLKZY9nlq2EIQizVjFDYxiRYND5o8HpDnLHmpSC2vydd4BZVNPNOK-ScSdjDFVyLLSsk65Ethxx53UC9ruKudEJOsozF8UPJgr73XQy528wkjUplnoli-h1xqhJigGzPnfXg8pO1HIeg9jE0qcpAz4b3lwLu1rNCarlN9dg-RhyLHEFh-sKAhRNH5_BaB44t6iyIApPqR2hz8DLUkuEzlYWmxVFkBrtU77Zat_Byn3bc_fjp6dQArBUemNjytx00tkXSkh5d18"
+        alt="Hot towel treatment in vintage barber chair"/>
+      <div class="gallery-overlay">
+        <h3 class="font-notoSerif text-xl text-primary uppercase tracking-widest mb-1">Hot Towel Treatment</h3>
+        <p class="font-manrope text-on-surface-variant text-sm">The ultimate relaxation ritual</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mt-32 mb-12 bg-surface-container-high rounded-2xl overflow-hidden flex flex-col md:flex-row items-center" data-reveal>
+    <div class="md:w-1/2 p-12 lg:p-20">
+      <h2 class="font-notoSerif text-4xl md:text-5xl mb-8 uppercase tracking-tight leading-tight">
+        Redefine your <span class="text-primary italic">Signature</span>.
+      </h2>
+      <p class="text-on-surface-variant font-manrope text-lg mb-10 leading-relaxed">
+        Experience the fusion of traditional techniques and contemporary aesthetics at Shalimar Atelier.
+      </p>
+      <a href="/book-now.html" class="btn-gold px-10 py-4 rounded-full font-manrope font-bold uppercase tracking-widest text-xs inline-block">
+        Secure an Appointment
+      </a>
+    </div>
+    <div class="md:w-1/2 h-64 md:h-full min-h-[320px]">
+      <img
+        class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuADTbLI1UxiVGIipmx_-XP0e8trEIXj3xS9COVHBCIEQd277kXWjIVw8ZyKURAff-LMM7Mrmub-nkfToodVywftTw3VQgB4ssXC9iHOMw7aQgJbhr01XLsqCqCMKt0pzHU3gxDjFfIM4DHfG7Jdk_sGHmxQDETBXegHAStxUxLYB_vpXpQ-4c7dUnfdtOhsz1QnmxIdGequIZMlVU42msEKOJ7hBDTwsSVDqRrr51uKbwZVGdhTFTQs51pPe2rCf2fYi7BT2Ck1r9Y"
+        alt="Classic razor and grooming products"
+        loading="lazy"
+      />
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+  <div class="flex gap-10 flex-wrap justify-center">
+    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book Now</a>
+  </div>
+  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+    © 2025 Shalimar Atelier. All rights reserved.
+  </p>
 </footer>
-<!-- FAB Suppression: Gallery page is task-focused viewing, FAB suppressed as per instruction -->
+
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+  </a>
+  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
+  </a>
+  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">photo_library</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Gallery</span>
+  </a>
+  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
+  </a>
+  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+  </a>
+</nav>
+
 <script type="module" src="/src/js/mobile-nav.js"></script>
-<script type="module" src="/src/js/scroll-animations.js"></script>
-<script type="module" src="/src/js/gallery-lightbox.js"></script>
-</body></html>
+<script type="module">
+  import { initLightbox } from '/src/js/lightbox.js';
+  import { initGalleryFilter } from '/src/js/gallery-filter.js';
+
+  initLightbox();
+  initGalleryFilter();
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);} }), {threshold:0.1,rootMargin:'0 0 -60px 0'});
+  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+  // Header hide
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('site-header'); if(!h) return;
+    const y = window.scrollY;
+    if(y > 200 && y > lastY) h.classList.add('hidden-up'); else h.classList.remove('hidden-up');
+    lastY = y;
+  }, { passive: true });
+</script>
+</body>
+</html>

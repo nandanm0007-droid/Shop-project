@@ -1,9 +1,25 @@
 /**
- * Shalimar Atelier - Booking Flow Module
- * Handles the 3-step booking wizard: Barber → Date/Time → Confirm
+ * Shalimar Atelier — Booking Flow Module (v2)
+ * Steps: Service → Barber → Date/Time → Confirm
+ * Features: Toast notifications, localStorage persistence, loading states
  */
 
-// Barber data
+import { toast } from './toast.js';
+import { getUser } from './auth.js';
+
+// ── Data ────────────────────────────────────────────────────────────────
+
+const SERVICES = [
+  { id: 'signature-cut',    name: 'The Signature Cut',     price: 150, duration: '45 Mins', icon: 'content_cut',  category: 'Haircuts' },
+  { id: 'executive-fade',   name: 'The Executive Fade',    price: 200, duration: '45 Mins', icon: 'face',         category: 'Haircuts' },
+  { id: 'long-form',        name: 'Long Form Grooming',    price: 150, duration: '60 Mins', icon: 'straighten',   category: 'Haircuts' },
+  { id: 'hot-towel-shave',  name: 'Hot Towel Shave',       price: 100, duration: '40 Mins', icon: 'water_drop',   category: 'Beard & Shave' },
+  { id: 'beard-sculpt',     name: 'Atelier Beard Sculpt',  price: 100, duration: '30 Mins', icon: 'spa',          category: 'Beard & Shave' },
+  { id: 'atelier-exp',      name: 'The Atelier Experience',price: 450, duration: '90 Mins', icon: 'star',         category: 'Premium', featured: true },
+  { id: 'revitalizing',     name: 'Revitalizing Facial',   price: 350, duration: '45 Mins', icon: 'self_improvement', category: 'Spa & Facials' },
+  { id: 'scalp-detox',      name: 'Scalp Detox Treatment', price: 200, duration: '25 Mins', icon: 'air',          category: 'Spa & Facials' },
+];
+
 const BARBERS = [
   {
     id: 'julian-vance',
@@ -11,7 +27,6 @@ const BARBERS = [
     title: 'Master Stylist',
     specialties: ['Beards', 'Classic'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgw70NEb21N3yNySG7VjKiecrE5g9V4jfcjvT97tI3HyRhiaKxeCAcVVu-H-hyd4YDchCUUPcKQXUc6s5iDs1bU7irPyibmd8icYdZCSy_ieA1idshDggRqjpQFTNGS0C8DytZRm3I-rdzWXEP5VJ9eDjF7D_n77LKv8QOp0gYld5TodqbIU871tS-5iLpfbQUehAKDJob1FMInlGIFkoqt6Hke0O8hf5fYphLNXIY3k3AiVCebk4edL3t5giRuq_sj8GDT2FPUNE',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuARZiEG5Hsjks3crtgZ0P-dRsVLC2uiQh2mR3jmiRhKw0FdHX2MDi5nRAesFdnyhMN_QuO76FyVGYjjmxI-tIzFjjSVDSXPwJ_2PJa3Od5gv2JP_1TJKBog3ZGiBOv4Y7gAZir15KJaVkRS4kdtIwHyIzLa4HOmSFLCJoeB-WlSqOks_ReSVDxnGRsKOvBavB11L_nHBJ1uhoufBlQnvK1T5drnGAqWat_HS9zU-GcNpeQ20078HHaoIOvccrcqm60pSCSgHLQl5yw'
   },
   {
     id: 'elias-thorne',
@@ -19,7 +34,6 @@ const BARBERS = [
     title: 'Texture Specialist',
     specialties: ['Modern', 'Fade'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCSRkj5SVGrc1VyNB3aRtAQoOGa4fMsqsX0ELBZ2b0ZHs7FyQ_R0oEcTlUcanB2kSJ9DqSzEex_4WFTXyeVWL80st84c29Dg6n9WbzQJaH1ieMWkJW-au_D4oIfY1tM6dOJsKFyHk6YkpYqatjmP24kPURJSz067ZzD1PDiiocwAFnQEjAkxiVWoGD0Gc736xol5CQWorfsLepC9milvxxJg8UUfoPdtPVYd_-YQEvVzxNXbzc5hiZaNRggRVUONJoXvwwiNcuGTZw',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuARZiEG5Hsjks3crtgZ0P-dRsVLC2uiQh2mR3jmiRhKw0FdHX2MDi5nRAesFdnyhMN_QuO76FyVGYjjmxI-tIzFjjSVDSXPwJ_2PJa3Od5gv2JP_1TJKBog3ZGiBOv4Y7gAZir15KJaVkRS4kdtIwHyIzLa4HOmSFLCJoeB-WlSqOks_ReSVDxnGRsKOvBavB11L_nHBJ1uhoufBlQnvK1T5drnGAqWat_HS9zU-GcNpeQ20078HHaoIOvccrcqm60pSCSgHLQl5yw'
   },
   {
     id: 'marcus-reed',
@@ -27,433 +41,550 @@ const BARBERS = [
     title: 'Creative Director',
     specialties: ['Executive', 'Consult'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVFy2MLhVvEQEbFnzhSRodh6qd8bUZ_27hKGx8CJ8ig61lPPqjvLlWEiINFReAoDvHKPs8hE4ViITe2qFVPz3CjcxS2PAKtgwfTKtPuuwymzCD9C6K2EUPX63d-s0ecHLfXkAnmGGXkpb47rYjGUIs1HwmYv3gZlfaGVp-U3ARema3TlvYL81jki4rGU0CpXkzS6L8SHKiSr6TOYQo9Np-GRjWYHaFyiZUaYZ1gjvomUwktzARxTuwdht6Xlz5rhapRupQ5M45NAY',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuARZiEG5Hsjks3crtgZ0P-dRsVLC2uiQh2mR3jmiRhKw0FdHX2MDi5nRAesFdnyhMN_QuO76FyVGYjjmxI-tIzFjjSVDSXPwJ_2PJa3Od5gv2JP_1TJKBog3ZGiBOv4Y7gAZir15KJaVkRS4kdtIwHyIzLa4HOmSFLCJoeB-WlSqOks_ReSVDxnGRsKOvBavB11L_nHBJ1uhoufBlQnvK1T5drnGAqWat_HS9zU-GcNpeQ20078HHaoIOvccrcqm60pSCSgHLQl5yw'
-  }
+  },
 ];
 
-// Time slots configuration
 const TIME_SLOTS = [
   '09:00 AM', '10:30 AM', '11:45 AM',
   '01:15 PM', '02:30 PM', '04:00 PM',
-  '05:30 PM', '06:45 PM'
+  '05:30 PM', '06:45 PM',
 ];
 
-// Service configuration
-const SERVICE = {
-  name: 'The Signature Cut & Style',
-  price: 75,
-  duration: '45 Mins'
-};
+// Simulate "booked" slots
+const UNAVAILABLE_SLOTS = ['05:30 PM', '06:45 PM'];
 
-// Booking state
-let bookingState = {
+// ── State ────────────────────────────────────────────────────────────────
+
+let state = {
   step: 1,
+  selectedService: null,
   selectedBarber: null,
   selectedDate: null,
   selectedTime: null,
   currentMonth: new Date().getMonth(),
-  currentYear: new Date().getFullYear()
+  currentYear: new Date().getFullYear(),
 };
 
-// DOM Elements
-let elements = {};
+// ── Init ─────────────────────────────────────────────────────────────────
 
-// Initialize the booking module
 export function initBooking() {
-  cacheElements();
-  bindEvents();
+  // Pre-select a service if passed via URL param
+  const params = new URLSearchParams(window.location.search);
+  const preService = params.get('service');
+
+  renderServiceCards(preService);
+  renderBarberCards();
+  renderTimeSlots();
   renderCalendar();
   updateSummary();
-  updateStepVisibility();
-}
+  updateStepIndicators();
 
-// Cache DOM elements
-function cacheElements() {
-  elements = {
-    // Barber cards
-    barberCards: document.querySelectorAll('[data-barber-id]'),
-    // Calendar
-    monthYearLabel: document.querySelector('.calendar-month-year'),
-    prevMonthBtn: document.querySelector('[data-action="prev-month"]'),
-    nextMonthBtn: document.querySelector('[data-action="next-month"]'),
-    calendarGrid: document.querySelector('.calendar-days-grid'),
-    // Time slots
-    timeSlotButtons: document.querySelectorAll('[data-time-slot]'),
-    // Summary
-    summaryBarberName: document.querySelector('[data-summary="barber-name"]'),
-    summaryBarberImage: document.querySelector('[data-summary="barber-image"]'),
-    summaryDateTime: document.querySelector('[data-summary="date-time"]'),
-    summaryTotal: document.querySelector('[data-summary="total"]'),
-    // Confirm button
-    confirmBtn: document.querySelector('[data-action="confirm-booking"]'),
-    // Steps
-    step1: document.querySelector('[data-step="1"]'),
-    step2: document.querySelector('[data-step="2"]'),
-    stepIndicators: document.querySelectorAll('[data-step-indicator]')
-  };
-}
-
-// Bind event listeners
-function bindEvents() {
-  // Barber selection
-  elements.barberCards.forEach(card => {
-    card.addEventListener('click', () => selectBarber(card.dataset.barberId));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectBarber(card.dataset.barberId);
-      }
-    });
-  });
-
-  // Calendar navigation
-  if (elements.prevMonthBtn) {
-    elements.prevMonthBtn.addEventListener('click', () => navigateMonth(-1));
-  }
-  if (elements.nextMonthBtn) {
-    elements.nextMonthBtn.addEventListener('click', () => navigateMonth(1));
-  }
-
-  // Time slot selection
-  elements.timeSlotButtons.forEach(btn => {
-    btn.addEventListener('click', () => selectTimeSlot(btn.dataset.timeSlot));
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectTimeSlot(btn.dataset.timeSlot);
-      }
-    });
-  });
-
-  // Confirm booking
-  if (elements.confirmBtn) {
-    elements.confirmBtn.addEventListener('click', confirmBooking);
-  }
-}
-
-// Step 1: Barber Selection
-function selectBarber(barberId) {
-  const barber = BARBERS.find(b => b.id === barberId);
-  if (!barber) return;
-
-  bookingState.selectedBarber = barber;
-  bookingState.step = 2;
-
-  // Update UI
-  elements.barberCards.forEach(card => {
-    const isSelected = card.dataset.barberId === barberId;
-    card.classList.toggle('border-primary/40', isSelected);
-    card.classList.toggle('bg-surface-container-high', isSelected);
-    card.classList.toggle('bg-surface-container-low', !isSelected);
-    const checkIcon = card.querySelector('.material-symbols-outlined');
-    if (checkIcon) {
-      checkIcon.style.opacity = isSelected ? '1' : '0';
+  // Pre-select service from URL
+  if (preService) {
+    const svc = SERVICES.find(s => s.id === preService);
+    if (svc) {
+      state.selectedService = svc;
+      updateSummary();
+      updateStepIndicators();
     }
+  }
+
+  // Confirm button
+  const confirmBtn = document.getElementById('confirm-btn');
+  if (confirmBtn) confirmBtn.addEventListener('click', confirmBooking);
+
+  // Step navigation buttons
+  document.querySelectorAll('[data-next-step]').forEach(btn => {
+    btn.addEventListener('click', () => advanceToStep(parseInt(btn.dataset.nextStep)));
+  });
+  document.querySelectorAll('[data-prev-step]').forEach(btn => {
+    btn.addEventListener('click', () => advanceToStep(parseInt(btn.dataset.prevStep)));
+  });
+}
+
+// ── Rendering ─────────────────────────────────────────────────────────────
+
+function renderServiceCards(preSelectedId = null) {
+  const grid = document.getElementById('service-cards');
+  if (!grid) return;
+
+  grid.innerHTML = SERVICES.map(svc => `
+    <div
+      class="service-card group"
+      data-service-id="${svc.id}"
+      role="button"
+      tabindex="0"
+      aria-label="Select ${svc.name}"
+      style="
+        background:#1c1b1b;border:1px solid rgba(77,70,53,0.2);
+        border-radius:0.75rem;padding:1.25rem 1.5rem;cursor:pointer;
+        transition:all 0.3s ease;position:relative;
+        ${svc.featured ? 'border-color:rgba(242,202,80,0.4);background:rgba(242,202,80,0.04);' : ''}
+        ${preSelectedId === svc.id ? 'border-color:rgba(242,202,80,0.5);background:#201f1f;' : ''}
+      "
+    >
+      ${svc.featured ? `<span style="
+        position:absolute;top:-0.6rem;left:1rem;
+        background:#f2ca50;color:#3c2f00;font-family:Manrope,sans-serif;
+        font-size:0.6rem;font-weight:800;letter-spacing:0.12em;
+        text-transform:uppercase;padding:0.15rem 0.6rem;border-radius:9999px;
+      ">Premium</span>` : ''}
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:0.75rem;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem;">
+            <span class="material-symbols-outlined" style="color:#f2ca50;font-size:1.125rem;">${svc.icon}</span>
+            <h3 style="font-family:'Noto Serif',serif;font-size:0.9375rem;color:#e5e2e1;margin:0;">${svc.name}</h3>
+          </div>
+          <p style="font-family:Manrope,sans-serif;font-size:0.75rem;color:#99907c;margin:0;letter-spacing:0.04em;">${svc.duration} &nbsp;·&nbsp; ${svc.category}</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="font-family:'Noto Serif',serif;font-size:1.125rem;font-weight:700;color:#f2ca50;margin:0;">₹${svc.price}</p>
+          <span class="svc-check" style="
+            display:${preSelectedId === svc.id ? 'flex' : 'none'};
+            align-items:center;justify-content:center;
+            color:#f2ca50;font-size:0.75rem;margin-top:0.25rem;
+          ">
+            <span class="material-symbols-outlined" style="font-size:1rem;font-variation-settings:'FILL' 1;">check_circle</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => selectService(card.dataset.serviceId));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectService(card.dataset.serviceId); }
+    });
+  });
+}
+
+function renderBarberCards() {
+  const grid = document.getElementById('barber-cards');
+  if (!grid) return;
+
+  grid.innerHTML = BARBERS.map(b => `
+    <div
+      class="barber-card group"
+      data-barber-id="${b.id}"
+      role="button"
+      tabindex="0"
+      aria-label="Select ${b.name}"
+      style="
+        background:#1c1b1b;border:1px solid rgba(77,70,53,0.2);
+        border-radius:0.75rem;overflow:hidden;cursor:pointer;
+        transition:all 0.3s ease;position:relative;
+        display:flex;align-items:center;gap:0;
+      "
+    >
+      <div style="width:5rem;height:5rem;flex-shrink:0;overflow:hidden;">
+        <img src="${b.image}" alt="${b.name}"
+          style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:filter 0.5s ease;"
+          loading="lazy"
+        />
+      </div>
+      <div style="padding:0.875rem 1rem;flex:1;min-width:0;">
+        <h3 style="font-family:'Noto Serif',serif;font-size:1rem;color:#f2ca50;margin:0 0 0.2rem;">${b.name}</h3>
+        <p style="font-family:Manrope,sans-serif;font-size:0.6875rem;color:#99907c;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 0.5rem;">${b.title}</p>
+        <div style="display:flex;gap:0.375rem;flex-wrap:wrap;">
+          ${b.specialties.map(s => `
+            <span style="
+              background:rgba(77,70,53,0.3);color:#d0c5af;
+              font-family:Manrope,sans-serif;font-size:0.625rem;
+              text-transform:uppercase;letter-spacing:0.08em;
+              padding:0.15rem 0.5rem;border-radius:0.25rem;
+            ">${s}</span>
+          `).join('')}
+        </div>
+      </div>
+      <div class="barber-check" style="
+        position:absolute;top:0.75rem;right:0.75rem;
+        opacity:0;transition:opacity 0.2s;
+      ">
+        <span class="material-symbols-outlined" style="color:#f2ca50;font-size:1.25rem;font-variation-settings:'FILL' 1;">check_circle</span>
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.barber-card').forEach(card => {
+    card.addEventListener('click', () => selectBarber(card.dataset.barberId));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectBarber(card.dataset.barberId); }
+    });
+  });
+}
+
+function renderTimeSlots() {
+  const grid = document.getElementById('time-slots');
+  if (!grid) return;
+
+  grid.innerHTML = TIME_SLOTS.map(slot => {
+    const unavailable = UNAVAILABLE_SLOTS.includes(slot);
+    return `
+      <button
+        class="time-slot-btn"
+        data-time="${slot}"
+        ${unavailable ? 'disabled aria-disabled="true"' : ''}
+        style="
+          padding:0.625rem 0.5rem;border-radius:0.5rem;
+          border:1px solid rgba(77,70,53,0.25);
+          background:#1c1b1b;
+          color:${unavailable ? '#4d4635' : '#d0c5af'};
+          font-family:Manrope,sans-serif;font-size:0.75rem;
+          font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+          cursor:${unavailable ? 'not-allowed' : 'pointer'};
+          opacity:${unavailable ? '0.4' : '1'};
+          transition:all 0.2s ease;
+        "
+      >${slot}${unavailable ? '<br><span style="font-size:0.5rem;letter-spacing:0.05em;font-weight:400;">Unavailable</span>' : ''}</button>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.time-slot-btn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => selectTime(btn.dataset.time));
+  });
+}
+
+// ── Selection Handlers ────────────────────────────────────────────────────
+
+function selectService(id) {
+  state.selectedService = SERVICES.find(s => s.id === id) || null;
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    const isSelected = card.dataset.serviceId === id;
+    card.style.borderColor = isSelected ? 'rgba(242,202,80,0.5)' : 'rgba(77,70,53,0.2)';
+    card.style.background  = isSelected ? '#201f1f' : '#1c1b1b';
+    card.querySelector('.svc-check').style.display = isSelected ? 'flex' : 'none';
   });
 
   updateSummary();
-  updateStepVisibility();
-  renderCalendar();
+  updateStepIndicators();
 
-  // Smooth scroll to step 2
-  elements.step2?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Auto-scroll to barber section
+  setTimeout(() => document.getElementById('step-barber')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
 }
 
-// Step 2: Calendar Navigation
-function navigateMonth(delta) {
-  bookingState.currentMonth += delta;
-  if (bookingState.currentMonth < 0) {
-    bookingState.currentMonth = 11;
-    bookingState.currentYear--;
-  } else if (bookingState.currentMonth > 11) {
-    bookingState.currentMonth = 0;
-    bookingState.currentYear++;
-  }
-  renderCalendar();
+function selectBarber(id) {
+  state.selectedBarber = BARBERS.find(b => b.id === id) || null;
+
+  document.querySelectorAll('.barber-card').forEach(card => {
+    const isSelected = card.dataset.barberId === id;
+    card.style.borderColor = isSelected ? 'rgba(242,202,80,0.5)' : 'rgba(77,70,53,0.2)';
+    card.style.background  = isSelected ? '#201f1f' : '#1c1b1b';
+    card.querySelector('.barber-check').style.opacity = isSelected ? '1' : '0';
+    const img = card.querySelector('img');
+    if (img) img.style.filter = isSelected ? 'grayscale(0%)' : 'grayscale(100%)';
+  });
+
+  updateSummary();
+  updateStepIndicators();
+
+  setTimeout(() => document.getElementById('step-datetime')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
 }
+
+function selectTime(time) {
+  state.selectedTime = time;
+
+  document.querySelectorAll('.time-slot-btn').forEach(btn => {
+    const isSelected = btn.dataset.time === time;
+    btn.style.background   = isSelected ? '#f2ca50' : '#1c1b1b';
+    btn.style.color        = isSelected ? '#3c2f00' : '#d0c5af';
+    btn.style.borderColor  = isSelected ? '#f2ca50' : 'rgba(77,70,53,0.25)';
+    btn.style.fontWeight   = isSelected ? '800' : '700';
+  });
+
+  updateSummary();
+}
+
+// ── Calendar ─────────────────────────────────────────────────────────────
 
 function renderCalendar() {
-  if (!elements.calendarGrid || !elements.monthYearLabel) return;
+  const grid   = document.getElementById('calendar-grid');
+  const label  = document.getElementById('calendar-month-label');
+  const prevBtn = document.getElementById('cal-prev');
+  const nextBtn = document.getElementById('cal-next');
 
-  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
+  if (!grid || !label) return;
 
-  elements.monthYearLabel.textContent = `${monthNames[bookingState.currentMonth]} ${bookingState.currentYear}`;
+  const months = ['January','February','March','April','May','June',
+    'July','August','September','October','November','December'];
+  label.textContent = `${months[state.currentMonth]} ${state.currentYear}`;
 
-  const firstDay = new Date(bookingState.currentYear, bookingState.currentMonth, 1).getDay();
-  const daysInMonth = new Date(bookingState.currentYear, bookingState.currentMonth + 1, 0).getDate();
-  const prevMonthDays = new Date(bookingState.currentYear, bookingState.currentMonth, 0).getDate();
+  const firstDay = new Date(state.currentYear, state.currentMonth, 1).getDay();
+  const daysInMonth = new Date(state.currentYear, state.currentMonth + 1, 0).getDate();
+  const prevDays = new Date(state.currentYear, state.currentMonth, 0).getDate();
+  const today = new Date();
 
   let html = '';
 
-  // Previous month filler days
+  // Prev month filler
   for (let i = firstDay - 1; i >= 0; i--) {
-    const day = prevMonthDays - i;
-    html += `<div class="h-10 flex items-center justify-center text-outline-variant opacity-20 cursor-not-allowed" data-day="${day}" data-month="prev">${day}</div>`;
+    html += `<div style="height:2.25rem;display:flex;align-items:center;justify-content:center;color:#4d4635;opacity:0.4;font-size:0.875rem;">${prevDays - i}</div>`;
   }
 
-  // Current month days
-  const today = new Date();
+  // Current month
   for (let day = 1; day <= daysInMonth; day++) {
-    const date = new Date(bookingState.currentYear, bookingState.currentMonth, day);
+    const date = new Date(state.currentYear, state.currentMonth, day);
     const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const isSelected = bookingState.selectedDate &&
-      bookingState.selectedDate.getDate() === day &&
-      bookingState.selectedDate.getMonth() === bookingState.currentMonth &&
-      bookingState.selectedDate.getFullYear() === bookingState.currentYear;
+    const isSelected = state.selectedDate &&
+      state.selectedDate.getDate() === day &&
+      state.selectedDate.getMonth() === state.currentMonth &&
+      state.selectedDate.getFullYear() === state.currentYear;
     const isToday = date.toDateString() === today.toDateString();
 
-    let classes = 'h-10 flex items-center justify-center rounded-lg text-sm transition-all';
-    let dataAttrs = `data-day="${day}" data-month="current"`;
+    let style = 'height:2.25rem;display:flex;align-items:center;justify-content:center;border-radius:0.5rem;font-size:0.875rem;transition:all 0.2s;';
+    let extra = '';
 
     if (isPast) {
-      classes += ' text-outline-variant opacity-40 cursor-not-allowed';
+      style += 'color:#4d4635;opacity:0.4;cursor:not-allowed;';
     } else if (isSelected) {
-      classes += ' bg-primary text-on-primary font-bold shadow-lg shadow-primary/20';
+      style += 'background:#f2ca50;color:#3c2f00;font-weight:800;cursor:pointer;';
     } else if (isToday) {
-      classes += ' bg-surface-container-highest text-on-surface font-medium hover:bg-primary/20 hover:text-primary cursor-pointer';
+      style += 'background:rgba(242,202,80,0.15);color:#f2ca50;font-weight:700;cursor:pointer;';
     } else {
-      classes += ' hover:bg-surface-container-highest cursor-pointer text-on-surface';
+      style += 'color:#e5e2e1;cursor:pointer;';
+      extra = 'onmouseover="this.style.background=\'rgba(242,202,80,0.08)\'" onmouseout="this.style.background=\'\'"';
     }
 
-    html += `<div class="${classes}" ${dataAttrs}>${day}</div>`;
+    if (!isPast) {
+      html += `<div style="${style}" ${extra} data-cal-day="${day}">${day}</div>`;
+    } else {
+      html += `<div style="${style}">${day}</div>`;
+    }
   }
 
-  elements.calendarGrid.innerHTML = html;
+  grid.innerHTML = html;
 
-  // Bind click events for new calendar days
-  elements.calendarGrid.querySelectorAll('[data-month="current"]:not(.cursor-not-allowed)').forEach(dayEl => {
-    dayEl.addEventListener('click', () => selectDate(parseInt(dayEl.dataset.day)));
-    dayEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectDate(parseInt(dayEl.dataset.day));
-      }
-    });
+  // Bind clicks
+  grid.querySelectorAll('[data-cal-day]').forEach(el => {
+    el.addEventListener('click', () => selectDate(parseInt(el.dataset.calDay)));
   });
+
+  // Calendar nav
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      state.currentMonth--;
+      if (state.currentMonth < 0) { state.currentMonth = 11; state.currentYear--; }
+      renderCalendar();
+    };
+  }
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      state.currentMonth++;
+      if (state.currentMonth > 11) { state.currentMonth = 0; state.currentYear++; }
+      renderCalendar();
+    };
+  }
 }
 
 function selectDate(day) {
-  const date = new Date(bookingState.currentYear, bookingState.currentMonth, day);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  if (date < today) return; // Don't allow past dates
-
-  bookingState.selectedDate = date;
+  const date = new Date(state.currentYear, state.currentMonth, day);
+  const today = new Date(); today.setHours(0,0,0,0);
+  if (date < today) return;
+  state.selectedDate = date;
   renderCalendar();
   updateSummary();
 }
 
-// Time slot selection
-function selectTimeSlot(time) {
-  bookingState.selectedTime = time;
+// ── Summary Panel ─────────────────────────────────────────────────────────
 
-  elements.timeSlotButtons.forEach(btn => {
-    const isSelected = btn.dataset.timeSlot === time;
-    btn.classList.toggle('bg-primary', isSelected);
-    btn.classList.toggle('text-on-primary', isSelected);
-    btn.classList.toggle('border-primary', isSelected);
-    btn.classList.toggle('shadow-lg', isSelected);
-    btn.classList.toggle('shadow-primary/10', isSelected);
-    btn.classList.toggle('bg-surface-container-highest', !isSelected);
-    btn.classList.toggle('text-on-surface-variant', !isSelected);
-  });
-
-  updateSummary();
-}
-
-// Update summary panel
 function updateSummary() {
+  const set = (sel, val) => document.querySelectorAll(sel).forEach(el => el.textContent = val);
+  const show = (sel, visible) => document.querySelectorAll(sel).forEach(el => el.style.display = visible ? '' : 'none');
+
+  // Service
+  set('[data-summary-service]', state.selectedService ? state.selectedService.name : '—');
+  set('[data-summary-price]',   state.selectedService ? `₹${state.selectedService.price}` : '—');
+  set('[data-summary-total]',   state.selectedService ? `₹${state.selectedService.price}` : '₹0');
+  set('[data-summary-duration]',state.selectedService ? state.selectedService.duration : '—');
+
   // Barber
-  if (elements.summaryBarberName && elements.summaryBarberImage) {
-    if (bookingState.selectedBarber) {
-      elements.summaryBarberName.textContent = bookingState.selectedBarber.name;
-      elements.summaryBarberImage.src = bookingState.selectedBarber.thumbnail;
-      elements.summaryBarberImage.alt = bookingState.selectedBarber.name;
-    } else {
-      elements.summaryBarberName.textContent = '—';
-      elements.summaryBarberImage.src = '';
-    }
+  set('[data-summary-barber]',  state.selectedBarber ? state.selectedBarber.name : '—');
+  const barberImg = document.querySelector('[data-summary-barber-img]');
+  if (barberImg) {
+    barberImg.src = state.selectedBarber ? state.selectedBarber.image : '';
+    barberImg.style.display = state.selectedBarber ? 'block' : 'none';
   }
 
   // Date & Time
-  if (elements.summaryDateTime) {
-    if (bookingState.selectedDate && bookingState.selectedTime) {
-      const options = { weekday: 'long', month: 'short', day: 'numeric' };
-      const dateStr = bookingState.selectedDate.toLocaleDateString('en-US', options);
-      elements.summaryDateTime.textContent = `${dateStr} • ${bookingState.selectedTime}`;
-    } else if (bookingState.selectedDate) {
-      const options = { weekday: 'long', month: 'short', day: 'numeric' };
-      const dateStr = bookingState.selectedDate.toLocaleDateString('en-US', options);
-      elements.summaryDateTime.textContent = `${dateStr} • Select time`;
-    } else {
-      elements.summaryDateTime.textContent = 'Select date & time';
-    }
+  let dateTimeStr = '—';
+  if (state.selectedDate && state.selectedTime) {
+    const opts = { weekday: 'short', month: 'short', day: 'numeric' };
+    dateTimeStr = `${state.selectedDate.toLocaleDateString('en-IN', opts)} · ${state.selectedTime}`;
+  } else if (state.selectedDate) {
+    const opts = { weekday: 'short', month: 'short', day: 'numeric' };
+    dateTimeStr = `${state.selectedDate.toLocaleDateString('en-IN', opts)} · Select time`;
   }
+  set('[data-summary-datetime]', dateTimeStr);
 
-  // Total
-  if (elements.summaryTotal) {
-    elements.summaryTotal.textContent = `$${SERVICE.price.toFixed(2)}`;
-  }
-
-  // Enable/disable confirm button
-  const isComplete = bookingState.selectedBarber && bookingState.selectedDate && bookingState.selectedTime;
-  if (elements.confirmBtn) {
-    elements.confirmBtn.disabled = !isComplete;
-    elements.confirmBtn.style.opacity = isComplete ? '1' : '0.5';
-    elements.confirmBtn.style.cursor = isComplete ? 'pointer' : 'not-allowed';
+  // Enable / disable confirm
+  const isReady = state.selectedService && state.selectedBarber && state.selectedDate && state.selectedTime;
+  const confirmBtn = document.getElementById('confirm-btn');
+  if (confirmBtn) {
+    confirmBtn.disabled  = !isReady;
+    confirmBtn.style.opacity = isReady ? '1' : '0.5';
+    confirmBtn.style.cursor  = isReady ? 'pointer' : 'not-allowed';
   }
 }
 
-// Update step visibility indicators
-function updateStepVisibility() {
-  elements.stepIndicators.forEach(indicator => {
-    const step = parseInt(indicator.dataset.stepIndicator);
-    indicator.classList.toggle('text-primary', step <= bookingState.step);
-    indicator.classList.toggle('text-outline-variant', step > bookingState.step);
+// ── Step Indicators ───────────────────────────────────────────────────────
+
+function updateStepIndicators() {
+  const step = state.selectedService ? (state.selectedBarber ? (state.selectedDate && state.selectedTime ? 3 : 2) : 1) : 0;
+  document.querySelectorAll('[data-step-indicator]').forEach(el => {
+    const s = parseInt(el.dataset.stepIndicator);
+    el.style.color = s <= step ? '#f2ca50' : '#4d4635';
+    el.style.borderColor = s <= step ? 'rgba(242,202,80,0.5)' : 'rgba(77,70,53,0.3)';
+    el.style.background = s <= step ? 'rgba(242,202,80,0.08)' : 'transparent';
   });
 }
 
-// Confirm booking
+function advanceToStep(step) {
+  document.getElementById(`step-section-${step}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Confirm ───────────────────────────────────────────────────────────────
+
 function confirmBooking() {
-  if (!bookingState.selectedBarber || !bookingState.selectedDate || !bookingState.selectedTime) {
+  if (!state.selectedService || !state.selectedBarber || !state.selectedDate || !state.selectedTime) {
+    toast.warning('Please complete all steps before confirming.', { title: 'Incomplete Selection' });
     return;
   }
 
-  const bookingData = {
-    barber: bookingState.selectedBarber,
-    service: SERVICE,
-    date: bookingState.selectedDate,
-    time: bookingState.selectedTime,
-    total: SERVICE.price,
-    bookingId: generateBookingId(),
-    timestamp: new Date().toISOString()
-  };
+  const confirmBtn = document.getElementById('confirm-btn');
+  if (confirmBtn) {
+    confirmBtn.disabled = true;
+    confirmBtn.innerHTML = `
+      <span style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+        <span class="material-symbols-outlined" style="font-size:1rem;animation:spin 1s linear infinite;">progress_activity</span>
+        Confirming...
+      </span>
+    `;
+  }
 
-  // Show confirmation modal
-  showConfirmationModal(bookingData);
+  // Simulate network delay
+  setTimeout(() => {
+    const bookingId = 'SHL-' + Date.now().toString(36).toUpperCase();
+    const opts = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
+    const dateStr = state.selectedDate.toLocaleDateString('en-IN', opts);
+    const user = getUser();
 
-  // In a real app, you would send this to your backend:
-  // fetch('/api/bookings', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(bookingData)
-  // });
+    // Save to localStorage
+    const booking = {
+      bookingId,
+      userId: user?.id || 'guest',
+      serviceName: state.selectedService.name,
+      barberName: state.selectedBarber.name,
+      dateStr,
+      time: state.selectedTime,
+      total: state.selectedService.price,
+      status: 'confirmed',
+      timestamp: new Date().toISOString(),
+    };
+
+    const existing = JSON.parse(localStorage.getItem('shalimar-bookings') || '[]');
+    existing.push(booking);
+    localStorage.setItem('shalimar-bookings', JSON.stringify(existing));
+
+    // Show confirmation modal
+    showConfirmationModal(booking);
+
+    // Reset confirm button
+    if (confirmBtn) {
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Confirm Appointment';
+      confirmBtn.style.opacity = '0.5';
+    }
+  }, 1200);
 }
 
-function generateBookingId() {
-  return 'SHL-' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).substr(2, 4).toUpperCase();
-}
+function showConfirmationModal(booking) {
+  const existing = document.getElementById('booking-success-modal');
+  if (existing) existing.remove();
 
-function showConfirmationModal(bookingData) {
-  const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
-  const dateStr = bookingData.date.toLocaleDateString('en-US', options);
-
-  const modalHtml = `
-    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" id="booking-modal">
-      <div class="bg-surface-container-high rounded-2xl p-8 max-w-md w-full border border-outline-variant/20 animate-in fade-in zoom-in-95 duration-300">
-        <div class="text-center mb-8">
-          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          </div>
-          <h3 class="font-notoSerif text-2xl text-on-surface">Appointment Confirmed!</h3>
-          <p class="text-on-surface-variant mt-2">Your booking has been secured</p>
-        </div>
-
-        <div class="bg-surface-container-low rounded-xl p-6 mb-6 space-y-4">
-          <div class="flex justify-between">
-            <span class="text-on-surface-variant text-sm">Booking ID</span>
-            <span class="font-manrope font-bold text-primary">${bookingData.bookingId}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-on-surface-variant text-sm">Service</span>
-            <span class="font-manrope text-sm text-on-surface">${bookingData.service.name}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-on-surface-variant text-sm">Barber</span>
-            <span class="font-manrope text-sm text-on-surface">${bookingData.barber.name}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-on-surface-variant text-sm">Date & Time</span>
-            <span class="font-manrope text-sm text-on-surface">${dateStr} • ${bookingData.time}</span>
-          </div>
-          <div class="flex justify-between border-t border-outline-variant/20 pt-4">
-            <span class="font-notoSerif text-on-surface uppercase tracking-widest">Total</span>
-            <span class="text-primary font-bold">$${bookingData.total.toFixed(2)}</span>
-          </div>
-        </div>
-
-        <p class="text-[10px] text-center text-on-surface-variant uppercase tracking-wider opacity-60 mb-6">
-          Cancel up to 24 hours in advance without fee
-        </p>
-
-        <button class="w-full py-4 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-manrope font-extrabold uppercase tracking-[0.2em] text-xs hover:shadow-[0_10px_30px_rgba(242,202,80,0.3)] active:scale-95 transition-all duration-300" id="modal-close-btn">
-          Done
-        </button>
+  const modal = document.createElement('div');
+  modal.id = 'booking-success-modal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);';
+  modal.innerHTML = `
+    <div style="
+      background:#201f1f;border:1px solid rgba(242,202,80,0.2);
+      border-radius:1rem;padding:2.5rem 2rem;max-width:26rem;width:100%;
+      text-align:center;
+      animation:scaleIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    ">
+      <style>@keyframes scaleIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}</style>
+      <div style="width:4.5rem;height:4.5rem;border-radius:50%;background:rgba(76,175,125,0.12);border:1.5px solid rgba(76,175,125,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+        <span class="material-symbols-outlined" style="color:#4caf7d;font-size:2rem;font-variation-settings:'FILL' 1;">check_circle</span>
       </div>
+      <h3 style="font-family:'Noto Serif',serif;font-size:1.375rem;color:#e5e2e1;margin:0 0 0.5rem;">Appointment Confirmed!</h3>
+      <p style="font-family:Manrope,sans-serif;font-size:0.875rem;color:#d0c5af;margin:0 0 1.5rem;">Your booking has been secured at the atelier.</p>
+
+      <div style="background:#1c1b1b;border-radius:0.75rem;padding:1.25rem;margin-bottom:1.5rem;text-align:left;display:grid;gap:0.75rem;">
+        ${[
+          ['Booking ID', booking.bookingId, '#f2ca50'],
+          ['Service', booking.serviceName, '#e5e2e1'],
+          ['Barber', booking.barberName, '#e5e2e1'],
+          ['Date & Time', `${booking.dateStr} · ${booking.time}`, '#e5e2e1'],
+        ].map(([label, value, color]) => `
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;">
+            <span style="font-family:Manrope,sans-serif;font-size:0.75rem;color:#99907c;letter-spacing:0.06em;text-transform:uppercase;">${label}</span>
+            <span style="font-family:Manrope,sans-serif;font-size:0.8125rem;color:${color};font-weight:600;text-align:right;">${value}</span>
+          </div>
+        `).join('')}
+        <div style="border-top:1px solid rgba(77,70,53,0.2);padding-top:0.75rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Noto Serif',serif;font-size:0.9375rem;color:#e5e2e1;letter-spacing:0.08em;text-transform:uppercase;">Total</span>
+          <span style="font-family:'Noto Serif',serif;font-size:1.25rem;font-weight:700;color:#f2ca50;">₹${booking.total}</span>
+        </div>
+      </div>
+
+      <p style="font-family:Manrope,sans-serif;font-size:0.7rem;color:#99907c;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.5rem;">
+        Cancel up to 24 hours in advance without fee
+      </p>
+
+      <button id="modal-done-btn" style="
+        width:100%;padding:1rem;border-radius:9999px;
+        background:linear-gradient(135deg,#f2ca50,#d4af37);
+        color:#3c2f00;font-family:Manrope,sans-serif;font-weight:800;
+        font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;
+        border:none;cursor:pointer;transition:all 0.3s;
+      ">Done</button>
     </div>
   `;
 
-  document.body.insertAdjacentHTML('beforeend', modalHtml);
+  document.body.appendChild(modal);
+  toast.success('Your appointment is confirmed!', { title: 'Booking Confirmed', duration: 6000 });
 
-  const modal = document.getElementById('booking-modal');
-  const closeBtn = document.getElementById('modal-close-btn');
-
-  const closeModal = () => {
-    modal.classList.add('animate-out', 'fade-out', 'duration-200');
-    setTimeout(() => modal.remove(), 200);
+  document.getElementById('modal-done-btn').addEventListener('click', () => {
+    modal.remove();
     resetBooking();
-  };
-
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
   });
-
-  // Close on Escape key
-  const handleEscape = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-      document.removeEventListener('keydown', handleEscape);
-    }
-  };
-  document.addEventListener('keydown', handleEscape);
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  document.addEventListener('keydown', function esc(e) {
+    if (e.key === 'Escape') { modal.remove(); document.removeEventListener('keydown', esc); }
+  });
 }
 
 function resetBooking() {
-  bookingState = {
+  state = {
     step: 1,
+    selectedService: null,
     selectedBarber: null,
     selectedDate: null,
     selectedTime: null,
     currentMonth: new Date().getMonth(),
-    currentYear: new Date().getFullYear()
+    currentYear: new Date().getFullYear(),
   };
-
-  // Reset barber cards
-  elements.barberCards.forEach(card => {
-    card.classList.remove('border-primary/40', 'bg-surface-container-high');
-    card.classList.add('bg-surface-container-low');
-    const checkIcon = card.querySelector('.material-symbols-outlined');
-    if (checkIcon) checkIcon.style.opacity = '0';
-  });
-
-  // Reset time slots
-  elements.timeSlotButtons.forEach(btn => {
-    btn.classList.remove('bg-primary', 'text-on-primary', 'border-primary', 'shadow-lg', 'shadow-primary/10');
-    btn.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
-  });
-
+  renderServiceCards();
+  renderBarberCards();
+  renderTimeSlots();
   renderCalendar();
   updateSummary();
-  updateStepVisibility();
-
-  // Scroll back to top
+  updateStepIndicators();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Auto-initialize if on book-now page
+// ── Auto-init ─────────────────────────────────────────────────────────────
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initBooking);
 } else {

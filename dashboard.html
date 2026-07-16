@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Your Shalimar Atelier dashboard — manage appointments, profile settings, and account preferences."/>
+  <title>Dashboard | SHALIMAR ATELIER</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+          "outline": "#99907c", "outline-variant": "#4d4635",
+        },
+        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
+      }},
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(1.5rem)} to{opacity:1;transform:translateY(0)} }
+    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
+    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
+    .btn-gold:active { transform:scale(0.97); }
+    .btn-gold:disabled { opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none; }
+    .btn-outline { border:1px solid rgba(242,202,80,0.3);color:#f2ca50;background:transparent;transition:all 0.3s; }
+    .btn-outline:hover { background:rgba(242,202,80,0.08);border-color:#f2ca50; }
+    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+    [data-reveal] { opacity:0; transform:translateY(1.5rem); transition:opacity 0.6s ease, transform 0.6s ease; }
+    [data-reveal].revealed { opacity:1; transform:translateY(0); }
+    .dash-input {
+      width:100%;background:#1c1b1b;border:1px solid rgba(77,70,53,0.4);border-radius:0.75rem;
+      padding:0.875rem 1rem;font-family:Manrope,sans-serif;font-size:0.9rem;color:#e5e2e1;
+      outline:none;transition:border-color 0.25s ease, box-shadow 0.25s ease;-webkit-appearance:none;
+    }
+    .dash-input:focus { border-color:rgba(242,202,80,0.6);box-shadow:0 0 0 3px rgba(242,202,80,0.08); }
+    .dash-input::placeholder { color:#99907c; }
+    .dash-input.error { border-color:rgba(239,83,80,0.5); }
+    .safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0.5rem); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+  <div class="flex items-center gap-3">
+    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+    </button>
+    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+  </div>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase">Book Now</a>
+  </nav>
+  <div class="flex items-center gap-2">
+    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" aria-label="Toggle theme">
+      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+    </button>
+    <div data-auth-slot class="flex items-center"></div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════ -->
+<main class="pt-32 pb-32 px-4 md:px-8 max-w-6xl mx-auto">
+
+  <!-- ── Page Title ── -->
+  <div class="mb-10" data-reveal>
+    <h1 class="font-notoSerif text-5xl md:text-6xl font-black text-on-surface tracking-tighter mb-2">
+      My Account<span class="text-primary">.</span>
+    </h1>
+    <p class="font-manrope text-on-surface-variant text-sm tracking-wide">Manage your profile, bookings, and preferences</p>
+  </div>
+
+  <!-- ── Welcome Section ── -->
+  <section class="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/10 mb-10" data-reveal>
+    <div class="flex flex-col sm:flex-row items-center sm:items-center gap-6">
+      <!-- Avatar / Initials -->
+      <div class="w-20 h-20 rounded-full bg-primary/15 border-2 border-primary/30 flex items-center justify-center flex-shrink-0">
+        <span class="font-notoSerif text-3xl font-black text-primary" data-user-initials>—</span>
+      </div>
+      <!-- Info -->
+      <div class="flex-1 text-center sm:text-left">
+        <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface font-bold" data-user-name>Loading...</h2>
+        <p class="font-manrope text-sm text-on-surface-variant mt-1" data-user-email>—</p>
+        <p class="font-manrope text-xs text-outline tracking-wider mt-2" data-user-joined>—</p>
+      </div>
+      <!-- Logout -->
+      <button data-logout class="btn-outline px-5 py-2.5 rounded-full font-manrope font-bold text-[10px] tracking-widest uppercase flex-shrink-0">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:1rem;">logout</span>
+          Logout
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── Stats Cards ── -->
+  <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10" data-reveal>
+    <!-- Upcoming -->
+    <div class="bg-surface-container-high rounded-2xl p-6 border border-outline-variant/10 card-hover">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary" style="font-size:1.5rem;">event</span>
+        </div>
+        <span class="font-manrope text-[10px] tracking-widest uppercase text-on-surface-variant">Upcoming</span>
+      </div>
+      <p class="font-notoSerif text-4xl font-black text-primary mb-1"><span data-stat-upcoming>0</span></p>
+      <p class="font-manrope text-xs text-outline">Appointments scheduled</p>
+    </div>
+
+    <!-- Completed -->
+    <div class="bg-surface-container-high rounded-2xl p-6 border border-outline-variant/10 card-hover">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary" style="font-size:1.5rem;">check_circle</span>
+        </div>
+        <span class="font-manrope text-[10px] tracking-widest uppercase text-on-surface-variant">Completed</span>
+      </div>
+      <p class="font-notoSerif text-4xl font-black text-primary mb-1"><span data-stat-completed>0</span></p>
+      <p class="font-manrope text-xs text-outline">Sessions finished</p>
+    </div>
+
+    <!-- Total -->
+    <div class="bg-surface-container-high rounded-2xl p-6 border border-outline-variant/10 card-hover">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary" style="font-size:1.5rem;">content_cut</span>
+        </div>
+        <span class="font-manrope text-[10px] tracking-widest uppercase text-on-surface-variant">Total</span>
+      </div>
+      <p class="font-notoSerif text-4xl font-black text-primary mb-1"><span data-stat-total>0</span></p>
+      <p class="font-manrope text-xs text-outline">All time bookings</p>
+    </div>
+  </section>
+
+  <!-- ── My Bookings ── -->
+  <section class="mb-10" data-reveal>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">My Bookings</h2>
+      <a href="/book-now.html" class="btn-gold px-5 py-2.5 rounded-full font-manrope font-bold text-[10px] tracking-widest uppercase flex-shrink-0">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:1rem;">add</span>
+          New Booking
+        </span>
+      </a>
+    </div>
+    <div id="booking-list">
+      <!-- Populated by dashboard.js -->
+      <div class="space-y-3">
+        <div class="bg-surface-container-high rounded-xl p-5 animate-pulse h-20"></div>
+        <div class="bg-surface-container-high rounded-xl p-5 animate-pulse h-20"></div>
+        <div class="bg-surface-container-high rounded-xl p-5 animate-pulse h-20"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Profile Settings ── -->
+  <section class="mb-10" data-reveal>
+    <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface mb-6">Profile Settings</h2>
+    <div class="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/10">
+      <form id="profile-form" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div>
+            <label for="profile-name" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Full Name</label>
+            <input type="text" id="profile-name" name="name" class="dash-input" placeholder="Your full name" autocomplete="name"/>
+          </div>
+          <!-- Email -->
+          <div>
+            <label for="profile-email" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Email</label>
+            <input type="email" id="profile-email" name="email" class="dash-input" placeholder="you@example.com" autocomplete="email"/>
+          </div>
+          <!-- Phone -->
+          <div>
+            <label for="profile-phone" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Phone</label>
+            <input type="tel" id="profile-phone" name="phone" class="dash-input" placeholder="+91 98765 43210" autocomplete="tel"/>
+          </div>
+        </div>
+        <div class="mt-8 flex justify-end">
+          <button type="submit" id="profile-submit" class="btn-gold px-8 py-3 rounded-full font-manrope font-bold text-xs tracking-widest uppercase">
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Change Password ── -->
+  <section data-reveal>
+    <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface mb-6">Change Password</h2>
+    <div class="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/10">
+      <form id="password-form" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Current Password -->
+          <div>
+            <label for="current-password" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Current Password</label>
+            <input type="password" id="current-password" name="currentPassword" class="dash-input" placeholder="Enter current password" autocomplete="current-password"/>
+          </div>
+          <!-- New Password -->
+          <div>
+            <label for="new-password" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">New Password</label>
+            <input type="password" id="new-password" name="newPassword" class="dash-input" placeholder="Min. 8 characters" autocomplete="new-password"/>
+          </div>
+          <!-- Confirm New Password -->
+          <div>
+            <label for="confirm-password" class="block font-manrope text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Confirm New Password</label>
+            <input type="password" id="confirm-password" class="dash-input" placeholder="Re-enter new password" autocomplete="new-password"/>
+          </div>
+        </div>
+        <div class="mt-8 flex justify-end">
+          <button type="submit" id="password-submit" class="btn-gold px-8 py-3 rounded-full font-manrope font-bold text-xs tracking-widest uppercase">
+            Update Password
+          </button>
+        </div>
+        <p id="password-form-msg" class="mt-4 font-manrope text-sm text-center hidden"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+  <p class="font-manrope text-on-surface-variant text-sm max-w-xs leading-relaxed">
+    Elevated grooming for the modern man. Where tradition meets contemporary craft.
+  </p>
+  <div class="flex gap-10 flex-wrap justify-center">
+    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    <a href="/book-now.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book Now</a>
+    <a href="/dashboard.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-primary transition-colors">My Account</a>
+  </div>
+  <div class="h-px w-full max-w-sm bg-outline-variant/20"></div>
+  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+    &copy; 2025 Shalimar Atelier. All rights reserved.
+  </p>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     MOBILE BOTTOM NAV
+══════════════════════════════════════════ -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1 safe-area-pb">
+  <a data-bottom-nav-link="/" href="/" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+  </a>
+  <a data-bottom-nav-link="/services.html" href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
+  </a>
+  <a data-bottom-nav-link="/gallery.html" href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+  </a>
+  <a data-bottom-nav-link="/book-now.html" href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
+  </a>
+  <a data-bottom-nav-link="/dashboard.html" href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">person</span>
+    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Account</span>
+  </a>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script type="module" src="/src/js/theme.js"></script>
+<script type="module" src="/src/js/mobile-nav.js"></script>
+<script type="module" src="/src/js/dashboard.js"></script>
+<script type="module">
+  // ── Scroll reveal ──
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);} }), {threshold:0.1,rootMargin:'0 0 -60px 0'});
+  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+  // ── Header hide on scroll down ──
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('site-header'); if(!h) return;
+    const y = window.scrollY;
+    if(y > 200 && y > lastY) h.classList.add('hidden-up'); else h.classList.remove('hidden-up');
+    lastY = y;
+  }, { passive: true });
+
+  // ── Password form ──
+  const pwForm = document.getElementById('password-form');
+  const pwMsg = document.getElementById('password-form-msg');
+  const pwSubmit = document.getElementById('password-submit');
+
+  pwForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    pwMsg.classList.add('hidden');
+    pwMsg.classList.remove('text-red-400', 'text-green-400');
+
+    const current = document.getElementById('current-password').value;
+    const newPw = document.getElementById('new-password').value;
+    const confirm = document.getElementById('confirm-password').value;
+
+    if (!current || !newPw || !confirm) {
+      pwMsg.textContent = 'All fields are required.';
+      pwMsg.classList.remove('hidden', 'text-green-400');
+      pwMsg.classList.add('text-red-400');
+      return;
+    }
+    if (newPw.length < 8) {
+      pwMsg.textContent = 'New password must be at least 8 characters.';
+      pwMsg.classList.remove('hidden', 'text-green-400');
+      pwMsg.classList.add('text-red-400');
+      return;
+    }
+    if (newPw !== confirm) {
+      pwMsg.textContent = 'New passwords do not match.';
+      pwMsg.classList.remove('hidden', 'text-green-400');
+      pwMsg.classList.add('text-red-400');
+      return;
+    }
+
+    pwSubmit.disabled = true;
+    pwSubmit.innerHTML = '<span style="display:flex;align-items:center;justify-content:center;gap:0.5rem;"><span class="material-symbols-outlined" style="font-size:1rem;animation:spin 1s linear infinite;">progress_activity</span> Updating...</span>';
+
+    // Try API first, fallback to localStorage mock
+    try {
+      const tokenData = JSON.parse(localStorage.getItem('shalimar-auth') || 'null');
+      if (tokenData && tokenData.token) {
+        const response = await fetch('/api/auth/change-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${tokenData.token}` },
+          body: JSON.stringify({ currentPassword: current, newPassword: newPw }),
+        });
+        const data = await response.json();
+        if (data.success) {
+          pwMsg.textContent = data.message || 'Password updated successfully!';
+          pwMsg.classList.remove('hidden', 'text-red-400');
+          pwMsg.classList.add('text-green-400');
+          pwForm.reset();
+        } else {
+          pwMsg.textContent = data.message || 'Failed to update password.';
+          pwMsg.classList.remove('hidden', 'text-green-400');
+          pwMsg.classList.add('text-red-400');
+        }
+      } else {
+        // Simulate success for mock
+        await new Promise(r => setTimeout(r, 600));
+        pwMsg.textContent = 'Password updated successfully!';
+        pwMsg.classList.remove('hidden', 'text-red-400');
+        pwMsg.classList.add('text-green-400');
+        pwForm.reset();
+      }
+    } catch (err) {
+      pwMsg.textContent = 'Something went wrong. Please try again.';
+      pwMsg.classList.remove('hidden', 'text-green-400');
+      pwMsg.classList.add('text-red-400');
+    }
+
+    pwSubmit.disabled = false;
+    pwSubmit.textContent = 'Update Password';
+  });
+
+  // ── Profile form phone field support (extending dashboard.js) ──
+  const profileForm = document.getElementById('profile-form');
+  const origSubmit = profileForm.querySelector('button[type="submit"]');
+  // dashboard.js already handles profile-form submit, we extend it here to also save the phone field
+  // We add a listener that runs after dashboard.js to persist phone if a real API is used
+  profileForm.addEventListener('submit', () => {
+    // The phone field is decorative in the mock but is wired for API
+    // Try to persist phone to a mock key
+    const phone = document.querySelector('[name="phone"]')?.value || '';
+    if (phone) {
+      try {
+        const session = JSON.parse(localStorage.getItem('shalimar-auth') || 'null');
+        if (session && session.user) {
+          session.user.phone = phone;
+          localStorage.setItem('shalimar-auth', JSON.stringify(session));
+        }
+      } catch {}
+    }
+  });
+</script>
+
+</body>
+</html>
