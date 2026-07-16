@@ -16,28 +16,28 @@ const SERVICES = [
   { id: 'hot-towel-shave',  name: 'Hot Towel Shave',       price: 100, duration: '40 Mins', icon: 'water_drop',   category: 'Beard & Shave' },
   { id: 'beard-sculpt',     name: 'Atelier Beard Sculpt',  price: 100, duration: '30 Mins', icon: 'spa',          category: 'Beard & Shave' },
   { id: 'atelier-exp',      name: 'The Atelier Experience',price: 450, duration: '90 Mins', icon: 'star',         category: 'Premium', featured: true },
-  { id: 'revitalizing',     name: 'Revitalizing Facial',   price: 350, duration: '45 Mins', icon: 'self_improvement', category: 'Spa & Facials' },
-  { id: 'scalp-detox',      name: 'Scalp Detox Treatment', price: 200, duration: '25 Mins', icon: 'air',          category: 'Spa & Facials' },
+  { id: 'revitalizing',     name: 'Revitalizing Facial',   price: 350, duration: '45 Mins', icon: 'self_improvement'},
+  { id: 'scalp-detox',      name: 'Scalp Detox Treatment', price: 200, duration: '25 Mins', icon: 'air'},
 ];
 
 const BARBERS = [
   {
-    id: 'julian-vance',
-    name: 'Julian Vance',
+    id: 'Murthy',
+    name: 'Murthy',
     title: 'Master Stylist',
     specialties: ['Beards', 'Classic'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgw70NEb21N3yNySG7VjKiecrE5g9V4jfcjvT97tI3HyRhiaKxeCAcVVu-H-hyd4YDchCUUPcKQXUc6s5iDs1bU7irPyibmd8icYdZCSy_ieA1idshDggRqjpQFTNGS0C8DytZRm3I-rdzWXEP5VJ9eDjF7D_n77LKv8QOp0gYld5TodqbIU871tS-5iLpfbQUehAKDJob1FMInlGIFkoqt6Hke0O8hf5fYphLNXIY3k3AiVCebk4edL3t5giRuq_sj8GDT2FPUNE',
   },
   {
     id: 'elias-thorne',
-    name: 'Elias Thorne',
+    name: 'Murugesh',
     title: 'Texture Specialist',
     specialties: ['Modern', 'Fade'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCSRkj5SVGrc1VyNB3aRtAQoOGa4fMsqsX0ELBZ2b0ZHs7FyQ_R0oEcTlUcanB2kSJ9DqSzEex_4WFTXyeVWL80st84c29Dg6n9WbzQJaH1ieMWkJW-au_D4oIfY1tM6dOJsKFyHk6YkpYqatjmP24kPURJSz067ZzD1PDiiocwAFnQEjAkxiVWoGD0Gc736xol5CQWorfsLepC9milvxxJg8UUfoPdtPVYd_-YQEvVzxNXbzc5hiZaNRggRVUONJoXvwwiNcuGTZw',
   },
   {
     id: 'marcus-reed',
-    name: 'Marcus Reed',
+    name: 'Omkesh',
     title: 'Creative Director',
     specialties: ['Executive', 'Consult'],
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVFy2MLhVvEQEbFnzhSRodh6qd8bUZ_27hKGx8CJ8ig61lPPqjvLlWEiINFReAoDvHKPs8hE4ViITe2qFVPz3CjcxS2PAKtgwfTKtPuuwymzCD9C6K2EUPX63d-s0ecHLfXkAnmGGXkpb47rYjGUIs1HwmYv3gZlfaGVp-U3ARema3TlvYL81jki4rGU0CpXkzS6L8SHKiSr6TOYQo9Np-GRjWYHaFyiZUaYZ1gjvomUwktzARxTuwdht6Xlz5rhapRupQ5M45NAY',

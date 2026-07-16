@@ -1,277 +1,356 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Book your appointment at Shalimar Atelier. Choose your service, select your barber, and secure your grooming session online."/>
-  <title>Book Now | SHALIMAR ATELIER</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Book your appointment at Shalimar MENS SALON. Choose your service, select your barber, and secure your grooming session online." />
+  <title>Book Now | SHALIMAR MENS SALON</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
-      theme: { extend: {
-        colors: {
-          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
-          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
-          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
-          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
-          "outline": "#99907c", "outline-variant": "#4d4635",
-        },
-        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
-      }},
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+            "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+            "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+            "outline": "#99907c", "outline-variant": "#4d4635",
+          },
+          fontFamily: { "notoSerif": ["Noto Serif", "serif"], "manrope": ["Manrope", "sans-serif"] },
+        }
+      },
     }
   </script>
   <style>
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-    html { scroll-behavior: smooth; }
-    body { min-height: 100dvh; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes scaleIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
-    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
-    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
-    .btn-gold:active { transform:scale(0.97); }
-    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
-    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100dvh;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.85)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f2ca50, #d4af37);
+      color: #3c2f00;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 0 30px rgba(242, 202, 80, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-gold:active {
+      transform: scale(0.97);
+    }
+
+    #site-header {
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #site-header.hidden-up {
+      transform: translateX(-50%) translateY(-120%);
+    }
   </style>
 </head>
+
 <body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
 
-<!-- HEADER -->
-<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
-  <div class="flex items-center gap-3">
-    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
-      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
-    </button>
-    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
-  </div>
-  <nav class="hidden md:flex items-center gap-8">
-    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
-    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Services</a>
-    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
-    <a href="/book-now.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary font-bold">Book Now</a>
-  </nav>
-  <div class="flex items-center gap-2">
-    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
-      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
-    </button>
-    <div data-auth-slot class="flex items-center"></div>
-  </div>
-</header>
-
-<main class="pt-32 pb-28 px-4 md:px-8 max-w-7xl mx-auto">
-  <!-- Title -->
-  <div class="mb-12">
-    <h1 class="font-notoSerif text-5xl md:text-7xl font-black text-primary tracking-tighter mb-3">Book Now.</h1>
-    <p class="font-manrope text-on-surface-variant tracking-[0.1em] uppercase text-sm">Secure your session at the Atelier</p>
-  </div>
-
-  <!-- Step Progress -->
-  <div class="flex items-center gap-3 mb-16 overflow-x-auto pb-2">
+  <!-- HEADER -->
+  <header id="site-header"
+    class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+    <div class="flex items-center gap-3">
+      <button data-menu-btn
+        class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors"
+        aria-label="Open menu">
+        <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+      </button>
+      <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/"
+        class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="/services.html"
+        class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Services</a>
+      <a href="/gallery.html"
+        class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+      <a href="/book-now.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary font-bold">Book
+        Now</a>
+    </nav>
     <div class="flex items-center gap-2">
-      <div data-step-indicator="1" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(242,202,80,0.5);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#f2ca50;background:rgba(242,202,80,0.08);transition:all 0.3s;">1</div>
-      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Service</span>
+      <button data-theme-toggle
+        class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+      </button>
+      <div data-auth-slot class="flex items-center"></div>
     </div>
-    <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
-    <div class="flex items-center gap-2">
-      <div data-step-indicator="2" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">2</div>
-      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Barber</span>
-    </div>
-    <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
-    <div class="flex items-center gap-2">
-      <div data-step-indicator="3" style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">3</div>
-      <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Date & Time</span>
-    </div>
-  </div>
+  </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-    <!-- LEFT: Booking Flow -->
-    <div class="lg:col-span-8 space-y-16">
-
-      <!-- STEP 1: SERVICE -->
-      <section id="step-barber" style="scroll-margin-top:8rem;">
-        <div class="flex items-center gap-4 mb-8">
-          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">01</span>
-          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Service</h2>
-        </div>
-        <div id="service-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Populated by booking.js -->
-          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
-          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
-          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
-          <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
-        </div>
-      </section>
-
-      <!-- STEP 2: BARBER -->
-      <section id="step-datetime" style="scroll-margin-top:8rem;">
-        <div class="flex items-center gap-4 mb-8">
-          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">02</span>
-          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Barber</h2>
-        </div>
-        <div id="barber-cards" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
-          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
-          <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
-        </div>
-      </section>
-
-      <!-- STEP 3: DATE & TIME -->
-      <section style="scroll-margin-top:8rem;">
-        <div class="flex items-center gap-4 mb-8">
-          <span class="font-notoSerif text-4xl text-outline-variant/40 italic">03</span>
-          <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select Date & Time</h2>
-        </div>
-
-        <div class="bg-surface-container-low rounded-2xl p-6 md:p-8">
-          <div class="flex flex-col md:flex-row gap-10">
-            <!-- Calendar -->
-            <div class="flex-1">
-              <div class="flex justify-between items-center mb-6">
-                <h4 id="calendar-month-label" class="font-notoSerif text-lg text-on-surface">Loading...</h4>
-                <div class="flex gap-3">
-                  <button id="cal-prev" class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all" aria-label="Previous month">
-                    <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_left</span>
-                  </button>
-                  <button id="cal-next" class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all" aria-label="Next month">
-                    <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_right</span>
-                  </button>
-                </div>
-              </div>
-              <!-- Day headers -->
-              <div class="grid grid-cols-7 gap-1 text-center mb-3">
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Su</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Mo</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Tu</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">We</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Th</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Fr</div>
-                <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Sa</div>
-              </div>
-              <div id="calendar-grid" class="grid grid-cols-7 gap-1"></div>
-            </div>
-
-            <!-- Time Slots -->
-            <div class="md:w-56">
-              <h4 class="font-notoSerif text-lg text-on-surface mb-5">Available Times</h4>
-              <div id="time-slots" class="grid grid-cols-2 gap-2"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <main class="pt-32 pb-28 px-4 md:px-8 max-w-7xl mx-auto">
+    <!-- Title -->
+    <div class="mb-12">
+      <h1 class="font-notoSerif text-5xl md:text-7xl font-black text-primary tracking-tighter mb-3">Book Now.</h1>
+      <p class="font-manrope text-on-surface-variant tracking-[0.1em] uppercase text-sm">Secure your session at the MENS
+        SALON</p>
     </div>
 
-    <!-- RIGHT: Summary -->
-    <div class="lg:col-span-4">
-      <div class="sticky top-28 bg-surface-container-high rounded-2xl p-7 border-l-2 border-primary/50">
-        <h3 class="font-notoSerif text-xl text-on-surface mb-7">Appointment Summary</h3>
-
-        <div class="space-y-5 mb-8">
-          <!-- Service row -->
-          <div class="flex justify-between items-start gap-3">
-            <div>
-              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Service</p>
-              <p class="font-manrope text-sm text-on-surface font-semibold" data-summary-service>—</p>
-              <p class="font-manrope text-xs text-on-surface-variant" data-summary-duration></p>
-            </div>
-            <span class="text-primary font-bold font-notoSerif" data-summary-price>—</span>
-          </div>
-
-          <!-- Barber row -->
-          <div class="flex items-center gap-3">
-            <img data-summary-barber-img src="" alt="" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30 hidden"/>
-            <div>
-              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Barber</p>
-              <p class="font-manrope text-sm text-on-surface" data-summary-barber>—</p>
-            </div>
-          </div>
-
-          <!-- Date row -->
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low border border-outline-variant/30 flex-shrink-0">
-              <span class="material-symbols-outlined text-primary" style="font-size:1.1rem;">event</span>
-            </div>
-            <div>
-              <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Date & Time</p>
-              <p class="font-manrope text-sm text-on-surface" data-summary-datetime>—</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Total -->
-        <div class="border-t border-outline-variant/20 pt-6 mb-6">
-          <div class="flex justify-between items-center">
-            <span class="font-notoSerif text-on-surface uppercase tracking-wider">Total</span>
-            <span class="text-primary font-bold font-notoSerif text-xl" data-summary-total>₹0</span>
-          </div>
-        </div>
-
-        <!-- Confirm button -->
-        <button
-          id="confirm-btn"
-          disabled
-          style="width:100%;padding:1.1rem;border-radius:9999px;background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;font-family:Manrope,sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:not-allowed;opacity:0.5;transition:all 0.3s;"
-        >
-          Confirm Appointment
-        </button>
-        <p class="font-manrope text-[9px] text-center text-on-surface-variant mt-4 uppercase tracking-wider opacity-60">
-          Cancel up to 24 hours in advance without fee
-        </p>
+    <!-- Step Progress -->
+    <div class="flex items-center gap-3 mb-16 overflow-x-auto pb-2">
+      <div class="flex items-center gap-2">
+        <div data-step-indicator="1"
+          style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(242,202,80,0.5);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#f2ca50;background:rgba(242,202,80,0.08);transition:all 0.3s;">
+          1</div>
+        <span
+          class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Service</span>
+      </div>
+      <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
+      <div class="flex items-center gap-2">
+        <div data-step-indicator="2"
+          style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">
+          2</div>
+        <span
+          class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Barber</span>
+      </div>
+      <div class="h-px flex-1 min-w-8 bg-outline-variant/30"></div>
+      <div class="flex items-center gap-2">
+        <div data-step-indicator="3"
+          style="width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(77,70,53,0.3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif',serif;font-size:0.875rem;color:#4d4635;background:transparent;transition:all 0.3s;">
+          3</div>
+        <span class="font-manrope text-xs tracking-wider uppercase text-on-surface-variant whitespace-nowrap">Date &
+          Time</span>
       </div>
     </div>
-  </div>
-</main>
 
-<!-- Footer -->
-<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
-  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
-  <div class="flex gap-10 flex-wrap justify-center">
-    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
-    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
-    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
-  </div>
-  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
-    © 2025 Shalimar Atelier. All rights reserved.
-  </p>
-</footer>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- LEFT: Booking Flow -->
+      <div class="lg:col-span-8 space-y-16">
 
-<!-- Mobile Bottom Nav -->
-<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
-  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
-  </a>
-  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
-  </a>
-  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
-  </a>
-  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">calendar_today</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Book</span>
-  </a>
-  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
-  </a>
-</nav>
+        <!-- STEP 1: SERVICE -->
+        <section id="step-barber" style="scroll-margin-top:8rem;">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="font-notoSerif text-4xl text-outline-variant/40 italic">01</span>
+            <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Service</h2>
+          </div>
+          <div id="service-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Populated by booking.js -->
+            <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+            <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+            <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+            <div class="bg-surface-container-high rounded-xl p-4 animate-pulse h-24"></div>
+          </div>
+        </section>
 
-<script type="module" src="/src/js/mobile-nav.js"></script>
-<script type="module" src="/src/js/booking.js"></script>
-<script type="module">
-  let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('site-header');
-    if (!header) return;
-    const y = window.scrollY;
-    if (y > 200 && y > lastY) header.classList.add('hidden-up');
-    else header.classList.remove('hidden-up');
-    lastY = y;
-  }, { passive: true });
-</script>
+        <!-- STEP 2: BARBER -->
+        <section id="step-datetime" style="scroll-margin-top:8rem;">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="font-notoSerif text-4xl text-outline-variant/40 italic">02</span>
+            <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select a Barber</h2>
+          </div>
+          <div id="barber-cards" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+            <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+            <div class="bg-surface-container-high rounded-xl h-24 animate-pulse"></div>
+          </div>
+        </section>
+
+        <!-- STEP 3: DATE & TIME -->
+        <section style="scroll-margin-top:8rem;">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="font-notoSerif text-4xl text-outline-variant/40 italic">03</span>
+            <h2 class="font-notoSerif text-2xl md:text-3xl text-on-surface">Select Date & Time</h2>
+          </div>
+
+          <div class="bg-surface-container-low rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row gap-10">
+              <!-- Calendar -->
+              <div class="flex-1">
+                <div class="flex justify-between items-center mb-6">
+                  <h4 id="calendar-month-label" class="font-notoSerif text-lg text-on-surface">Loading...</h4>
+                  <div class="flex gap-3">
+                    <button id="cal-prev"
+                      class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all"
+                      aria-label="Previous month">
+                      <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_left</span>
+                    </button>
+                    <button id="cal-next"
+                      class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-all"
+                      aria-label="Next month">
+                      <span class="material-symbols-outlined" style="font-size:1.25rem;">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Day headers -->
+                <div class="grid grid-cols-7 gap-1 text-center mb-3">
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Su</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Mo</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Tu</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">We</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Th</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Fr</div>
+                  <div class="font-manrope text-[9px] uppercase tracking-[0.12em] text-on-surface-variant">Sa</div>
+                </div>
+                <div id="calendar-grid" class="grid grid-cols-7 gap-1"></div>
+              </div>
+
+              <!-- Time Slots -->
+              <div class="md:w-56">
+                <h4 class="font-notoSerif text-lg text-on-surface mb-5">Available Times</h4>
+                <div id="time-slots" class="grid grid-cols-2 gap-2"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT: Summary -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-28 bg-surface-container-high rounded-2xl p-7 border-l-2 border-primary/50">
+          <h3 class="font-notoSerif text-xl text-on-surface mb-7">Appointment Summary</h3>
+
+          <div class="space-y-5 mb-8">
+            <!-- Service row -->
+            <div class="flex justify-between items-start gap-3">
+              <div>
+                <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Service</p>
+                <p class="font-manrope text-sm text-on-surface font-semibold" data-summary-service>—</p>
+                <p class="font-manrope text-xs text-on-surface-variant" data-summary-duration></p>
+              </div>
+              <span class="text-primary font-bold font-notoSerif" data-summary-price>—</span>
+            </div>
+
+            <!-- Barber row -->
+            <div class="flex items-center gap-3">
+              <img data-summary-barber-img src="" alt=""
+                class="w-10 h-10 rounded-full object-cover border border-outline-variant/30 hidden" />
+              <div>
+                <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Barber</p>
+                <p class="font-manrope text-sm text-on-surface" data-summary-barber>—</p>
+              </div>
+            </div>
+
+            <!-- Date row -->
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low border border-outline-variant/30 flex-shrink-0">
+                <span class="material-symbols-outlined text-primary" style="font-size:1.1rem;">event</span>
+              </div>
+              <div>
+                <p class="font-manrope text-[9px] uppercase tracking-[0.2em] text-outline-variant mb-1">Date & Time</p>
+                <p class="font-manrope text-sm text-on-surface" data-summary-datetime>—</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total -->
+          <div class="border-t border-outline-variant/20 pt-6 mb-6">
+            <div class="flex justify-between items-center">
+              <span class="font-notoSerif text-on-surface uppercase tracking-wider">Total</span>
+              <span class="text-primary font-bold font-notoSerif text-xl" data-summary-total>₹0</span>
+            </div>
+          </div>
+
+          <!-- Confirm button -->
+          <button id="confirm-btn" disabled
+            style="width:100%;padding:1.1rem;border-radius:9999px;background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;font-family:Manrope,sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:not-allowed;opacity:0.5;transition:all 0.3s;">
+            Confirm Appointment
+          </button>
+          <p
+            class="font-manrope text-[9px] text-center text-on-surface-variant mt-4 uppercase tracking-wider opacity-60">
+            Cancel up to 24 hours in advance without fee
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+    <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+    <div class="flex gap-10 flex-wrap justify-center">
+      <a href="/"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="/services.html"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+      <a href="/gallery.html"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+    </div>
+    <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+      © 2025 Shalimar MENS SALON. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+    <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+    </a>
+    <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">content_cut</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Services</span>
+    </a>
+    <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+    </a>
+    <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined"
+        style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">calendar_today</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Book</span>
+    </a>
+    <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+    </a>
+  </nav>
+
+  <script type="module" src="/src/js/mobile-nav.js"></script>
+  <script type="module" src="/src/js/booking.js"></script>
+  <script type="module">
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('site-header');
+      if (!header) return;
+      const y = window.scrollY;
+      if (y > 200 && y > lastY) header.classList.add('hidden-up');
+      else header.classList.remove('hidden-up');
+      lastY = y;
+    }, { passive: true });
+  </script>
 </body>
+
 </html>

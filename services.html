@@ -1,336 +1,432 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Our curated grooming menu — precision cuts, beard sculpting, hot towel shaves, and spa treatments at Shalimar Atelier, Shimoga."/>
-  <title>Services | SHALIMAR ATELIER</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Our curated grooming menu — precision cuts, beard sculpting, hot towel shaves, and spa treatments at Shalimar MENS SALON, Shimoga." />
+  <title>Services | SHALIMAR MENS SALON</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
-      theme: { extend: {
-        colors: {
-          "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
-          "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
-          "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
-          "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
-          "outline": "#99907c", "outline-variant": "#4d4635",
-        },
-        fontFamily: { "notoSerif": ["Noto Serif","serif"], "manrope": ["Manrope","sans-serif"] },
-      }},
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f2ca50", "primary-container": "#d4af37", "on-primary": "#3c2f00",
+            "surface": "#131313", "surface-container": "#201f1f", "surface-container-low": "#1c1b1b",
+            "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1", "on-surface-variant": "#d0c5af",
+            "outline": "#99907c", "outline-variant": "#4d4635",
+          },
+          fontFamily: { "notoSerif": ["Noto Serif", "serif"], "manrope": ["Manrope", "sans-serif"] },
+        }
+      },
     }
   </script>
   <style>
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-    html { scroll-behavior: smooth; }
-    body { min-height: 100dvh; }
-    [data-reveal] { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
-    .btn-gold { background:linear-gradient(135deg,#f2ca50,#d4af37);color:#3c2f00;transition:box-shadow 0.3s,transform 0.2s; }
-    .btn-gold:hover { box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-1px); }
-    #site-header { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
-    #site-header.hidden-up { transform: translateX(-50%) translateY(-120%); }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100dvh;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f2ca50, #d4af37);
+      color: #3c2f00;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 0 30px rgba(242, 202, 80, 0.4);
+      transform: translateY(-1px);
+    }
+
+    #site-header {
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #site-header.hidden-up {
+      transform: translateX(-50%) translateY(-120%);
+    }
+
     /* Filter tab active */
-    .filter-tab { transition: all 0.25s ease; }
-    .filter-tab.active { background: #f2ca50; color: #3c2f00; border-color: #f2ca50; }
+    .filter-tab {
+      transition: all 0.25s ease;
+    }
+
+    .filter-tab.active {
+      background: #f2ca50;
+      color: #3c2f00;
+      border-color: #f2ca50;
+    }
+
     /* Service item hover */
-    .service-item { transition: all 0.3s ease; }
-    .service-item:hover { background: rgba(242,202,80,0.04); }
-    .service-item:hover .service-name { transform: translateX(6px); }
-    .service-name { transition: transform 0.3s ease; }
+    .service-item {
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover {
+      background: rgba(242, 202, 80, 0.04);
+    }
+
+    .service-item:hover .service-name {
+      transform: translateX(6px);
+    }
+
+    .service-name {
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
+
 <body class="bg-surface text-on-surface font-manrope selection:bg-primary/30">
 
-<!-- HEADER -->
-<header id="site-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
-  <div class="flex items-center gap-3">
-    <button data-menu-btn class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" aria-label="Open menu">
-      <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
-    </button>
-    <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
-  </div>
-  <nav class="hidden md:flex items-center gap-8">
-    <a href="/" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
-    <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary">Services</a>
-    <a href="/gallery.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
-    <a href="/book-now.html" class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase">Book Now</a>
-  </nav>
-  <div class="flex items-center gap-2">
-    <button data-theme-toggle class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
-      <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
-    </button>
-    <div data-auth-slot class="flex items-center"></div>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header id="site-header"
+    class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-5 py-2.5">
+    <div class="flex items-center gap-3">
+      <button data-menu-btn
+        class="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors"
+        aria-label="Open menu">
+        <span class="material-symbols-outlined text-primary" style="font-size:1.25rem;">menu</span>
+      </button>
+      <a href="/" class="font-notoSerif text-primary font-bold tracking-[0.3em] uppercase text-base">SHALIMAR</a>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/"
+        class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="/services.html" class="font-notoSerif uppercase tracking-[0.18em] text-sm text-primary">Services</a>
+      <a href="/gallery.html"
+        class="font-notoSerif uppercase tracking-[0.18em] text-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+      <a href="/book-now.html"
+        class="px-5 py-2 rounded-full btn-gold font-manrope font-bold text-[10px] tracking-widest uppercase">Book
+        Now</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button data-theme-toggle
+        class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined" style="font-size:1.125rem;">light_mode</span>
+      </button>
+      <div data-auth-slot class="flex items-center"></div>
+    </div>
+  </header>
 
-<main class="pt-32 pb-28">
+  <main class="pt-32 pb-28">
 
-  <!-- Hero -->
-  <section class="px-6 md:px-16 mb-20 text-center max-w-3xl mx-auto" data-reveal>
-    <span class="font-manrope text-primary tracking-[0.4em] uppercase text-xs block mb-4">Curated Menu</span>
-    <h1 class="font-notoSerif text-5xl md:text-7xl font-black tracking-tighter mb-6 text-primary">Services</h1>
-    <p class="text-on-surface-variant text-lg leading-relaxed">
-      Tailored grooming experiences for the modern gentleman. Each session is a dialogue between tradition and contemporary style, curated within our private atelier.
+    <!-- Hero -->
+    <section class="px-6 md:px-16 mb-20 text-center max-w-3xl mx-auto" data-reveal>
+      <span class="font-manrope text-primary tracking-[0.4em] uppercase text-xs block mb-4">Curated Menu</span>
+      <h1 class="font-notoSerif text-5xl md:text-7xl font-black tracking-tighter mb-6 text-primary">Services</h1>
+      <p class="text-on-surface-variant text-lg leading-relaxed">
+        Tailored grooming experiences for the modern gentleman. Each session is a dialogue between tradition and
+        contemporary style, curated within our private atelier.
+      </p>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="px-6 md:px-16 mb-16 max-w-6xl mx-auto" data-reveal data-filter-bar>
+      <div class="flex gap-3 flex-wrap">
+        <button
+          class="filter-tab active font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-primary"
+          data-filter="all">All</button>
+        <button
+          class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant"
+          data-filter="haircuts">Haircuts</button>
+        <button
+          class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant"
+          data-filter="beard">Beard & Shave</button>
+        <button
+          class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant"
+          data-filter="premium">Premium</button>
+      </div>
+    </div>
+
+    <!-- Services Content -->
+    <div class="px-6 md:px-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 hidden lg:block" data-reveal="left">
+        <div class="sticky top-28 space-y-6">
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden grayscale border border-outline-variant/10">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXwlW84wBVsimLBrYLP8VK-giCUYV6dEDlAwhOXVvukyWWDlSvjyJGFkKEXR2Cq93aEF0h0L_OR-0_ez62fHLTli2o2fVO4H72ac02n6uuI8oQzeMUnhCz6cjhDWdnE3s6mAWCe2ccFu8FjWHf5k_hQj7_DNVWSuSJFBF8otHJMOF-bYhhTK2nWBT3YoO-19xhYPdW2Be_Fv9CQ2c8_Awn_CYAXpKbUkWCdep-I4kFBjkUf5z7DXuWgkI2CYTkI5gVNRT6ZT7dfQg"
+              alt="Luxury barber chair" class="w-full h-full object-cover hover:grayscale-0 transition-all duration-700"
+              loading="lazy" />
+          </div>
+          <div class="p-7 bg-surface-container-low rounded-2xl border-l-2 border-primary/50">
+            <h3 class="font-notoSerif text-lg text-primary mb-3 italic">The Atelier Promise</h3>
+            <p class="text-on-surface-variant text-sm leading-loose">
+              Every service includes a complimentary beverage from our private reserve and a personalized consultation
+              to define your signature aesthetic.
+            </p>
+          </div>
+          <a href="/book-now.html"
+            class="btn-gold w-full text-center py-4 rounded-full font-manrope font-bold text-xs tracking-widest uppercase block">
+            Book an Appointment
+          </a>
+        </div>
+      </aside>
+
+      <!-- Service List -->
+      <div class="lg:col-span-8 space-y-20">
+
+        <!-- Haircuts -->
+        <section data-reveal data-gallery-item data-category="all,haircuts">
+          <div class="flex items-center gap-6 mb-10">
+            <h2
+              class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">
+              Haircuts</h2>
+            <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+          </div>
+          <div class="space-y-0">
+            <!-- Signature Cut -->
+            <div
+              class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+              <div class="flex-1 min-w-0">
+                <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Signature Cut</h4>
+                <p class="text-on-surface-variant text-sm mt-1">Precision shear work and styling, finished with a
+                  straight razor neck shave.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
+                <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45
+                  Mins</span>
+                <a href="/book-now.html?service=signature-cut"
+                  class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book
+                  →</a>
+              </div>
+            </div>
+            <!-- Executive Fade -->
+            <div
+              class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+              <div class="flex-1 min-w-0">
+                <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Executive Fade</h4>
+                <p class="text-on-surface-variant text-sm mt-1">Ultra-short gradients tailored to your scalp anatomy and
+                  head shape.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="block font-notoSerif text-xl font-bold text-on-surface">₹200</span>
+                <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45
+                  Mins</span>
+                <a href="/book-now.html?service=executive-fade"
+                  class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book
+                  →</a>
+              </div>
+            </div>
+            <!-- Long Form -->
+            <div
+              class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+              <div class="flex-1 min-w-0">
+                <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Long Form Grooming</h4>
+                <p class="text-on-surface-variant text-sm mt-1">Specialized texture work for shoulder-length and
+                  artistic hair styles.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
+                <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">60
+                  Mins</span>
+                <a href="/book-now.html?service=long-form"
+                  class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book
+                  →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Beard & Shave -->
+        <section data-reveal data-gallery-item data-category="all,beard">
+          <div class="flex items-center gap-6 mb-10">
+            <h2
+              class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">
+              Beard & Shave</h2>
+            <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+          </div>
+          <div class="space-y-0">
+            <div
+              class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+              <div class="flex-1 min-w-0">
+                <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Hot Towel Shave</h4>
+                <p class="text-on-surface-variant text-sm mt-1">Triple hot towel service with essential oils and
+                  traditional straight razor.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
+                <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">40
+                  Mins</span>
+                <a href="/book-now.html?service=hot-towel-shave"
+                  class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book
+                  →</a>
+              </div>
+            </div>
+            <div
+              class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
+              <div class="flex-1 min-w-0">
+                <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Atelier Beard Sculpt</h4>
+                <p class="text-on-surface-variant text-sm mt-1">Comprehensive shaping, length reduction, and precise
+                  line definition.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
+                <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">30
+                  Mins</span>
+                <a href="/book-now.html?service=beard-sculpt"
+                  class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book
+                  →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Premium -->
+        <section data-reveal data-gallery-item data-category="all,premium">
+          <div class="flex items-center gap-6 mb-10">
+            <h2
+              class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">
+              Premium</h2>
+            <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+          </div>
+          <div class="bg-primary rounded-2xl p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-56 h-56 bg-on-primary/5 rounded-full -translate-y-28 translate-x-28">
+            </div>
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="material-symbols-outlined text-on-primary"
+                    style="font-size:1.5rem;font-variation-settings:'FILL' 1;">star</span>
+                  <span
+                    class="font-manrope text-on-primary/70 text-[9px] uppercase tracking-[0.15em] font-bold">Signature
+                    Package</span>
+                </div>
+                <h3 class="font-notoSerif text-2xl font-bold text-on-primary mb-3">The Atelier Experience</h3>
+                <p class="text-on-primary/80 text-sm leading-relaxed max-w-lg">
+                  Our all-inclusive premier package: precision haircut, triple hot towel straight razor shave,
+                  revitalizing facial treatment, scalp massage, and a complimentary beverage from our private reserve.
+                </p>
+                <div class="flex gap-4 mt-4">
+                  <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">90 Minutes</span>
+                  <span class="font-manrope text-on-primary/70 text-xs">·</span>
+                  <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">For the discerning
+                    gentleman</span>
+                </div>
+              </div>
+              <div class="flex flex-col items-end gap-4 shrink-0">
+                <span class="font-notoSerif text-3xl font-black text-on-primary">₹450</span>
+                <a href="/book-now.html?service=atelier-exp"
+                  class="border-2 border-on-primary/60 py-3 px-8 rounded-full font-manrope font-bold uppercase tracking-widest text-[10px] text-on-primary hover:bg-on-primary hover:text-primary transition-all">
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div
+          class="bg-surface-container-high p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/20"
+          data-reveal>
+          <div>
+            <h3 class="font-notoSerif text-2xl text-on-surface mb-2">Ready for your transformation?</h3>
+            <p class="text-on-surface-variant text-sm">Members receive priority booking and exclusive atelier events.
+            </p>
+          </div>
+          <a href="/book-now.html"
+            class="btn-gold px-10 py-4 rounded-full font-manrope font-bold uppercase tracking-widest text-xs shrink-0">
+            Secure Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
+    <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
+    <div class="flex gap-10 flex-wrap justify-center">
+      <a href="/"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="/services.html"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
+      <a href="/gallery.html"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
+      <a href="/book-now.html"
+        class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book
+        Now</a>
+    </div>
+    <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
+      © 2026 Shalimar Salon. All rights reserved.
     </p>
-  </section>
+  </footer>
 
-  <!-- Filter Tabs -->
-  <div class="px-6 md:px-16 mb-16 max-w-6xl mx-auto" data-reveal data-filter-bar>
-    <div class="flex gap-3 flex-wrap">
-      <button class="filter-tab active font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-primary" data-filter="all">All</button>
-      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="haircuts">Haircuts</button>
-      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="beard">Beard & Shave</button>
-      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="spa">Spa & Facials</button>
-      <button class="filter-tab font-manrope text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full border border-outline-variant/30 text-on-surface-variant" data-filter="premium">Premium</button>
-    </div>
-  </div>
+  <!-- Mobile Bottom Nav -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
+    <a href="/" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
+    </a>
+    <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined"
+        style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">content_cut</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Services</span>
+    </a>
+    <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
+    </a>
+    <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
+    </a>
+    <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
+      <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
+      <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
+    </a>
+  </nav>
 
-  <!-- Services Content -->
-  <div class="px-6 md:px-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+  <script type="module" src="/src/js/mobile-nav.js"></script>
+  <script type="module">
+    import { initGalleryFilter } from '/src/js/gallery-filter.js';
+    initGalleryFilter();
 
-    <!-- Sidebar -->
-    <aside class="lg:col-span-4 hidden lg:block" data-reveal="left">
-      <div class="sticky top-28 space-y-6">
-        <div class="aspect-[3/4] rounded-2xl overflow-hidden grayscale border border-outline-variant/10">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXwlW84wBVsimLBrYLP8VK-giCUYV6dEDlAwhOXVvukyWWDlSvjyJGFkKEXR2Cq93aEF0h0L_OR-0_ez62fHLTli2o2fVO4H72ac02n6uuI8oQzeMUnhCz6cjhDWdnE3s6mAWCe2ccFu8FjWHf5k_hQj7_DNVWSuSJFBF8otHJMOF-bYhhTK2nWBT3YoO-19xhYPdW2Be_Fv9CQ2c8_Awn_CYAXpKbUkWCdep-I4kFBjkUf5z7DXuWgkI2CYTkI5gVNRT6ZT7dfQg"
-            alt="Luxury barber chair"
-            class="w-full h-full object-cover hover:grayscale-0 transition-all duration-700"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-7 bg-surface-container-low rounded-2xl border-l-2 border-primary/50">
-          <h3 class="font-notoSerif text-lg text-primary mb-3 italic">The Atelier Promise</h3>
-          <p class="text-on-surface-variant text-sm leading-loose">
-            Every service includes a complimentary beverage from our private reserve and a personalized consultation to define your signature aesthetic.
-          </p>
-        </div>
-        <a href="/book-now.html" class="btn-gold w-full text-center py-4 rounded-full font-manrope font-bold text-xs tracking-widest uppercase block">
-          Book an Appointment
-        </a>
-      </div>
-    </aside>
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0 0 -60px 0' });
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
 
-    <!-- Service List -->
-    <div class="lg:col-span-8 space-y-20">
-
-      <!-- Haircuts -->
-      <section data-reveal data-gallery-item data-category="all,haircuts">
-        <div class="flex items-center gap-6 mb-10">
-          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Haircuts</h2>
-          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
-        </div>
-        <div class="space-y-0">
-          <!-- Signature Cut -->
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Signature Cut</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Precision shear work and styling, finished with a straight razor neck shave.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-              <a href="/book-now.html?service=signature-cut" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-          <!-- Executive Fade -->
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">The Executive Fade</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Ultra-short gradients tailored to your scalp anatomy and head shape.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹200</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-              <a href="/book-now.html?service=executive-fade" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-          <!-- Long Form -->
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Long Form Grooming</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Specialized texture work for shoulder-length and artistic hair styles.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹150</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">60 Mins</span>
-              <a href="/book-now.html?service=long-form" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Beard & Shave -->
-      <section data-reveal data-gallery-item data-category="all,beard">
-        <div class="flex items-center gap-6 mb-10">
-          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Beard & Shave</h2>
-          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
-        </div>
-        <div class="space-y-0">
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Hot Towel Shave</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Triple hot towel service with essential oils and traditional straight razor.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">40 Mins</span>
-              <a href="/book-now.html?service=hot-towel-shave" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Atelier Beard Sculpt</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Comprehensive shaping, length reduction, and precise line definition.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹100</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">30 Mins</span>
-              <a href="/book-now.html?service=beard-sculpt" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Spa & Facials -->
-      <section data-reveal data-gallery-item data-category="all,spa">
-        <div class="flex items-center gap-6 mb-10">
-          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Spa & Facials</h2>
-          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
-        </div>
-        <div class="space-y-0">
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Revitalizing Facial</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Deep cleansing charcoal mask with steam treatment and intense hydration.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹350</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">45 Mins</span>
-              <a href="/book-now.html?service=revitalizing" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-          <div class="service-item group flex justify-between items-end gap-4 py-6 border-b border-outline-variant/10 rounded-lg px-2">
-            <div class="flex-1 min-w-0">
-              <h4 class="service-name font-notoSerif text-xl text-primary mb-1 inline-block">Scalp Detox Treatment</h4>
-              <p class="text-on-surface-variant text-sm mt-1">Exfoliating scalp massage to stimulate growth and remove impurities.</p>
-            </div>
-            <div class="text-right shrink-0">
-              <span class="block font-notoSerif text-xl font-bold text-on-surface">₹200</span>
-              <span class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant">25 Mins</span>
-              <a href="/book-now.html?service=scalp-detox" class="inline-block mt-2 font-manrope text-[9px] font-bold tracking-wider uppercase text-primary hover:underline">Book →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Premium -->
-      <section data-reveal data-gallery-item data-category="all,premium">
-        <div class="flex items-center gap-6 mb-10">
-          <h2 class="font-notoSerif text-3xl md:text-4xl uppercase tracking-[0.08em] text-on-surface whitespace-nowrap">Premium</h2>
-          <div class="h-px flex-1 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
-        </div>
-        <div class="bg-primary rounded-2xl p-8 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-56 h-56 bg-on-primary/5 rounded-full -translate-y-28 translate-x-28"></div>
-          <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
-            <div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="material-symbols-outlined text-on-primary" style="font-size:1.5rem;font-variation-settings:'FILL' 1;">star</span>
-                <span class="font-manrope text-on-primary/70 text-[9px] uppercase tracking-[0.15em] font-bold">Signature Package</span>
-              </div>
-              <h3 class="font-notoSerif text-2xl font-bold text-on-primary mb-3">The Atelier Experience</h3>
-              <p class="text-on-primary/80 text-sm leading-relaxed max-w-lg">
-                Our all-inclusive premier package: precision haircut, triple hot towel straight razor shave, revitalizing facial treatment, scalp massage, and a complimentary beverage from our private reserve.
-              </p>
-              <div class="flex gap-4 mt-4">
-                <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">90 Minutes</span>
-                <span class="font-manrope text-on-primary/70 text-xs">·</span>
-                <span class="font-manrope text-on-primary/70 text-xs uppercase tracking-widest">For the discerning gentleman</span>
-              </div>
-            </div>
-            <div class="flex flex-col items-end gap-4 shrink-0">
-              <span class="font-notoSerif text-3xl font-black text-on-primary">₹450</span>
-              <a href="/book-now.html?service=atelier-exp" class="border-2 border-on-primary/60 py-3 px-8 rounded-full font-manrope font-bold uppercase tracking-widest text-[10px] text-on-primary hover:bg-on-primary hover:text-primary transition-all">
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <div class="bg-surface-container-high p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/20" data-reveal>
-        <div>
-          <h3 class="font-notoSerif text-2xl text-on-surface mb-2">Ready for your transformation?</h3>
-          <p class="text-on-surface-variant text-sm">Members receive priority booking and exclusive atelier events.</p>
-        </div>
-        <a href="/book-now.html" class="btn-gold px-10 py-4 rounded-full font-manrope font-bold uppercase tracking-widest text-xs shrink-0">
-          Secure Appointment
-        </a>
-      </div>
-    </div>
-  </div>
-</main>
-
-<!-- Footer -->
-<footer class="w-full pt-20 pb-16 px-8 bg-[#0e0e0e] flex flex-col items-center gap-8 text-center border-t border-outline-variant/10">
-  <a href="/" class="font-notoSerif text-primary text-2xl font-black tracking-[0.3em] uppercase">SHALIMAR</a>
-  <div class="flex gap-10 flex-wrap justify-center">
-    <a href="/" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Home</a>
-    <a href="/services.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Services</a>
-    <a href="/gallery.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Gallery</a>
-    <a href="/book-now.html" class="font-manrope text-[10px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-colors">Book Now</a>
-  </div>
-  <p class="font-manrope text-[10px] tracking-[0.12em] uppercase text-on-surface-variant/40">
-    © 2025 Shalimar Atelier. All rights reserved.
-  </p>
-</footer>
-
-<!-- Mobile Bottom Nav -->
-<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/92 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-2 px-1">
-  <a href="/" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">home</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Home</span>
-  </a>
-  <a href="/services.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#f2ca50;font-variation-settings:'FILL' 1;">content_cut</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-primary">Services</span>
-  </a>
-  <a href="/gallery.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">photo_library</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Gallery</span>
-  </a>
-  <a href="/book-now.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">calendar_today</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Book</span>
-  </a>
-  <a href="/dashboard.html" class="flex flex-col items-center gap-0.5 p-2">
-    <span class="material-symbols-outlined" style="font-size:1.375rem;color:#99907c;">person</span>
-    <span class="font-manrope text-[9px] tracking-wider uppercase font-bold text-on-surface-variant">Account</span>
-  </a>
-</nav>
-
-<script type="module" src="/src/js/mobile-nav.js"></script>
-<script type="module">
-  import { initGalleryFilter } from '/src/js/gallery-filter.js';
-  initGalleryFilter();
-
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);} }), {threshold:0.1,rootMargin:'0 0 -60px 0'});
-  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-
-  // Header hide
-  let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const h = document.getElementById('site-header'); if(!h) return;
-    const y = window.scrollY;
-    if(y > 200 && y > lastY) h.classList.add('hidden-up'); else h.classList.remove('hidden-up');
-    lastY = y;
-  }, { passive: true });
-</script>
+    // Header hide
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const h = document.getElementById('site-header'); if (!h) return;
+      const y = window.scrollY;
+      if (y > 200 && y > lastY) h.classList.add('hidden-up'); else h.classList.remove('hidden-up');
+      lastY = y;
+    }, { passive: true });
+  </script>
 </body>
+
 </html>
